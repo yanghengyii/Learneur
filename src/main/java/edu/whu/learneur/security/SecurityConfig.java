@@ -33,8 +33,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity security) throws Exception {
         security.csrf().disable();
         security.authorizeRequests()
-                .antMatchers("/authenticate/login").permitAll()     // 登录注册界面通告
                 .antMatchers("/index").permitAll()                  // 首页都通过
+                .antMatchers("/admin/").hasAuthority("admin")
                 .anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
         return security.build();

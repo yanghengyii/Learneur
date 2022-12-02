@@ -1,5 +1,6 @@
 package edu.whu.learneur.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import edu.whu.learneur.domain.Roles;
 import edu.whu.learneur.dao.RolesDao;
 import edu.whu.learneur.service.IRolesService;
@@ -22,5 +23,12 @@ public class RolesServiceImpl extends ServiceImpl<RolesDao, Roles> implements IR
     @Override
     public Roles findRoleById(Long idRole) {
         return rolesDao.selectById(idRole);
+    }
+
+    @Override
+    public Roles findRoleByName(String name) {
+        LambdaQueryWrapper<Roles> lqw = new LambdaQueryWrapper<>();
+        lqw.eq(Roles::getName, name);
+        return rolesDao.selectOne(lqw);
     }
 }

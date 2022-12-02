@@ -5,10 +5,10 @@ spring:
     username: root
     password: j1101714214
   mail:
-    host: stmp.qq.com
+    host: smtp.qq.com
     username: 2607038766@qq.com
     password: orzurvazfjxaebba
-    port: 456
+    port: 25
     default-encoding: UTF-8
     properties:
       mail:
@@ -16,6 +16,14 @@ spring:
           socketFactoryClass: javax.net.ssl.SSLSocketFactory
         #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
         debug: true
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
 
 server:
   port: 8080
