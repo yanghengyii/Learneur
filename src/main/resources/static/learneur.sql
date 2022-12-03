@@ -60,6 +60,7 @@ create table notes (
     created_time         datetime null comment '创建时间',
     updated_time         datetime null comment '更新时间',
     note_thumbs_up_count int  default 0 null comment '点赞总数',
+    note_content         text null comment '评论内容',
     id_resources         bigint not null comment '资源'
 ) comment '学习笔记' collate = utf8mb4_unicode_ci;
 

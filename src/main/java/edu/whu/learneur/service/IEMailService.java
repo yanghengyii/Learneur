@@ -7,7 +7,6 @@ import javax.mail.MessagingException;
 /**
  * @since  2022-12-01
  */
-@Service
 public interface IEMailService {
     /**
      * 发送验证码邮件

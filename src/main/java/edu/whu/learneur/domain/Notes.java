@@ -92,5 +92,11 @@ public class Notes implements Serializable {
     @TableField(value = "id_resources")
     private Long idResources;
 
+    /**
+     * 评论内容
+     */
+    @TableField(value = "note_content")
+    private String noteContent;
+
 
 }
