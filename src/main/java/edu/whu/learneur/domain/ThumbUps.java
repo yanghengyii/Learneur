@@ -3,43 +3,42 @@ package edu.whu.learneur.domain;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
+
 /**
  * <p>
- * 资源
+ * 点赞
  * </p>
  *
  * @author Learneur
- * @since 2022-12-01
+ * @since 2022-12-03
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("resources")
-public class Resources implements Serializable {
-
+@TableName("thumbups")
+public class ThumbUps implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 主键
+     * 点赞主键
      */
-    @TableId(value = "id_resources", type = IdType.ASSIGN_ID)
-    private Long idResources;
+    @TableId(value = "thumb_up_id", type = IdType.AUTO)
+    Long idThumbUp;
 
     /**
-     * 资源类型: 1:网课; 2:书籍; 3:项目
+     * 用户id
      */
-    private Integer type;
+    @TableField("user_id")
+    Long idUser;
 
     /**
-     * 对应资源类型子表下的id
+     * 笔记id
      */
-    @TableField(value = "id_specific")
-    private Long idSpecific;
-
+    @TableField("note_id")
+    Long idNote;
 
 }

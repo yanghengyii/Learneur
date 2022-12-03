@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -19,6 +21,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
+@TableName("projects")
 public class Projects implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -71,6 +74,12 @@ public class Projects implements Serializable {
      * readme
      */
     private String readme;
+
+    /**
+     * 封面
+     */
+    @TableField(exist = false)
+    private String cover;
 
 
 }
