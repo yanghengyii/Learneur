@@ -35,7 +35,10 @@ public class UsersController {
 
     @PatchMapping("/update-userinfo")
     @PreAuthorize("hasAnyAuthority('admin') or #username == authentication.name")
-    public ResponseEntity<Boolean> updateUserinfo(String username, Users user) {
+    public ResponseEntity<Boolean> updateUserinfo(
+            @RequestParam(value = "username", defaultValue = "") String username,
+            @RequestBody Users user
+    ) {
         boolean res = usersService.updateUserInfoByUsername(username, user);
         return ResponseEntity.ok(res);
     }
@@ -43,11 +46,15 @@ public class UsersController {
     @GetMapping("/get-user/{username}")
     @PreAuthorize("hasAnyAuthority('user', 'admin') or #username == authentication.name")
     public ResponseEntity<Users> getUser(@PathVariable String username) {
-        return ResponseEntity.ok(usersService.findUserByUsername(username));
+        Users user = usersService.findUserByUsername(username);
+        if(Objects.isNull(user)) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(user);
     }
 
     @DeleteMapping("/delete-user/{username}")
-    @PreAuthorize("hasAnyAuthority('admin') or #username == authentication.name")
+    @PreAuthorize("#username == authentication.name")
     public ResponseEntity<Boolean> deleteUser(@PathVariable String username) {
         return ResponseEntity.ok(usersService.deleteUsersByUsername(username));
     }
@@ -67,9 +74,9 @@ public class UsersController {
     ) {
         Users user = usersService.findUserByUsername(username);
         if(Objects.isNull(user)) {
-            throw new UserServiceException("未知用户");
+            ResponseEntity.noContent().build();
         }
-        return ResponseEntity.ok(notesService.findNotesByResources(user.getUserId(), pages, cols));
+        return ResponseEntity.ok(notesService.findNotesByUser(user.getUserId(), pages, cols));
     }
 
 

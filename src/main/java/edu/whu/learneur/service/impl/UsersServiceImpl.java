@@ -148,7 +148,7 @@ public class UsersServiceImpl extends ServiceImpl<UsersDao, Users> implements IU
         oldUser.setIdRole(idUser);
         oldUser.setRegisterTime(registerTime);
         oldUser.setEmail(email);
-        return usersDao.updateById(user) > 0;
+        return usersDao.updateById(oldUser) > 0;
     }
 
     @Override
