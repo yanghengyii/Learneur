@@ -44,7 +44,14 @@ public interface IProjectsService extends IService<Projects> {
      * @param project    项目
      * @return
      */
-    boolean insertProject(Projects project);
+    Projects insertProject(Projects project);
+
+    /**
+     * 保存或更新项目
+     * @param project   项目
+     * @return
+     */
+    Projects saveOrUpdateProject(Projects project);
 
     /**
      * 删除一本项目资源

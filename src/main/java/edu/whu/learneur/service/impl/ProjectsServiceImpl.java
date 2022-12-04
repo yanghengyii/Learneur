@@ -54,8 +54,25 @@ public class ProjectsServiceImpl extends ServiceImpl<ProjectsDao, Projects> impl
 
     @Override
     @Transactional
-    public boolean insertProject(Projects project) {
-        return projectsDao.insert(project) > 0;
+    public Projects insertProject(Projects project) {
+        projectsDao.insert(project);
+        return project;
+    }
+
+    @Override
+    public Projects saveOrUpdateProject(Projects project) {
+        LambdaQueryWrapper<Projects> lqw = new LambdaQueryWrapper<>();
+        lqw.eq(Projects::getName, project.getName());
+        Projects oldProject = projectsDao.selectOne(lqw);
+        if(Objects.isNull(oldProject)) {
+            projectsDao.insert(project);
+            return project;
+        }
+        else {
+            BeanUtils.copyProperties(project, oldProject);
+            projectsDao.updateById(project);
+            return oldProject;
+        }
     }
 
     @Override

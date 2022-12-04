@@ -41,7 +41,7 @@ public class BooksServiceImpl extends ServiceImpl<BooksDao, Books> implements IB
 
     @Override
     public IPage<Books> findBooks(int pages, int cols) {
-        return booksDao.selectPage(new Page<>(pages, cols), new LambdaQueryWrapper<>());
+        return booksDao.selectPage(new Page<>(pages, cols), null);
     }
 
     @Override
@@ -53,11 +53,30 @@ public class BooksServiceImpl extends ServiceImpl<BooksDao, Books> implements IB
 
     @Override
     @Transactional
-    public boolean insertBook(Books book) {
+    public Books insertBook(Books book) {
         if("".equals(book.getImgPath().trim())) {
             book.setPath(DEFAULT_COVER);
         }
-        return booksDao.insert(book) > 0;
+        booksDao.insert(book);
+        return book;
+    }
+
+    @Override
+    public Books saveOrUpdateBook(Books books) {
+        LambdaQueryWrapper<Books> lqw = new LambdaQueryWrapper<>();
+        lqw.eq(Books::getTitle, books.getTitle())
+                .eq(Books::getAuthor, books.getAuthor())
+                .eq(Books::getLanguage, books.getLanguage());
+        Books oldBook = booksDao.selectOne(lqw);
+        if(Objects.isNull(oldBook)) {
+            booksDao.insert(books);
+            return books;
+        }
+        else {
+            BeanUtils.copyProperties(books, oldBook);
+            booksDao.updateById(oldBook);
+            return oldBook;
+        }
     }
 
     @Override

@@ -44,7 +44,14 @@ public interface IBooksService extends IService<Books> {
      * @param book  电子书
      * @return
      */
-    boolean insertBook(Books book);
+    Books insertBook(Books book);
+
+    /**
+     * 保存或更新书籍资源
+     * @param books 书籍
+     * @return
+     */
+    Books saveOrUpdateBook(Books books);
 
     /**
      * 删除一本电子书资源

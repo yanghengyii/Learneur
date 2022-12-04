@@ -55,11 +55,28 @@ public class LessonsServiceImpl extends ServiceImpl<LessonsDao, Lessons> impleme
 
     @Override
     @Transactional
-    public boolean insertLesson(Lessons lesson) {
+    public Lessons insertLesson(Lessons lesson) {
         if("".equals(lesson.getImgPath().trim())) {
             lesson.setImgPath(DEFAULT_COVER);
         }
-        return lessonsDao.updateById(lesson) > 0;
+        lessonsDao.updateById(lesson);
+        return lesson;
+    }
+
+    @Override
+    public Lessons saveOrUpdateLesson(Lessons lesson) {
+        LambdaQueryWrapper<Lessons> lqw = new LambdaQueryWrapper<>();
+        lqw.eq(Lessons::getTitle, lesson.getTitle());
+        Lessons oldLesson = lessonsDao.selectOne(lqw);
+        if(Objects.isNull(oldLesson)) {
+            lessonsDao.insert(lesson);
+            return lesson;
+        }
+        else {
+            BeanUtils.copyProperties(lesson, oldLesson);
+            lessonsDao.updateById(oldLesson);
+            return oldLesson;
+        }
     }
 
     @Override

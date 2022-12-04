@@ -67,5 +67,6 @@ public class Books implements Serializable {
     @TableField(value = "download_url")
     private String downloadUrl;
 
-
+    @TableField(exist = false)
+    private Long idResource;
 }

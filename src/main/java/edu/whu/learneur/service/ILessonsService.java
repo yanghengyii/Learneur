@@ -44,7 +44,14 @@ public interface ILessonsService extends IService<Lessons> {
      * @param lesson    网课
      * @return
      */
-    boolean insertLesson(Lessons lesson);
+    Lessons insertLesson(Lessons lesson);
+
+    /**
+     * 保存或更新网课
+     * @param lesson    网课
+     * @return
+     */
+    Lessons saveOrUpdateLesson(Lessons lesson);
 
     /**
      * 删除一本网课资源
