@@ -1,6 +1,6 @@
 package edu.whu.learneur.dao;
 
-import edu.whu.learneur.domain.Knowledges;
+import edu.whu.learneur.domain.Knowledge;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,6 +13,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2022-12-01
  */
 @Mapper
-public interface KnowledgesDao extends BaseMapper<Knowledges> {
+public interface KnowledgesDao extends BaseMapper<Knowledge> {
 
 }

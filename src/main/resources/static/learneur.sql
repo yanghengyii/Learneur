@@ -1,3 +1,4 @@
+
 create table lesson
 (
     id_lesson       bigint comment '主键' primary key,
@@ -6,6 +7,7 @@ create table lesson
     link            varchar(50) comment '链接',
     img_path        varchar(50) comment '配图'
 ) comment '网课' collate = utf8mb4_unicode_ci;
+
 
 create table book
 (
@@ -18,6 +20,19 @@ create table book
     language        varchar(32) comment '语言',
     download_url    varchar(50) comment '下载链接'
 ) comment '书籍' collate = utf8mb4_unicode_ci;
+
+
+create table video
+(
+    id_video        bigint comment '主键' primary key ,
+    author          varchar(50) comment '作者',
+    BVid            varchar(50) comment 'BV号',
+    length          varchar(50) comment '长度',
+    pic_path        varchar(100) comment '图片链接',
+    description     varchar(100) comment '简介',
+    title           varchar(50) comment '标题'
+
+) comment '视频' collate = utf8mb4_unicode_ci;
 
 create table project
 (
@@ -32,16 +47,27 @@ create table project
     readme          varchar(50) comment 'readme'
 ) comment '项目' collate = utf8mb4_unicode_ci;
 
+
+create table tutorial
+(
+    id_tutorial     bigint comment '主键' primary key,
+    name            varchar(50) comment '名称',
+    link            varchar(100) comment '链接',
+    summary         varchar(200) comment '简介'
+)comment '教程' collate = utf8mb4_unicode_ci;
+
+
 create table knowledge (
     id_knowledge            bigint comment '主键' primary key ,
     knowledge_name          varchar(50) comment '知识点' not null ,
     knowledge_description   varchar(200) comment '知识点描述'
 ) comment '知识点' collate = utf8mb4_unicode_ci;
 
+
 create table knowledge_resource (
     id_resources bigint comment '资源id' not null ,
     id_knowledge bigint comment '知识点id' not null,
-    type int comment '资源类型' not null,
+    type            int comment '资源类型: 1:网课; 2:书籍; 3:项目; 4:教程; 5:视频'
 ) comment '知识点与资源关联表' collate = utf8mb4_unicode_ci;
 
 create table note (

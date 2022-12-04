@@ -1,16 +1,54 @@
 package edu.whu.learneur.crawler.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 @Data
 public class Book {
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 主键
+     */
+    @TableId(value = "id_book", type = IdType.ASSIGN_ID)
+    private Long id;
+
+    /**
+     * 书籍名称
+     */
     private String title;
+
+    /**
+     * 配图
+     */
+    @TableField(value = "img_path")
+    private String imgPath;
+
+    /**
+     * 书籍本地路径
+     */
+    private String path;
+
+    /**
+     * 书籍作者
+     */
     private String author;
+
+    /**
+     * 出版商
+     */
     private String publisher;
-    private String publishDate;
-    private String[] tags;
+
+    /**
+     * 语言
+     */
     private String language;
-    private String fileType;
-    private String fileSize;
-    private String coverUrl;
+
+    /**
+     * 下载链接
+     */
+    @TableField(value = "download_url")
+    private String downloadUrl;
 }

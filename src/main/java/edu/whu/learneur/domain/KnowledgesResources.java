@@ -34,5 +34,6 @@ public class KnowledgesResources implements Serializable {
     @TableField(value = "id_knowledge")
     private Long idKnowledge;
 
+    private int type;
 
 }

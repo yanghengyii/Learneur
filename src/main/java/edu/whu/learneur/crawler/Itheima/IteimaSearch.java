@@ -1,6 +1,6 @@
 package edu.whu.learneur.crawler.Itheima;
 
-import edu.whu.learneur.crawler.entity.Information;
+import edu.whu.learneur.crawler.entity.Lesson;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -22,8 +22,8 @@ import java.util.List;
 public class IteimaSearch extends RequestConfig {
 
 
-    public static List<Information> iteimaSearch(List<String> words) throws Exception {
-        List<Information> infos = new ArrayList<>();
+    public static List<Lesson> iteimaSearch(List<String> words) throws Exception {
+        List<Lesson> infos = new ArrayList<>();
         String url = "http://yun.itheima.com";
         String word = "Java";
         String[] type = {"course","open","jishu"};
@@ -45,18 +45,17 @@ public class IteimaSearch extends RequestConfig {
                 Elements element1 = doc.select("div.main");
                 Elements lists = element1.first().select("li");
                 for (int i = 0; i < lists.size(); i++) {
-                    Information info = new Information();
+                    Lesson info = new Lesson();
                     String link = lists.get(i).select("a").attr("href");
                     String photoLink = url+lists.get(i).select("img[class=mask_img1]").attr("src");
                     System.out.println(photoLink);
                     String finalLink = url + link;
                     String title = lists.get(i).select("h2").text();
                     String summary = lists.get(i).select("p[class=p1]").text();
-                    info.setImg(photoLink);
+                    info.setImgPath(photoLink);
                     info.setLink(finalLink);
-                    info.setName(title);
-                    info.setSummary(summary);
-                    info.setType(type[k]);
+                    info.setTitle(title);
+                    info.setDescription(summary);
 
                     infos.add(info);
 
