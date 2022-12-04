@@ -1,6 +1,6 @@
 package edu.whu.learneur.crawler.Runoob;
 
-import edu.whu.learneur.crawler.entity.Information;
+import edu.whu.learneur.crawler.entity.Tutorial;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -21,8 +21,8 @@ import java.util.List;
 public class RunoobSearch extends RequestConfig {
 
 
-    public static List<Information> RunoobSearch(List<String> words) throws Exception {
-        List<Information> infos = new ArrayList<>();
+    public static List<Tutorial> RunoobSearch(List<String> words) throws Exception {
+        List<Tutorial> infos = new ArrayList<>();
         String url = "https://www.runoob.com/";
         String word = "Java";
         int pages = 3;
@@ -43,7 +43,7 @@ public class RunoobSearch extends RequestConfig {
 
                 Elements element1 = doc.select("div.archive-list-item");
                 for (int i = 0; i < element1.size(); i++) {
-                    Information info = new Information();
+                    Tutorial info = new Tutorial();
                     String link = element1.get(i).select("a").attr("href");
                     String finalLink = link;
 
@@ -61,7 +61,6 @@ public class RunoobSearch extends RequestConfig {
                     info.setSummary(summary);
                     infos.add(info);
 
-                    //System.out.println(info);
 
                 }
             }

@@ -1,6 +1,6 @@
 package edu.whu.learneur.service;
 
-import edu.whu.learneur.domain.Knowledges;
+import edu.whu.learneur.domain.Knowledge;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author Learneur
  * @since 2022-12-01
  */
-public interface IKnowledgesService extends IService<Knowledges> {
+public interface IKnowledgesService extends IService<Knowledge> {
 
 }

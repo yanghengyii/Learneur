@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Knowledges implements Serializable {
+public class Knowledge implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -25,7 +25,7 @@ public class Knowledges implements Serializable {
      * 主键
      */
     @TableId(value = "id_knowledge", type = IdType.ASSIGN_ID)
-    private Long idKnowledge;
+    private Long id;
 
     /**
      * 知识点
