@@ -76,9 +76,10 @@ create table notes (
     created_time         datetime null comment '创建时间',
     updated_time         datetime null comment '更新时间',
     note_thumbs_up_count int  default 0 null comment '点赞总数',
-    id_resources         bigint not null comment '资源'
+    note_content         text null comment '评论内容',
+    id_resources         bigint not null comment '资源',
+    version              bigint null comment '乐观锁'
 ) comment '学习笔记' collate = utf8mb4_unicode_ci;
-
 
 create table users (
     user_id             bigint auto_increment comment '用户ID' primary key,
@@ -95,6 +96,12 @@ create table users (
     description         varchar(128) null comment '个人简介',
     id_role             bigint not null comment '角色'
 ) comment '用户' collate = utf8mb4_unicode_ci;
+
+create table thumbUps (
+    thumb_up_id         bigint auto_increment comment '点赞id' primary key ,
+    user_id             bigint not null comment '用户id',
+    note_id             bigint not null comment '笔记id'
+) comment '点赞' collate = utf8mb4_unicode_ci;
 
 create table roles (
     role_id      bigint auto_increment comment '主键' primary key,

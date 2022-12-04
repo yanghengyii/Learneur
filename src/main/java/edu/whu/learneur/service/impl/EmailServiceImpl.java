@@ -9,6 +9,7 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StopWatch;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
@@ -23,6 +24,7 @@ import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+@Service
 public class EmailServiceImpl implements IEMailService {
     @Resource
     private JavaMailSenderImpl sender;
@@ -49,8 +51,10 @@ public class EmailServiceImpl implements IEMailService {
     @Value("${spring.mail.password}")
     private String SENDER_PASSWORD;
 
-    @Value("${resource.domain}")
-    private String BASE_URL;
+
+    // @Value("${resource.domain}")
+    private String BASE_URL = "";
+
 
     @Override
     public boolean sendEmailCode(String email) throws MessagingException {
@@ -94,7 +98,7 @@ public class EmailServiceImpl implements IEMailService {
 
             String subject = "注册 | 验证码操作";
 
-            String tempatePath = "template/mail/registerTemplate.html";
+            String tempatePath = "mail/registerTemplate.html";
             Map<String, Object> variables = new HashMap<>();
             variables.put("code", code);
             String emailText = getTemplateEmail(
@@ -114,7 +118,7 @@ public class EmailServiceImpl implements IEMailService {
 
             String subject = "找回密码 | 验证码操作";
 
-            String tempatePath = "template/mail/forgetPasswordTemplate.html";
+            String tempatePath = "mail/forgetPasswordTemplate.html";
             Map<String, Object> variables = new HashMap<>();
             variables.put("url", url);
 
@@ -181,10 +185,10 @@ public class EmailServiceImpl implements IEMailService {
         helper.setTo(toUsers);
         helper.setCc(copyUsers);
         helper.setSubject(subject);
-        helper.setText(emailText);
+        helper.setText(emailText, isHTML);
 
         /* 添加附件 */
-        if(!Objects.nonNull(attachments) && attachments.length > 0) {
+        if(Objects.nonNull(attachments) && attachments.length > 0) {
             for (String attachment : attachments) {
                 File file = new File(attachment);
                 if(file.exists()) {
