@@ -1,4 +1,4 @@
-create table lessons
+create table lesson
 (
     id_lesson       bigint comment '主键' primary key,
     title           varchar(32) comment '名称',
@@ -7,7 +7,7 @@ create table lessons
     img_path        varchar(50) comment '配图'
 ) comment '网课' collate = utf8mb4_unicode_ci;
 
-create table books
+create table book
 (
     id_book         bigint comment '主键' primary key,
     title           varchar(32) comment '书籍名称',
@@ -19,7 +19,7 @@ create table books
     download_url    varchar(50) comment '下载链接'
 ) comment '书籍' collate = utf8mb4_unicode_ci;
 
-create table projects
+create table project
 (
     id_project      bigint comment '主键' primary key,
     name            varchar(50) comment '名称',
@@ -32,24 +32,19 @@ create table projects
     readme          varchar(50) comment 'readme'
 ) comment '项目' collate = utf8mb4_unicode_ci;
 
-create table resources (
-    id_resources    bigint comment '主键' primary key ,
-    type            int comment '资源类型: 1:网课; 2:书籍; 3:项目',
-    id_specific     bigint comment '对应资源类型子表下的id'
-) comment '资源' collate = utf8mb4_unicode_ci;
-
-create table knowledges (
+create table knowledge (
     id_knowledge            bigint comment '主键' primary key ,
     knowledge_name          varchar(50) comment '知识点' not null ,
     knowledge_description   varchar(200) comment '知识点描述'
 ) comment '知识点' collate = utf8mb4_unicode_ci;
 
-create table knowledges_resources (
+create table knowledge_resource (
     id_resources bigint comment '资源id' not null ,
-    id_knowledge bigint comment '知识点id' not null
+    id_knowledge bigint comment '知识点id' not null,
+    type int comment '资源类型' not null,
 ) comment '知识点与资源关联表' collate = utf8mb4_unicode_ci;
 
-create table notes (
+create table note (
     note_id              bigint auto_increment comment '主键'  primary key,
     note_title           varchar(128) null comment '文章标题',
     note_author_id       bigint null comment '文章作者id',
@@ -65,7 +60,7 @@ create table notes (
     version              bigint null comment '乐观锁'
 ) comment '学习笔记' collate = utf8mb4_unicode_ci;
 
-create table users (
+create table user (
     user_id             bigint auto_increment comment '用户ID' primary key,
     username            varchar(32) not null comment '用户名',
     password            varchar(64) not null comment '密码',
@@ -81,17 +76,17 @@ create table users (
     id_role             bigint not null comment '角色'
 ) comment '用户' collate = utf8mb4_unicode_ci;
 
-create table thumbUps (
+create table thumbUp (
     thumb_up_id         bigint auto_increment comment '点赞id' primary key ,
     user_id             bigint not null comment '用户id',
     note_id             bigint not null comment '笔记id'
 ) comment '点赞' collate = utf8mb4_unicode_ci;
 
-create table roles (
+create table role (
     role_id      bigint auto_increment comment '主键' primary key,
     name         varchar(32) null comment '名称'
 ) comment '角色' collate = utf8mb4_unicode_ci;
 
-insert into roles values (1, 'admin');
-insert into roles values (2, 'user');
-insert into roles values (3, 'others');
+insert into role values (1, 'admin');
+insert into role values (2, 'user');
+insert into role values (3, 'others');

@@ -1,8 +1,10 @@
 package edu.whu.learneur.crawler.github;
 
+import edu.whu.learneur.crawler.Crawler;
 import edu.whu.learneur.crawler.entity.Project;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -13,10 +15,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProjectCrawler {
-    static String url="https://api.github.com/search/repositories?q=";
+@Component
+public class ProjectCrawler implements Crawler<Project> {
+    private String url="https://api.github.com/search/repositories?q=";
 
-    public static List<Project> getProjects(String url) throws  Exception {
+    public String getResponse(String url) throws Exception {
         URL obj = new URL(url);
         HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
 
@@ -43,23 +46,22 @@ public class ProjectCrawler {
 
         String responseStr = response.toString();
 
-        return parse(responseStr);
+        return responseStr;
 
     }
-    private static List<Project> runScrawler(List<String> knowledges) throws Exception {
+    public List<Project> crawl(String key) {
         List<Project> res = new ArrayList<>();
-        for(String knowledge : knowledges) {
-            String fullUrl = url + knowledge + "&sort=stars";
-            try{
-                res.addAll(getProjects(fullUrl));
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
+        String fullUrl = url + key + "&sort=stars&page=0&per_page=30";
+        try{
+            String response = getResponse(fullUrl);
+            res.addAll(parse(response));
+        }
+        catch (Exception e){
+            e.printStackTrace();
         }
         return res;
     }
-    private static List<Project> parse(String jsonStr) {
+    public List<Project> parse(String jsonStr) {
        List<Project> res = new ArrayList<>();
         System.out.println(jsonStr);
         JSONObject obj = new JSONObject(jsonStr);
@@ -74,7 +76,7 @@ public class ProjectCrawler {
             temp.setDescription(project.getString("description"));
             temp.setForks(project.getInt("forks_count"));
             temp.setStarGazers(project.getInt("stargazers_count"));
-
+            temp.setLanguage(project.isNull("language")? null : project.getString("language"));
             temp.setHomePage(project.isNull("homepage")? null : project.getString("homepage"));
             temp.setReadme(project.getString("url")+"/readme");
             temp.setUpdateTime(toLocalDate(project.getString("updated_at")));
@@ -84,7 +86,7 @@ public class ProjectCrawler {
 
     }
 
-    public static LocalDate toLocalDate(String s) {
+    public LocalDate toLocalDate(String s) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
         return LocalDate.parse(s, formatter);
     }
@@ -93,8 +95,8 @@ public class ProjectCrawler {
 //        stringList.add("java");
 //        stringList.add("cloud");
 //        stringList.add("markdown");
-//        ProjectScrawler scrawler = new ProjectScrawler();
-//        List<Project> res =runScrawler(stringList);
+//        ProjectCrawler crawler = new ProjectCrawler();
+//        List<Project> res =crawler.crawl("java");
 //        for(Project project: res) {
 //            System.out.println(project.toString());
 //        }

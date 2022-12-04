@@ -1,10 +1,7 @@
-package edu.whu.learneur.crawler.entity;
-
-import lombok.Data;
+package edu.whu.learneur.domain;
 
 import java.time.LocalDate;
 
-@Data
 public class Project {
     private Long idProject;
 
@@ -42,11 +39,14 @@ public class Project {
      * 主页
      */
     private String homePage;
+
+    /**
+     * 语言
+     */
     private String language;
 
     /**
      * readme
      */
     private String readme;
-
 }

@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("knowledges_resources")
+@TableName("knowledge_resource")
 public class KnowledgesResources implements Serializable {
 
     private static final long serialVersionUID = 1L;

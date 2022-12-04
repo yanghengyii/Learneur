@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.core.metadata.PageList;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import edu.whu.learneur.aspect.ResourcesLogger;
 import edu.whu.learneur.constant.ResourcesType;
+import edu.whu.learneur.crawler.entity.Project;
+import edu.whu.learneur.crawler.github.ProjectCrawler;
 import edu.whu.learneur.domain.Projects;
 import edu.whu.learneur.dao.ProjectsDao;
 import edu.whu.learneur.exception.ResourcesServiceException;
@@ -32,6 +34,10 @@ import java.util.Objects;
 public class ProjectsServiceImpl extends ServiceImpl<ProjectsDao, Projects> implements IProjectsService {
     @Autowired
     public ProjectsDao projectsDao;
+
+    @Autowired
+    private ProjectCrawler projectCrawler;
+
 
     public static final String DEFAULT_COVER = "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fstatic.open-open.com%2Fnews%2FuploadImg%2F20130417%2F20130417214726_527.jpg&refer=http%3A%2F%2Fstatic.open-open.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1672645549&t=29dbf354979c7c1f04607a8ef76fe9a6";
 

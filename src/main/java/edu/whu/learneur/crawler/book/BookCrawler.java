@@ -1,18 +1,29 @@
 package edu.whu.learneur.crawler.book;
 
+import edu.whu.learneur.crawler.Crawler;
 import edu.whu.learneur.crawler.entity.Book;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
-public class BookScrawler {
+public class BookCrawler implements Crawler<Book> {
     static String url = "https://z-lib.is/s?q=";
+
+    @Override
+    public List<Book> crawl(String key) {
+        return null;
+    }
+
+    @Override
+    public String getResponse(String url) throws Exception {
+        return null;
+    }
+
+    @Override
+    public List<Book> parse(String jsonString) {
+        return null;
+    }
+
+
     public static List<Book> getBooks(List<String> keywords) throws IOException {
         List<Book> books = new ArrayList<>(30);
         String keyword = String.join("+", keywords);
@@ -92,4 +103,5 @@ public class BookScrawler {
 
         return book;
     }
+
 }
