@@ -1,7 +1,7 @@
-package edu.whu.learneur.crawler.Itheima;
+package edu.whu.learneur.resource.crawler.Itheima;
 
-import edu.whu.learneur.crawler.Crawler;
-import edu.whu.learneur.crawler.entity.Lesson;
+import edu.whu.learneur.resource.crawler.Crawler;
+import edu.whu.learneur.resource.entity.Lesson;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
