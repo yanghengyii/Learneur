@@ -1,6 +1,6 @@
 package edu.whu.learneur.service;
 
-import edu.whu.learneur.domain.Knowledges;
+import edu.whu.learneur.domain.Knowledge;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,7 +11,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author Learneur
  * @since 2022-12-01
  */
-public interface IKnowledgesService extends IService<Knowledges> {
+public interface IKnowledgesService extends IService<Knowledge> {
     /*
       附注, 知识点的CRUD由图数据库完成, 此处仅实现结点与资源的关系查询
      */
@@ -27,5 +27,5 @@ public interface IKnowledgesService extends IService<Knowledges> {
      * @param cols  列数
      * @return
      */
-    Knowledges findKnowledgeNode(Long idKnowledge, int pages, int cols);
+    Knowledge findKnowledgeNode(Long idKnowledge, int pages, int cols);
 }

@@ -1,7 +1,7 @@
 package edu.whu.learneur.service.impl;
 
 import edu.whu.learneur.dao.KnowledgesResourcesDao;
-import edu.whu.learneur.domain.Knowledges;
+import edu.whu.learneur.domain.Knowledge;
 import edu.whu.learneur.dao.KnowledgesDao;
 import edu.whu.learneur.service.IKnowledgesService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class KnowledgesServiceImpl extends ServiceImpl<KnowledgesDao, Knowledges> implements IKnowledgesService {
+public class KnowledgesServiceImpl extends ServiceImpl<KnowledgesDao, Knowledge> implements IKnowledgesService {
     @Autowired
     private KnowledgesDao knowledgesDao;
 
@@ -27,8 +27,8 @@ public class KnowledgesServiceImpl extends ServiceImpl<KnowledgesDao, Knowledges
     private KnowledgesResourcesDao knowledgesResourcesDao;
 
     @Override
-    public Knowledges findKnowledgeNode(Long idKnowledge, int pages, int cols) {
-        Knowledges knowledge = knowledgesDao.selectById(idKnowledge);
+    public Knowledge findKnowledgeNode(Long idKnowledge, int pages, int cols) {
+        Knowledge knowledge = knowledgesDao.selectById(idKnowledge);
         /* 注入电子书, 网课, 项目等资源信息 */
         return knowledge;
     }
