@@ -34,6 +34,8 @@ public class SecurityConfig {
         security.csrf().disable();
         security.authorizeRequests()
                 .antMatchers("/authenticate/login").permitAll()     // 登录注册界面通告
+                .antMatchers("/knowledge*").permitAll()           // 知识图谱界面通告
+                .antMatchers("/relation*").permitAll()            // 知识图谱关系界面通告
                 .antMatchers("/index").permitAll()                  // 首页都通过
                 .anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
