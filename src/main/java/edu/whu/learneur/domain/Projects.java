@@ -81,5 +81,6 @@ public class Projects implements Serializable {
     @TableField(exist = false)
     private String cover;
 
-
+    @TableField(exist = false)
+    private Long idResource;
 }

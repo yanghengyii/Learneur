@@ -51,5 +51,6 @@ public class Lessons implements Serializable {
     @TableField(value = "img_path")
     private String imgPath;
 
-
+    @TableField(exist = false)
+    private Long idResource;
 }

@@ -34,6 +34,7 @@ public class SecurityConfig {
         security.csrf().disable();
         security.authorizeRequests()
                 .antMatchers("/index").permitAll()                  // 首页都通过
+                .antMatchers("/resources/").permitAll()
                 .antMatchers("/admin/").hasAuthority("admin")
                 .anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS);

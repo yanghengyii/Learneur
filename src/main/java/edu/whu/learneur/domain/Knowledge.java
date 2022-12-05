@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.util.List;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -43,5 +44,21 @@ public class Knowledge implements Serializable {
     @TableField(value = "knowledge_description")
     private String knowledgeDescription;
 
+    /**
+     * 该知识点下的电子书资源
+     */
+    @TableField(exist = false)
+    List<Books> books;
 
+    /**
+     * 该知识点下的网课资源
+     */
+    @TableField(exist = false)
+    List<Lessons> lessons;
+
+    /**
+     * 该知识点下的项目资源
+     */
+    @TableField(exist = false)
+    List<Projects> projects;
 }
