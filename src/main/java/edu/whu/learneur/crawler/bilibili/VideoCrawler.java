@@ -4,6 +4,7 @@ import edu.whu.learneur.crawler.Crawler;
 import edu.whu.learneur.crawler.entity.Video;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 // bilibili scrwaler for video
+@Component
 public class VideoCrawler implements Crawler<Video> {
     static String url = "https://api.bilibili.com/x/space/arc/search?mid=%d&ps=%d&pn=%d&keyword=%s&order=pubdate&jsonp=jsonp";
     static int[] users = {
@@ -138,7 +140,6 @@ public class VideoCrawler implements Crawler<Video> {
         return videos;
     }
 
-    @Override
     public String getResponse(String url) throws Exception {
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -166,7 +167,6 @@ public class VideoCrawler implements Crawler<Video> {
         return response.toString();
     }
 
-    @Override
     public List<Video> parse(String jsonString) {
         List<Video> videos = new ArrayList<>(30);
         JSONObject jsonObject = new JSONObject(jsonString);

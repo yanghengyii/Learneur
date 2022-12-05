@@ -1,5 +1,6 @@
 package edu.whu.learneur.crawler.Itheima;
 
+import edu.whu.learneur.crawler.Crawler;
 import edu.whu.learneur.crawler.entity.Lesson;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.config.RequestConfig;
@@ -14,20 +15,22 @@ import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IteimaSearch extends RequestConfig {
+@Component
+public class IteimaSearch extends RequestConfig implements Crawler<Lesson> {
 
 
-    public static List<Lesson> iteimaSearch(List<String> words) throws Exception {
+    public List<Lesson> crawl(String key) throws Exception {
         List<Lesson> infos = new ArrayList<>();
         String url = "http://yun.itheima.com";
         String word = "Java";
         String[] type = {"course","open","jishu"};
-        String realhash = "18fc53a52a033fe75f7d0542124ca8c0_03f2050563f2638dda0b8986ab13a61d";
+        String realHash = "18fc53a52a033fe75f7d0542124ca8c0_03f2050563f2638dda0b8986ab13a61d";
 
         //创建连接池管理器
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
@@ -38,36 +41,35 @@ public class IteimaSearch extends RequestConfig {
         connectionManager.setDefaultMaxPerRoute(20);
 
         String content = null;
-        for(int m=0;m< words.size();m++) {
-            for (int k = 0; k < type.length; k++) {
-                content = doGet(connectionManager, words.get(m), type[k], realhash);
-                Document doc = Jsoup.parse(content);
-                Elements element1 = doc.select("div.main");
-                Elements lists = element1.first().select("li");
-                for (int i = 0; i < lists.size(); i++) {
-                    Lesson info = new Lesson();
-                    String link = lists.get(i).select("a").attr("href");
-                    String photoLink = url+lists.get(i).select("img[class=mask_img1]").attr("src");
-                    System.out.println(photoLink);
-                    String finalLink = url + link;
-                    String title = lists.get(i).select("h2").text();
-                    String summary = lists.get(i).select("p[class=p1]").text();
-                    info.setImgPath(photoLink);
-                    info.setLink(finalLink);
-                    info.setTitle(title);
-                    info.setDescription(summary);
 
-                    infos.add(info);
+        for (int k = 0; k < type.length; k++) {
+            content = getResponse(connectionManager, key, type[k], realHash);
+            Document doc = Jsoup.parse(content);
+            Elements element1 = doc.select("div.main");
+            Elements lists = element1.first().select("li");
+            for (int i = 0; i < lists.size(); i++) {
+                Lesson info = new Lesson();
+                String link = lists.get(i).select("a").attr("href");
+                String photoLink = url+lists.get(i).select("img[class=mask_img1]").attr("src");
+                System.out.println(photoLink);
+                String finalLink = url + link;
+                String title = lists.get(i).select("h2").text();
+                String summary = lists.get(i).select("p[class=p1]").text();
+                info.setImgPath(photoLink);
+                info.setLink(finalLink);
+                info.setTitle(title);
+                info.setDescription(summary);
+
+                infos.add(info);
 
 
 
-                }
             }
         }
         return infos;
     }
 
-    private static String doGet(PoolingHttpClientConnectionManager connectionManager,String word,String type,String realhash) throws IOException {
+    private String getResponse(PoolingHttpClientConnectionManager connectionManager,String word,String type,String realHash) throws IOException {
         //不是每次创建新的httpclient，而是从连接池中获取httpclient对象
         CloseableHttpClient httpClient = HttpClients.custom().setConnectionManager(connectionManager).build();
 
@@ -80,7 +82,7 @@ public class IteimaSearch extends RequestConfig {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("so",word));
         params.add(new BasicNameValuePair("type",type));
-        params.add(new BasicNameValuePair("realhash",realhash));
+        params.add(new BasicNameValuePair("realhash",realHash));
 
         //创建表单Entity对象
         UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(params,"utf8");

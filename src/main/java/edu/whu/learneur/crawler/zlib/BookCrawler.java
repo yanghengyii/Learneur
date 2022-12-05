@@ -1,33 +1,26 @@
-package edu.whu.learneur.crawler.book;
+package edu.whu.learneur.crawler.zlib;
 
 import edu.whu.learneur.crawler.Crawler;
 import edu.whu.learneur.crawler.entity.Book;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class BookCrawler implements Crawler<Book> {
     static String url = "https://z-lib.is/s?q=";
 
     @Override
-    public List<Book> crawl(String key) {
-        return null;
-    }
-
-    @Override
-    public String getResponse(String url) throws Exception {
-        return null;
-    }
-
-    @Override
-    public List<Book> parse(String jsonString) {
-        return null;
-    }
-
-
-    public static List<Book> getBooks(List<String> keywords) throws IOException {
+    public List<Book> crawl(String key) throws Exception{
         List<Book> books = new ArrayList<>(30);
-        String keyword = String.join("+", keywords);
-        String fullUrl = url + keyword;
+        String fullUrl = url + key;
         Document doc = Jsoup.parse(new URL(fullUrl), 30000);
         Element searchResultBox = doc.getElementById("searchResultBox");
         assert searchResultBox != null;
@@ -95,11 +88,11 @@ public class BookCrawler implements Crawler<Book> {
         book.setFileSize(fileSize);
 
         String[] tags = {};
-        try {
-            tags = properties.get(3).childNode(3).childNode(0).toString().split("; ");
-        }catch (IndexOutOfBoundsException e) {
-        }
-        book.setTags(tags);
+//        try {
+//            tags = properties.get(3).childNode(3).childNode(0).toString().split("; ");
+//        }catch (IndexOutOfBoundsException e) {
+//        }
+//        book.setTags(tags);
 
         return book;
     }

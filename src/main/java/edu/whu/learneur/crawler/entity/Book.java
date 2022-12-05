@@ -23,8 +23,8 @@ public class Book {
     /**
      * 配图
      */
-    @TableField(value = "img_path")
-    private String imgPath;
+    @TableField(value = "cover_url")
+    private String coverUrl;
 
     /**
      * 书籍本地路径
@@ -51,4 +51,9 @@ public class Book {
      */
     @TableField(value = "download_url")
     private String downloadUrl;
+
+    private String fileSize;
+    private String fileType;
+
+    private String publishDate;
 }

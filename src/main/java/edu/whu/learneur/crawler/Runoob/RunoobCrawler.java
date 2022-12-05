@@ -1,5 +1,6 @@
 package edu.whu.learneur.crawler.Runoob;
 
+import edu.whu.learneur.crawler.Crawler;
 import edu.whu.learneur.crawler.entity.Tutorial;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -18,10 +19,10 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RunoobSearch extends RequestConfig {
+public class RunoobCrawler extends RequestConfig implements Crawler<Tutorial> {
 
 
-    public static List<Tutorial> RunoobSearch(List<String> words) throws Exception {
+    public List<Tutorial> crawl(String key) throws Exception {
         List<Tutorial> infos = new ArrayList<>();
         String url = "https://www.runoob.com/";
         String word = "Java";
@@ -36,35 +37,32 @@ public class RunoobSearch extends RequestConfig {
         connectionManager.setDefaultMaxPerRoute(20);
 
         String content = null;
-        for(int m=0;m< words.size();m++) {
-            for(int j = 1;j<=pages;j++) {
-                content = doGet(connectionManager, words.get(m),j);
-                Document doc = Jsoup.parse(content);
+        for(int j = 1;j<=pages;j++) {
+            content = doGet(connectionManager, key,j);
+            Document doc = Jsoup.parse(content);
 
-                Elements element1 = doc.select("div.archive-list-item");
-                for (int i = 0; i < element1.size(); i++) {
-                    Tutorial info = new Tutorial();
-                    String link = element1.get(i).select("a").attr("href");
-                    String finalLink = link;
+            Elements element1 = doc.select("div.archive-list-item");
+            for (int i = 0; i < element1.size(); i++) {
+                Tutorial info = new Tutorial();
+                String link = element1.get(i).select("a").attr("href");
+                String finalLink = link;
 
-                    if(!finalLink.matches("http.*")){
-                        continue;
-                    }
-
-                    String title = element1.get(i).select("a").attr("title").replaceAll("<em>","").replaceAll("</em>","").trim();
-
-
-                    String summary = element1.get(i).select("p").text();
-                    System.out.println(summary);
-                    info.setLink(finalLink);
-                    info.setName(title);
-                    info.setSummary(summary);
-                    infos.add(info);
-
-
+                if(!finalLink.matches("http.*")){
+                    continue;
                 }
-            }
 
+                String title = element1.get(i).select("a").attr("title").replaceAll("<em>","").replaceAll("</em>","").trim();
+
+
+                String summary = element1.get(i).select("p").text();
+                System.out.println(summary);
+                info.setLink(finalLink);
+                info.setName(title);
+                info.setSummary(summary);
+                infos.add(info);
+
+
+            }
         }
         return infos;
     }
