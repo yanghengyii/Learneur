@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -47,17 +48,17 @@ public class Knowledges implements Serializable {
      * 该知识点下的电子书资源
      */
     @TableField(exist = false)
-    List<Books> books;
+    Page<Books> books;
 
     /**
      * 该知识点下的网课资源
      */
     @TableField(exist = false)
-    List<Lessons> lessons;
+    Page<Lessons> lessons;
 
     /**
      * 该知识点下的项目资源
      */
     @TableField(exist = false)
-    List<Projects> projects;
+    Page<Projects> projects;
 }

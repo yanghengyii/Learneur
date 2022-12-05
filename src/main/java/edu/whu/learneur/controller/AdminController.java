@@ -2,8 +2,10 @@ package edu.whu.learneur.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.api.R;
+import edu.whu.learneur.domain.Knowledges;
 import edu.whu.learneur.domain.Notes;
 import edu.whu.learneur.domain.Users;
+import edu.whu.learneur.service.IKnowledgesService;
 import edu.whu.learneur.service.INotesService;
 import edu.whu.learneur.service.IResourcesService;
 import edu.whu.learneur.service.IUsersService;
@@ -25,6 +27,9 @@ public class AdminController {
 
     @Autowired
     private IResourcesService resourcesService;
+
+    @Autowired
+    private IKnowledgesService knowledgesService;
 
     @GetMapping("/users/all")
     public ResponseEntity<IPage<Users>> findAllUsers(
@@ -50,7 +55,7 @@ public class AdminController {
         return ResponseEntity.ok(users);
     }
 
-    @DeleteMapping("/users/delete-user-by-batches")
+    @PostMapping("/users/delete-user-by-batches")
     public ResponseEntity<Boolean> deleteUserByBatches(@RequestBody List<Long> idUsers) {
         return ResponseEntity.ok(usersService.deleteUsersByBatches(idUsers));
     }
@@ -63,7 +68,7 @@ public class AdminController {
         return ResponseEntity.ok(notesService.findNotes(pages, cols));
     }
 
-    @DeleteMapping("/notes/delete-note-by-batches")
+    @PostMapping("/notes/delete-note-by-batches")
     public ResponseEntity<Boolean> deleteNotesByBatches(@RequestBody List<Long> idNotes) {
         return ResponseEntity.ok(notesService.deleteNoteByBatch(idNotes));
     }
@@ -73,8 +78,28 @@ public class AdminController {
         return ResponseEntity.ok(resourcesService.saveOrUpdateResources(resources));
     }
 
-    @DeleteMapping("/resources/delete-resource-by-batches")
+    @PostMapping("/resources/delete-resource-by-batches")
     public ResponseEntity<Boolean> deleteResourcesByBatches(@RequestBody List<Long> idResources) {
         return ResponseEntity.ok(resourcesService.deleteResourcesByIds(idResources));
+    }
+
+    @PostMapping("/knowledge/save-or-update-knowledge")
+    public ResponseEntity<Boolean> saveOrUpdateKnowledge(@RequestBody Knowledges knowledge) {
+        return ResponseEntity.ok(knowledgesService.saveOrUpdateKnowledge(knowledge));
+    }
+
+    @PostMapping("/knowledge/delete-knowledges")
+    public ResponseEntity<Boolean> deleteKnowledges(List<Long> idKnowledges) {
+        return ResponseEntity.ok(knowledgesService.deleteKnowledges(idKnowledges));
+    }
+
+    @PostMapping("/knowledge/add-knowledge-resource-relation/{idknowledge}")
+    public ResponseEntity<Boolean> addKnowledgeResourceRelation(@PathVariable Long idknowledge, @RequestBody List<Long> idResources) {
+        return ResponseEntity.ok(knowledgesService.addKnowledgeResourceRelation(idknowledge, idResources));
+    }
+
+    @PostMapping("/knowledge/delete-knowledge-resource-relation/{idknowledge}")
+    public ResponseEntity<Boolean> deleteKnowledgeResourceRelation(@PathVariable Long idknowledge, @RequestBody List<Long> idResources) {
+        return ResponseEntity.ok(knowledgesService.deleteKnowledgeResourceRelation(idknowledge, idResources));
     }
 }

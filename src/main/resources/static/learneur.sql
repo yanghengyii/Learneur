@@ -34,7 +34,7 @@ create table projects
 
 create table resources (
     id_resources    bigint comment '主键' primary key ,
-    type            int comment '资源类型: 1:网课; 2:书籍; 3:项目',
+    type            int comment '资源类型: 1:书籍; 2:网课; 3:项目',
     id_specific     bigint comment '对应资源类型子表下的id'
 ) comment '资源' collate = utf8mb4_unicode_ci;
 

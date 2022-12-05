@@ -34,5 +34,8 @@ public class KnowledgesResources implements Serializable {
     @TableField(value = "id_knowledge")
     private Long idKnowledge;
 
-
+    public KnowledgesResources(Long idKnowledge, Long idResources) {
+        this.idKnowledge = idKnowledge;
+        this.idResources = idResources;
+    }
 }

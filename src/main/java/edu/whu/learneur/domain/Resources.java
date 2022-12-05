@@ -31,7 +31,7 @@ public class Resources implements Serializable {
     private Long idResources;
 
     /**
-     * 资源类型: 1:网课; 2:书籍; 3:项目
+     * 资源类型: 1:书籍; 2:网课; 3:项目
      */
     private Integer type;
 
