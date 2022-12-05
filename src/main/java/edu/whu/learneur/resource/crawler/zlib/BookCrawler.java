@@ -1,14 +1,14 @@
-package edu.whu.learneur.crawler.zlib;
+package edu.whu.learneur.resource.crawler.zlib;
 
-import edu.whu.learneur.crawler.Crawler;
-import edu.whu.learneur.crawler.entity.Book;
+
+import edu.whu.learneur.resource.crawler.Crawler;
+import edu.whu.learneur.resource.entity.Book;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;

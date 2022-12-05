@@ -1,11 +1,10 @@
-package edu.whu.learneur.crawler.service.serviceImpl;
+package edu.whu.learneur.resource.service.serviceImpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import edu.whu.learneur.crawler.dao.VideoDao;
-import edu.whu.learneur.crawler.entity.Book;
-import edu.whu.learneur.crawler.entity.Video;
-import edu.whu.learneur.crawler.service.IVideoService;
+import edu.whu.learneur.resource.dao.VideoDao;
+import edu.whu.learneur.resource.entity.Video;
+import edu.whu.learneur.resource.service.IVideoService;
 import edu.whu.learneur.exception.UserServiceException;
 import org.apache.ibatis.annotations.SelectKey;
 import org.springframework.stereotype.Service;

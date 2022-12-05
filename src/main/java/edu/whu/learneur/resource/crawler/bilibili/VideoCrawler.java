@@ -1,13 +1,12 @@
-package edu.whu.learneur.crawler.bilibili;
+package edu.whu.learneur.resource.crawler.bilibili;
 
-import edu.whu.learneur.crawler.Crawler;
-import edu.whu.learneur.crawler.entity.Video;
+import edu.whu.learneur.resource.crawler.Crawler;
+import edu.whu.learneur.resource.entity.Video;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;

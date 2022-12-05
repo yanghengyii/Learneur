@@ -1,15 +1,13 @@
-package edu.whu.learneur.crawler.service.serviceImpl;
+package edu.whu.learneur.resource.service.serviceImpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import edu.whu.learneur.crawler.dao.KnowledgeDao;
-import edu.whu.learneur.crawler.service.IKnowledgeService;
+import edu.whu.learneur.resource.dao.KnowledgeDao;
+import edu.whu.learneur.resource.service.IKnowledgeService;
 import edu.whu.learneur.domain.Knowledge;
 import edu.whu.learneur.exception.UserServiceException;
 import org.apache.ibatis.annotations.SelectKey;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class KnowledgeServiceImpl extends ServiceImpl<KnowledgeDao, Knowledge> implements IKnowledgeService {

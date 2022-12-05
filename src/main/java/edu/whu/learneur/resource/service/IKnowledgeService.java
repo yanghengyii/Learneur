@@ -1,4 +1,4 @@
-package edu.whu.learneur.crawler.service;
+package edu.whu.learneur.resource.service;
 
 public interface IKnowledgeService {
 }

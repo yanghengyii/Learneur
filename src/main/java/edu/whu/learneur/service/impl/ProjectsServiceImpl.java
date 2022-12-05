@@ -2,12 +2,10 @@ package edu.whu.learneur.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.metadata.PageList;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import edu.whu.learneur.aspect.ResourcesLogger;
 import edu.whu.learneur.constant.ResourcesType;
-import edu.whu.learneur.crawler.entity.Project;
-import edu.whu.learneur.crawler.github.ProjectCrawler;
+import edu.whu.learneur.resource.crawler.github.ProjectCrawler;
 import edu.whu.learneur.domain.Projects;
 import edu.whu.learneur.dao.ProjectsDao;
 import edu.whu.learneur.exception.ResourcesServiceException;

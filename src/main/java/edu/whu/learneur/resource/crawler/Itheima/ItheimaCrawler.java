@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class IteimaSearch extends RequestConfig implements Crawler<Lesson> {
+public class ItheimaCrawler extends RequestConfig implements Crawler<Lesson> {
 
 
     public List<Lesson> crawl(String key) throws Exception {

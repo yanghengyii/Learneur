@@ -1,17 +1,16 @@
-package edu.whu.learneur.crawler.service.serviceImpl;
+package edu.whu.learneur.resource.service.serviceImpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import edu.whu.learneur.crawler.dao.KRDao;
-import edu.whu.learneur.crawler.entity.Book;
-import edu.whu.learneur.crawler.entity.Lesson;
-import edu.whu.learneur.crawler.entity.Tutorial;
-import edu.whu.learneur.crawler.entity.Video;
-import edu.whu.learneur.crawler.service.IKRService;
+import edu.whu.learneur.resource.dao.KRDao;
+import edu.whu.learneur.resource.entity.Book;
+import edu.whu.learneur.resource.entity.Lesson;
+import edu.whu.learneur.resource.entity.Tutorial;
+import edu.whu.learneur.resource.entity.Video;
+import edu.whu.learneur.resource.service.IKRService;
 import edu.whu.learneur.domain.KnowledgesResources;
-import edu.whu.learneur.domain.Resources;
 import edu.whu.learneur.exception.UserServiceException;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package edu.whu.learneur.crawler.Runoob;
+package edu.whu.learneur.resource.crawler.runoob;
 
-import edu.whu.learneur.crawler.Crawler;
-import edu.whu.learneur.crawler.entity.Tutorial;
+import edu.whu.learneur.resource.crawler.Crawler;
+import edu.whu.learneur.resource.entity.Tutorial;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -13,12 +13,13 @@ import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class RunoobCrawler extends RequestConfig implements Crawler<Tutorial> {
 
 

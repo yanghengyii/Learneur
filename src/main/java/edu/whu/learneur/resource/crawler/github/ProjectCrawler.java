@@ -1,7 +1,7 @@
-package edu.whu.learneur.crawler.github;
+package edu.whu.learneur.resource.crawler.github;
 
-import edu.whu.learneur.crawler.Crawler;
-import edu.whu.learneur.crawler.entity.Project;
+import edu.whu.learneur.resource.crawler.Crawler;
+import edu.whu.learneur.resource.entity.Project;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;

@@ -1,7 +1,7 @@
-package edu.whu.learneur.crawler.dao;
+package edu.whu.learneur.resource.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import edu.whu.learneur.crawler.entity.Lesson;
+import edu.whu.learneur.resource.entity.Lesson;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

@@ -1,4 +1,4 @@
-package edu.whu.learneur.crawler;
+package edu.whu.learneur.resource.crawler;
 
 import java.util.List;
 

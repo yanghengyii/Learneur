@@ -1,10 +1,10 @@
-package edu.whu.learneur.crawler.service.serviceImpl;
+package edu.whu.learneur.resource.service.serviceImpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import edu.whu.learneur.crawler.dao.BookDao;
-import edu.whu.learneur.crawler.entity.Book;
-import edu.whu.learneur.crawler.service.IBookService;
+import edu.whu.learneur.resource.dao.BookDao;
+import edu.whu.learneur.resource.entity.Book;
+import edu.whu.learneur.resource.service.IBookService;
 import edu.whu.learneur.exception.UserServiceException;
 import org.apache.ibatis.annotations.SelectKey;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package edu.whu.learneur.crawler.entity;
+package edu.whu.learneur.resource.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
