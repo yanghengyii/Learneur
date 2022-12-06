@@ -1,11 +1,14 @@
 package edu.whu.learneur.resource.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.time.LocalDate;
 
 @Data
 public class Project {
+    @TableId(value = "id_lesson", type = IdType.ASSIGN_ID)
     private Long idProject;
 
     /**

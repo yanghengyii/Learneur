@@ -1,6 +1,9 @@
 package edu.whu.learneur.resource.service.serviceImpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import edu.whu.learneur.resource.dao.KnowledgeDao;
 import edu.whu.learneur.resource.service.IKnowledgeService;
@@ -11,8 +14,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class KnowledgeServiceImpl extends ServiceImpl<KnowledgeDao, Knowledge> implements IKnowledgeService {
-
-    @SelectKey(statement = "select last_insert_id",keyProperty = "id",keyColumn = "id_knowledge",resultType = Long.class,before = true)
     public void addKnowledge(Knowledge knowledge) throws UserServiceException {
             LambdaQueryWrapper<Knowledge> lqw = new LambdaQueryWrapper<>();
             lqw.like(Knowledge::getKnowledgeName,knowledge.getKnowledgeName());
@@ -39,5 +40,13 @@ public class KnowledgeServiceImpl extends ServiceImpl<KnowledgeDao, Knowledge> i
             throw new UserServiceException("无此知识点");
         }
         return result;
+    }
+
+    public IPage<Knowledge> findKnowledge(Integer pageNum, Integer  pageSize) {
+        Page<Knowledge> page= new Page<>(pageNum, pageSize);
+        QueryWrapper<Knowledge> qw = new QueryWrapper<>();
+        qw.orderByAsc("id_knowledge");
+        getBaseMapper().selectPage(page, qw);
+        return page;
     }
 }

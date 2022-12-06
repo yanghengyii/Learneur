@@ -32,87 +32,92 @@ public class VideoCrawler implements Crawler<Video> {
         return String.format(url, mid, pageSize, pageNum, keyword);
     }
 
+    @Override
+    public void run() {
+
+    }
+
     /*
-    public static List<Video> getVideos(String keyword) throws IOException { // use multi-thread processing
-        List<Video> videos = new ArrayList<>(100);
-        List<CompletableFuture<List<Video>>> futures = new ArrayList<>(users.length);
+        public static List<Video> getVideos(String keyword) throws IOException { // use multi-thread processing
+            List<Video> videos = new ArrayList<>(100);
+            List<CompletableFuture<List<Video>>> futures = new ArrayList<>(users.length);
 
-        for (int user : users) {
-            String fullUrl = getUrlString(user, pageSize, 1, keyword);
-            CompletableFuture<List<Video>> future = CompletableFuture.supplyAsync(() -> {
-                try {
-                    return getVideosFromUser(fullUrl);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            for (int user : users) {
+                String fullUrl = getUrlString(user, pageSize, 1, keyword);
+                CompletableFuture<List<Video>> future = CompletableFuture.supplyAsync(() -> {
+                    try {
+                        return getVideosFromUser(fullUrl);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    return null;
+                });
+                futures.add(future);
+            }
+
+            CompletableFuture<Void> allDone = CompletableFuture.allOf(futures.toArray(new CompletableFuture[futures.size()]));
+            allDone.join();
+            for (CompletableFuture<List<Video>> future : futures) {
+                videos.addAll(future.join());
+            }
+            return videos;
+        }
+
+        private static List<Video> getVideosFromUser(String url) throws IOException {
+
+
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+            con.setRequestMethod("GET");
+
+            con.setRequestProperty("User-Agent", "Mozilla/5.0");
+
+            int responseCode = con.getResponseCode();
+            if (responseCode != 200) {
+                System.out.println("GET request not worked");
                 return null;
-            });
-            futures.add(future);
+            }
+
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(con.getInputStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+            String responseStr = response.toString();
+
+            return parseVideo(responseStr);
         }
 
-        CompletableFuture<Void> allDone = CompletableFuture.allOf(futures.toArray(new CompletableFuture[futures.size()]));
-        allDone.join();
-        for (CompletableFuture<List<Video>> future : futures) {
-            videos.addAll(future.join());
-        }
-        return videos;
-    }
-
-    private static List<Video> getVideosFromUser(String url) throws IOException {
-
-
-        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-
-        con.setRequestMethod("GET");
-
-        con.setRequestProperty("User-Agent", "Mozilla/5.0");
-
-        int responseCode = con.getResponseCode();
-        if (responseCode != 200) {
-            System.out.println("GET request not worked");
-            return null;
+        private static String getUrlString(int mid,int pageSize,int pageNum,String keyword) {
+            return String.format(url, mid, pageSize, pageNum, keyword);
         }
 
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        StringBuffer response = new StringBuffer();
-
-        while ((inputLine = in.readLine()) != null) {
-            response.append(inputLine);
+        private static List<Video> parseVideo(String jsonString) {
+            List<Video> videos = new ArrayList<>(30);
+            JSONObject jsonObject = new JSONObject(jsonString);
+            JSONObject data = jsonObject.getJSONObject("data");
+            JSONObject pageInfo = data.getJSONObject("page");
+            JSONObject list = data.getJSONObject("list");
+            JSONArray videoList = list.getJSONArray("vlist");
+            for (int i = 0; i < videoList.length(); i++) {
+                Video temp = new Video();
+                JSONObject video = videoList.getJSONObject(i);
+                temp.setBVid(video.getString("bvid"));
+                temp.setAuthor(video.getString("author"));
+                temp.setDescription(video.getString("description"));
+                temp.setLength(video.getString("length"));
+                temp.setPic(video.getString("pic"));
+                temp.setTitle(video.getString("title"));
+                videos.add(temp);
+            }
+            return videos;
         }
-        in.close();
-
-        String responseStr = response.toString();
-
-        return parseVideo(responseStr);
-    }
-
-    private static String getUrlString(int mid,int pageSize,int pageNum,String keyword) {
-        return String.format(url, mid, pageSize, pageNum, keyword);
-    }
-
-    private static List<Video> parseVideo(String jsonString) {
-        List<Video> videos = new ArrayList<>(30);
-        JSONObject jsonObject = new JSONObject(jsonString);
-        JSONObject data = jsonObject.getJSONObject("data");
-        JSONObject pageInfo = data.getJSONObject("page");
-        JSONObject list = data.getJSONObject("list");
-        JSONArray videoList = list.getJSONArray("vlist");
-        for (int i = 0; i < videoList.length(); i++) {
-            Video temp = new Video();
-            JSONObject video = videoList.getJSONObject(i);
-            temp.setBVid(video.getString("bvid"));
-            temp.setAuthor(video.getString("author"));
-            temp.setDescription(video.getString("description"));
-            temp.setLength(video.getString("length"));
-            temp.setPic(video.getString("pic"));
-            temp.setTitle(video.getString("title"));
-            videos.add(temp);
-        }
-        return videos;
-    }
-     */
+         */
     @Override
     public List<Video> crawl(String key) {
         List<Video> videos = new ArrayList<>(100);

@@ -5,12 +5,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import edu.whu.learneur.resource.dao.KRDao;
-import edu.whu.learneur.resource.entity.Book;
-import edu.whu.learneur.resource.entity.Lesson;
-import edu.whu.learneur.resource.entity.Tutorial;
-import edu.whu.learneur.resource.entity.Video;
+import edu.whu.learneur.resource.entity.*;
 import edu.whu.learneur.resource.service.IKRService;
-import edu.whu.learneur.domain.KnowledgesResources;
 import edu.whu.learneur.exception.UserServiceException;
 import org.springframework.stereotype.Service;
 
@@ -18,25 +14,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgesResources> implements IKRService {
+public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> implements IKRService {
 
-    public List<KnowledgesResources> addBook(Long knowledgeId,List<Book> bookList) throws UserServiceException{
-        List<KnowledgesResources> results = new ArrayList<>();
+    public List<KnowledgeResource> addBook(Long knowledgeId,List<Book> bookList) throws UserServiceException{
+        List<KnowledgeResource> results = new ArrayList<>();
         for(Book book:bookList) {
-            KnowledgesResources knowledgesResources = new KnowledgesResources();
-            knowledgesResources.setIdKnowledge(knowledgeId);
-            knowledgesResources.setIdResources(book.getId());
-            knowledgesResources.setType(2);
-            getBaseMapper().insert(knowledgesResources);
-            results.add(knowledgesResources);
+            KnowledgeResource knowledgeResources = new KnowledgeResource();
+            knowledgeResources.setIdKnowledge(knowledgeId);
+            knowledgeResources.setIdResources(book.getId());
+            knowledgeResources.setType(2);
+            getBaseMapper().insert(knowledgeResources);
+            results.add(knowledgeResources);
         }
         return results;
     }
 
-    public List<KnowledgesResources> addLesson(Long knowledgeId,List<Lesson> lessonList) throws UserServiceException{
-        List<KnowledgesResources> results = new ArrayList<>();
+    public List<KnowledgeResource> addLesson(Long knowledgeId,List<Lesson> lessonList) throws UserServiceException{
+        List<KnowledgeResource> results = new ArrayList<>();
         for(Lesson lesson:lessonList) {
-            KnowledgesResources knowledgesResources = new KnowledgesResources();
+            KnowledgeResource knowledgesResources = new KnowledgeResource();
             knowledgesResources.setIdKnowledge(knowledgeId);
             knowledgesResources.setIdResources(lesson.getId());
             knowledgesResources.setType(1);
@@ -46,10 +42,10 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgesResources> imple
         return results;
     }
 
-    public List<KnowledgesResources> addTutorial(Long knowledgeId,List<Tutorial> tutorialList) throws UserServiceException{
-        List<KnowledgesResources> results = new ArrayList<>();
+    public List<KnowledgeResource> addTutorial(Long knowledgeId,List<Tutorial> tutorialList) throws UserServiceException{
+        List<KnowledgeResource> results = new ArrayList<>();
         for(Tutorial tutorial:tutorialList) {
-            KnowledgesResources knowledgesResources = new KnowledgesResources();
+            KnowledgeResource knowledgesResources = new KnowledgeResource();
             knowledgesResources.setIdKnowledge(knowledgeId);
             knowledgesResources.setIdResources(tutorial.getId());
             knowledgesResources.setType(4);
@@ -59,10 +55,10 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgesResources> imple
         return results;
     }
 
-    public List<KnowledgesResources> addVideo(Long knowledgeId,List<Video> videoList) throws UserServiceException{
-        List<KnowledgesResources> results = new ArrayList<>();
+    public List<KnowledgeResource> addVideo(Long knowledgeId,List<Video> videoList) throws UserServiceException{
+        List<KnowledgeResource> results = new ArrayList<>();
         for(Video video:videoList) {
-            KnowledgesResources knowledgesResources = new KnowledgesResources();
+            KnowledgeResource knowledgesResources = new KnowledgeResource();
             knowledgesResources.setIdKnowledge(knowledgeId);
             knowledgesResources.setIdResources(video.getId());
             knowledgesResources.setType(5);
@@ -73,11 +69,11 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgesResources> imple
     }
 
     public List<Long> findKnowledgeIdByResource(Long ResourceId){
-        LambdaQueryWrapper<KnowledgesResources> lqw = new LambdaQueryWrapper<>();
-        lqw.like(KnowledgesResources::getIdResources,ResourceId);
+        LambdaQueryWrapper<KnowledgeResource> lqw = new LambdaQueryWrapper<>();
+        lqw.like(KnowledgeResource::getIdResources,ResourceId);
         List<Long> result=null;
         try{
-            for(KnowledgesResources KR:getBaseMapper().selectList(lqw)){
+            for(KnowledgeResource KR:getBaseMapper().selectList(lqw)){
                 result.add(KR.getIdKnowledge());
             }
         }
@@ -87,11 +83,11 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgesResources> imple
         return result;
     }
 
-    public IPage<KnowledgesResources> findResourcePageByKnowledgeId(int current,int size,Long KnowledgeId){
-        IPage<KnowledgesResources> result = new Page<>(current,size);
-        IPage<KnowledgesResources> returnPage = null;
-        LambdaQueryWrapper<KnowledgesResources> lqw = new LambdaQueryWrapper<>();
-        lqw.like(KnowledgesResources::getIdKnowledge,KnowledgeId);
+    public IPage<KnowledgeResource> findResourcePageByKnowledgeId(int current,int size,Long KnowledgeId){
+        IPage<KnowledgeResource> result = new Page<>(current,size);
+        IPage<KnowledgeResource> returnPage = null;
+        LambdaQueryWrapper<KnowledgeResource> lqw = new LambdaQueryWrapper<>();
+        lqw.like(KnowledgeResource::getIdKnowledge,KnowledgeId);
         try{
             returnPage = getBaseMapper().selectPage(result,lqw);
         }
@@ -100,4 +96,26 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgesResources> imple
         }
         return returnPage;
     }
+
+    public IPage<Project> findProjectPage(Long knowledgeId, Integer pageNum, Integer pageSize) {
+
+    }
+
+    public IPage<Lesson> findLessonPage(Long knowledgeId, Integer pageNum, Integer pageSize) {
+
+    }
+    public IPage<Video> findVideoPage(Long knowledgeId, Integer pageNum, Integer pageSize) {
+
+    }
+
+    public IPage<Book> findBookPage(Long knowledgeId, Integer pageNum, Integer pageSize) {
+
+    }
+
+    public IPage<Tutorial> findTutorialPage(Long knowledgeId, Integer pageNum, Integer pageSize) {
+
+    }
+
+
+
 }

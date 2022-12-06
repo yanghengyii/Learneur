@@ -20,7 +20,7 @@ public class BookServiceImpl extends ServiceImpl<BookDao, Book> implements IBook
         List<Book> success = new ArrayList<>();
         for(Book book : bookList){
             LambdaQueryWrapper<Book> lqw = new LambdaQueryWrapper<>();
-            lqw.like(Book::getTitle,book.getTitle());
+            lqw.eq(Book::getTitle,book.getTitle());
             if(getBaseMapper().selectList(lqw).size()==0){
                 getBaseMapper().insert(book);
                 success.add(book);
