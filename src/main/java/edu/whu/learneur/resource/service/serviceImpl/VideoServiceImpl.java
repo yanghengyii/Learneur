@@ -13,10 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class VideoService extends ServiceImpl<VideoDao, Video> implements IVideoService {
+public class VideoServiceImpl extends ServiceImpl<VideoDao, Video> implements IVideoService {
 
-    @SelectKey(statement = "select last_insert_id()",keyProperty = "id",keyColumn = "id_video",resultType = Long.class,before = true)
-    public List<Video> addBooks(List<Video> videoList) throws UserServiceException {
+    public List<Video> addVideos(List<Video> videoList) throws UserServiceException {
         List<Video> success = new ArrayList<>();
         for(Video video : videoList){
             LambdaQueryWrapper<Video> lqw = new LambdaQueryWrapper<>();

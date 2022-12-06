@@ -4,8 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import edu.whu.learneur.domain.Knowledge;
 import edu.whu.learneur.domain.Project;
-import edu.whu.learneur.resource.service.IKRService;
-import edu.whu.learneur.resource.service.IKnowledgeService;
+import edu.whu.learneur.resource.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +20,15 @@ public class KnowledgeController {
     private IKnowledgeService knowledgeService;
 
     @Autowired
-    private IKRService krService;
+    private IBookService bookService;
+    @Autowired
+    private IVideoService videoService;
+    @Autowired
+    private ILessonService lessonService;
+    @Autowired
+    private ITutorialService tutorialService;
+    @Autowired
+    private IProjectService projectService;
 
     @GetMapping("")
     public ResponseEntity<Knowledge> getKnowledge(Long id) {
@@ -44,8 +51,6 @@ public class KnowledgeController {
     public ResponseEntity<IPage<Project>> findProjects(Long id_knowledge,
                                                        @RequestParam(defaultValue = "0") Integer pageNum,
                                                        @RequestParam(defaultValue = "15") Integer pageSize){
-        return
-    }
 
-    @
+    }
 }

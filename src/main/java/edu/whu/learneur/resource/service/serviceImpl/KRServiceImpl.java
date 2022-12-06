@@ -29,6 +29,19 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
         return results;
     }
 
+    public List<KnowledgeResource> addProject(Long knowledgeId,List<Project> projectList) throws UserServiceException{
+        List<KnowledgeResource> results = new ArrayList<>();
+        for(Project project:projectList) {
+            KnowledgeResource knowledgeResources = new KnowledgeResource();
+            knowledgeResources.setIdKnowledge(knowledgeId);
+            knowledgeResources.setIdResources(project.getIdProject());
+            knowledgeResources.setType(3);
+            getBaseMapper().insert(knowledgeResources);
+            results.add(knowledgeResources);
+        }
+        return results;
+    }
+
     public List<KnowledgeResource> addLesson(Long knowledgeId,List<Lesson> lessonList) throws UserServiceException{
         List<KnowledgeResource> results = new ArrayList<>();
         for(Lesson lesson:lessonList) {
@@ -97,9 +110,7 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
         return returnPage;
     }
 
-    public IPage<Project> findProjectPage(Long knowledgeId, Integer pageNum, Integer pageSize) {
 
-    }
 
     public IPage<Lesson> findLessonPage(Long knowledgeId, Integer pageNum, Integer pageSize) {
 

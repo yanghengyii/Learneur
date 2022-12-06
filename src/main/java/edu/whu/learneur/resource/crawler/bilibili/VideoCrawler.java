@@ -32,10 +32,6 @@ public class VideoCrawler implements Crawler<Video> {
         return String.format(url, mid, pageSize, pageNum, keyword);
     }
 
-    @Override
-    public void run() {
-
-    }
 
     /*
         public static List<Video> getVideos(String keyword) throws IOException { // use multi-thread processing

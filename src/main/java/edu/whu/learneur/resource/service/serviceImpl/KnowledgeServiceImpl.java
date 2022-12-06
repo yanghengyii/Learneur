@@ -12,6 +12,8 @@ import edu.whu.learneur.exception.UserServiceException;
 import org.apache.ibatis.annotations.SelectKey;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class KnowledgeServiceImpl extends ServiceImpl<KnowledgeDao, Knowledge> implements IKnowledgeService {
     public void addKnowledge(Knowledge knowledge) throws UserServiceException {
@@ -27,6 +29,10 @@ public class KnowledgeServiceImpl extends ServiceImpl<KnowledgeDao, Knowledge> i
 
     public Knowledge findById(Long id){
         return getBaseMapper().selectById(id);
+    }
+
+    public List<Knowledge> findAll() {
+        return getBaseMapper().findAll();
     }
 
     public Knowledge findByName(String name){

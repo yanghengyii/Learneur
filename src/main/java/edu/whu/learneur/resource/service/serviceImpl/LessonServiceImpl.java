@@ -15,7 +15,6 @@ import java.util.List;
 @Service
 public class LessonServiceImpl extends ServiceImpl<LessonDao, Lesson> implements ILessonService {
 
-    @SelectKey(statement = "select last_insert_id()",keyProperty = "id",keyColumn = "id_lesson",resultType = Long.class,before = true)
     public List<Lesson> addBooks(List<Lesson> lessonList) throws UserServiceException {
         List<Lesson> success = new ArrayList<>();
         for(Lesson newLesson : lessonList){
