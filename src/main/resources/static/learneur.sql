@@ -1,7 +1,7 @@
 
 create table lesson
 (
-    id_lesson       bigint comment '主键' primary key,
+    id_lesson       bigint comment auto_increment '主键' primary key auto_increment,
     title           varchar(32) comment '名称',
     description     varchar(200) comment '简要描述',
     link            varchar(50) comment '链接',
@@ -11,7 +11,7 @@ create table lesson
 
 create table book
 (
-    id_book         bigint comment '主键' primary key,
+    id_book         bigint comment '主键' primary key auto_increment,
     title           varchar(32) comment '书籍名称',
     img_path        varchar(50) comment '配图',
     path            varchar(50) comment '书籍本地路径',
@@ -24,7 +24,7 @@ create table book
 
 create table video
 (
-    id_video        bigint comment '主键' primary key ,
+    id_video        bigint comment '主键' primary key auto_increment,
     author          varchar(50) comment '作者',
     BVid            varchar(50) comment 'BV号',
     length          varchar(50) comment '长度',
@@ -36,7 +36,7 @@ create table video
 
 create table project
 (
-    id_project      bigint comment '主键' primary key,
+    id_project      bigint comment '主键' primary key auto_increment,
     name            varchar(50) comment '名称',
     update_time     date comment '更新时间',
     link            varchar(50) comment '跳转链接',
@@ -50,7 +50,7 @@ create table project
 
 create table tutorial
 (
-    id_tutorial     bigint comment '主键' primary key,
+    id_tutorial     bigint comment '主键' primary key auto_increment,
     name            varchar(50) comment '名称',
     link            varchar(100) comment '链接',
     summary         varchar(200) comment '简介'
@@ -58,13 +58,14 @@ create table tutorial
 
 
 create table knowledge (
-    id_knowledge            bigint comment '主键' primary key ,
+    id_knowledge            bigint comment '主键' primary key auto_increment,
     knowledge_name          varchar(50) comment '知识点' not null ,
     knowledge_description   varchar(200) comment '知识点描述'
 ) comment '知识点' collate = utf8mb4_unicode_ci;
 
 
 create table knowledge_resource (
+    id   bigint comment '主键' primary key auto_increment,
     id_resources bigint comment '资源id' not null ,
     id_knowledge bigint comment '知识点id' not null,
     type            int comment '资源类型: 1:网课; 2:书籍; 3:项目; 4:教程; 5:视频'

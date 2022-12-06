@@ -7,7 +7,7 @@ import lombok.Data;
 // bilibili video
 @Data
 public class Video {
-    @TableId(value = "id_video",type = IdType.ASSIGN_ID)
+    @TableId(value = "id_video",type = IdType.AUTO)
     private Long id;
 
     private String author;

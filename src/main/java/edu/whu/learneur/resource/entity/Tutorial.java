@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Tutorial {
-    @TableId(value = "id_tutorial",type = IdType.ASSIGN_ID)
+    @TableId(value = "id_tutorial",type = IdType.AUTO)
     private Long id;
 
     String name;

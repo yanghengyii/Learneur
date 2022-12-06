@@ -12,7 +12,7 @@ public class Book {
     /**
      * 主键
      */
-    @TableId(value = "id_book", type = IdType.ASSIGN_ID)
+    @TableId(value = "id_book", type = IdType.AUTO)
     private Long id;
 
     /**
