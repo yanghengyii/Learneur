@@ -17,7 +17,7 @@ public class Lesson {
     /**
      * 主键
      */
-    @TableId(value = "id_lesson", type = IdType.ASSIGN_ID)
+    @TableId(value = "id_lesson", type = IdType.AUTO)
     private Long id;
 
     /**

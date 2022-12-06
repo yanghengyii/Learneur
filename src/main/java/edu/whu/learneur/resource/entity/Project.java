@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Data
 public class Project {
-    @TableId(value = "id_lesson", type = IdType.ASSIGN_ID)
+    @TableId(value = "id_lesson", type = IdType.AUTO)
     private Long idProject;
 
     /**
