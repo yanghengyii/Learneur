@@ -1,9 +1,12 @@
 package edu.whu.learneur.resource.service.serviceImpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import edu.whu.learneur.resource.dao.BookDao;
 import edu.whu.learneur.resource.entity.Book;
+import edu.whu.learneur.resource.entity.Project;
 import edu.whu.learneur.resource.service.IBookService;
 import edu.whu.learneur.exception.UserServiceException;
 import org.apache.ibatis.annotations.SelectKey;
@@ -15,7 +18,6 @@ import java.util.List;
 @Service
 public class BookServiceImpl extends ServiceImpl<BookDao, Book> implements IBookService {
 
-    @SelectKey(statement = "select last_insert_id()",keyProperty = "id",keyColumn = "id_book",resultType = Long.class,before = true)
     public List<Book> addBooks(List<Book> bookList) throws UserServiceException{
         List<Book> success = new ArrayList<>();
         for(Book book : bookList){
@@ -27,6 +29,17 @@ public class BookServiceImpl extends ServiceImpl<BookDao, Book> implements IBook
             }
         }
         return success;
+    }
+
+    public IPage<Book> findBookPage(Long knowledgeId, Integer pageNum, Integer pageSize){
+        return null;
+    }
+
+    @Override
+    public IPage<Book> findAllBooks(Integer pageNum, Integer pageSize) {
+        Page<Book> page = new Page<>(pageNum, pageSize);
+        LambdaQueryWrapper<Book> lqw = new LambdaQueryWrapper<>();
+        return getBaseMapper().selectPage(page, lqw);
     }
 
     public Book findById(long id){

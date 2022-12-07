@@ -1,6 +1,7 @@
 package edu.whu.learneur.resource.service.serviceImpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import edu.whu.learneur.resource.dao.TutorialDao;
 import edu.whu.learneur.resource.entity.Tutorial;
@@ -25,6 +26,10 @@ public class TutorialServiceImpl extends ServiceImpl<TutorialDao, Tutorial> impl
             }
         }
         return success;
+    }
+
+    public IPage<Tutorial> findTutorialPage(Long knowledgeId, Integer pageNum, Integer pageSize) {
+        return null;
     }
 
     public Tutorial findById(long id){

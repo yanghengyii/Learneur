@@ -112,20 +112,12 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
 
 
 
-    public IPage<Lesson> findLessonPage(Long knowledgeId, Integer pageNum, Integer pageSize) {
 
-    }
-    public IPage<Video> findVideoPage(Long knowledgeId, Integer pageNum, Integer pageSize) {
 
-    }
 
-    public IPage<Book> findBookPage(Long knowledgeId, Integer pageNum, Integer pageSize) {
 
-    }
 
-    public IPage<Tutorial> findTutorialPage(Long knowledgeId, Integer pageNum, Integer pageSize) {
 
-    }
 
 
 

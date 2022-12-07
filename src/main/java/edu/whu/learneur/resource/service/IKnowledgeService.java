@@ -1,8 +1,8 @@
 package edu.whu.learneur.resource.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import edu.whu.learneur.domain.Knowledge;
 import edu.whu.learneur.exception.UserServiceException;
+import edu.whu.learneur.resource.entity.Knowledge;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

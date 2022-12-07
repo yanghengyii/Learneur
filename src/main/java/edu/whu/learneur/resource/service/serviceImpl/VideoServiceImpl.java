@@ -1,6 +1,7 @@
 package edu.whu.learneur.resource.service.serviceImpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import edu.whu.learneur.resource.dao.VideoDao;
 import edu.whu.learneur.resource.entity.Video;
@@ -26,6 +27,10 @@ public class VideoServiceImpl extends ServiceImpl<VideoDao, Video> implements IV
             }
         }
         return success;
+    }
+
+    public IPage<Video> findVideoPage(Long knowledgeId, Integer pageNum, Integer pageSize) {
+        return null;
     }
 
     public Video findById(long id){
