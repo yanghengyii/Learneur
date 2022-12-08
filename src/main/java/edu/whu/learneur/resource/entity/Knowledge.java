@@ -4,9 +4,6 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import edu.whu.learneur.domain.Books;
-import edu.whu.learneur.domain.Lessons;
-import edu.whu.learneur.domain.Projects;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -51,17 +48,17 @@ public class Knowledge implements Serializable {
      * 该知识点下的电子书资源
      */
     @TableField(exist = false)
-    List<Books> books;
+    List<Book> books;
 
     /**
      * 该知识点下的网课资源
      */
     @TableField(exist = false)
-    List<Lessons> lessons;
+    List<Lesson> lessons;
 
     /**
      * 该知识点下的项目资源
      */
     @TableField(exist = false)
-    List<Projects> projects;
+    List<Project> projects;
 }

@@ -1,11 +1,9 @@
 package edu.whu.learneur.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.api.R;
 import edu.whu.learneur.domain.Notes;
 import edu.whu.learneur.domain.Users;
 import edu.whu.learneur.service.INotesService;
-import edu.whu.learneur.service.IResourcesService;
 import edu.whu.learneur.service.IUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +21,8 @@ public class AdminController {
     @Autowired
     private INotesService notesService;
 
-    @Autowired
-    private IResourcesService resourcesService;
+//    @Autowired
+//    private IResourcesService resourcesService;
 
     @GetMapping("/users/all")
     public ResponseEntity<IPage<Users>> findAllUsers(
@@ -68,13 +66,13 @@ public class AdminController {
         return ResponseEntity.ok(notesService.deleteNoteByBatch(idNotes));
     }
 
-    @PostMapping("/resources/save-or-update")
-    public ResponseEntity<Boolean> saveOrUpdateResourcesByBatches(@RequestBody List<Object> resources) {
-        return ResponseEntity.ok(resourcesService.saveOrUpdateResources(resources));
-    }
+//    @PostMapping("/resources/save-or-update")
+//    public ResponseEntity<Boolean> saveOrUpdateResourcesByBatches(@RequestBody List<Object> resources) {
+//        return ResponseEntity.ok(resourcesService.saveOrUpdateResources(resources));
+//    }
 
-    @DeleteMapping("/resources/delete-resource-by-batches")
-    public ResponseEntity<Boolean> deleteResourcesByBatches(@RequestBody List<Long> idResources) {
-        return ResponseEntity.ok(resourcesService.deleteResourcesByIds(idResources));
-    }
+//    @DeleteMapping("/resources/delete-resource-by-batches")
+//    public ResponseEntity<Boolean> deleteResourcesByBatches(@RequestBody List<Long> idResources) {
+//        return ResponseEntity.ok(resourcesService.deleteResourcesByIds(idResources));
+//    }
 }
