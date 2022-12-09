@@ -13,19 +13,19 @@ import java.util.Map;
 @Getter
 public class KnowledgeAndRelations {
     List<Knowledge> knowledges;
-    Map<String,Object>[] preKnowledges;
-    Map<String,Object>[] includes;
-    Map<String,Object>[] associateds;
-    Map<String,Object>[] commons;
+    List<Relation> preKnowledges;
+    List<Relation> includes;
+    List<Relation> associateds;
+    List<Relation> commons;
 
     @Override
     public String toString() {
         return "KnowledgeAndRelations{" +
                 "knowledges=" + knowledges +
-                ", preKnowledges=" + Arrays.toString(preKnowledges) +
-                ", includes=" + Arrays.toString(includes) +
-                ", associateds=" + Arrays.toString(associateds) +
-                ", commons=" + Arrays.toString(commons) +
+                ", preKnowledges=" + preKnowledges +
+                ", includes=" + includes +
+                ", associateds=" + associateds +
+                ", commons=" + commons +
                 '}';
     }
 }
