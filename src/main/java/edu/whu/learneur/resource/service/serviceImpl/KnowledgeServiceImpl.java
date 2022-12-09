@@ -6,8 +6,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import edu.whu.learneur.resource.dao.KnowledgeDao;
+import edu.whu.learneur.resource.entity.Knowledge;
 import edu.whu.learneur.resource.service.IKnowledgeService;
-import edu.whu.learneur.domain.Knowledge;
 import edu.whu.learneur.exception.UserServiceException;
 import org.apache.ibatis.annotations.SelectKey;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ public class KnowledgeServiceImpl extends ServiceImpl<KnowledgeDao, Knowledge> i
     public void addKnowledge(Knowledge knowledge) throws UserServiceException {
             LambdaQueryWrapper<Knowledge> lqw = new LambdaQueryWrapper<>();
             lqw.like(Knowledge::getKnowledgeName,knowledge.getKnowledgeName());
-            if(getBaseMapper().selectList(lqw).size()==0){
+            if(getBaseMapper().selectList(lqw).isEmpty()){
                 getBaseMapper().insert(knowledge);
             }
             else{

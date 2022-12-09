@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -40,5 +42,8 @@ public class Lesson {
      */
     @TableField(value = "img_path")
     private String imgPath;
+
+    @TableField(exist = false)
+    List<Knowledge> knowledge;
 
 }

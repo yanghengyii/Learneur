@@ -49,6 +49,10 @@ mybatis-plus:
 
 jwt:
   secret: f7558b981defc498a41bb5ef6288b82d6355a8135c067e1f2fbd7b43fb9e7ea4203870a7de0abd34d388710ea6032d5b249c24b4f563f25141f32b50f4f4be3c
+
+time:
+  cron: 0 0 0 * * ?
+
 elasticsearch:
   query:
     match-specific-type-resource:
