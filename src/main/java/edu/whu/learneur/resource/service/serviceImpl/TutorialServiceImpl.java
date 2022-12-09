@@ -2,6 +2,7 @@ package edu.whu.learneur.resource.service.serviceImpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import edu.whu.learneur.resource.dao.TutorialDao;
 import edu.whu.learneur.resource.entity.Tutorial;
@@ -20,7 +21,7 @@ public class TutorialServiceImpl extends ServiceImpl<TutorialDao, Tutorial> impl
         for(Tutorial tutorial : tutorialList){
             LambdaQueryWrapper<Tutorial> lqw = new LambdaQueryWrapper<>();
             lqw.like(Tutorial::getName,tutorial.getName());
-            if(getBaseMapper().selectList(lqw).size()==0){
+            if(getBaseMapper().selectList(lqw).isEmpty()){
                 getBaseMapper().insert(tutorial);
                 success.add(tutorial);
             }
@@ -29,7 +30,7 @@ public class TutorialServiceImpl extends ServiceImpl<TutorialDao, Tutorial> impl
     }
 
     public IPage<Tutorial> findTutorialPage(Long knowledgeId, Integer pageNum, Integer pageSize) {
-        return null;
+        return getBaseMapper().findTutorialsByKnowledgeId(knowledgeId, new Page<>(pageNum, pageSize));
     }
 
     public Tutorial findById(long id){

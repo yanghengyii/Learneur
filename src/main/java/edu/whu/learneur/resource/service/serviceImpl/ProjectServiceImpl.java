@@ -20,7 +20,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectDao, Project> impleme
             LambdaQueryWrapper<Project> lqw = new LambdaQueryWrapper<>();
             lqw.eq(Project::getName, project.getName());
             List list = getBaseMapper().selectList(lqw);
-            if(list.size()== 0) {
+            if(list.isEmpty()) {
                 getBaseMapper().insert(project);
             }
         }
@@ -30,7 +30,8 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectDao, Project> impleme
 
     @Override
     public IPage<Project> findProjectPage(Long knowledgeId, Integer pageNum, Integer pageSize) {
-        return null;
+        Page<Project> page = new Page<>(pageNum, pageSize);
+        return getBaseMapper().findProjectsByKnowledgeId(knowledgeId, page);
     }
 
     @Override

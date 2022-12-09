@@ -21,7 +21,7 @@ public class VideoServiceImpl extends ServiceImpl<VideoDao, Video> implements IV
         for(Video video : videoList){
             LambdaQueryWrapper<Video> lqw = new LambdaQueryWrapper<>();
             lqw.like(Video::getBVid,video.getBVid());
-            if(getBaseMapper().selectList(lqw).size()==0){
+            if(getBaseMapper().selectList(lqw).isEmpty()){
                 getBaseMapper().insert(video);
                 success.add(video);
             }

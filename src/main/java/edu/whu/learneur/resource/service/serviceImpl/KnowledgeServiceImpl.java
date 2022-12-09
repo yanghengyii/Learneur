@@ -19,7 +19,7 @@ public class KnowledgeServiceImpl extends ServiceImpl<KnowledgeDao, Knowledge> i
     public void addKnowledge(Knowledge knowledge) throws UserServiceException {
             LambdaQueryWrapper<Knowledge> lqw = new LambdaQueryWrapper<>();
             lqw.like(Knowledge::getKnowledgeName,knowledge.getKnowledgeName());
-            if(getBaseMapper().selectList(lqw).size()==0){
+            if(getBaseMapper().selectList(lqw).isEmpty()){
                 getBaseMapper().insert(knowledge);
             }
             else{

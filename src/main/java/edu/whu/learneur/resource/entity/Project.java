@@ -1,10 +1,12 @@
 package edu.whu.learneur.resource.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 public class Project {
@@ -51,5 +53,8 @@ public class Project {
      * readme
      */
     private String readme;
+
+    @TableField(exist = false)
+    List<Knowledge> knowledge;
 
 }

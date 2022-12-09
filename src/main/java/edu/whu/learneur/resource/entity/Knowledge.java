@@ -44,21 +44,21 @@ public class Knowledge implements Serializable {
     @TableField(value = "knowledge_description")
     private String knowledgeDescription;
 
-    /**
-     * 该知识点下的电子书资源
-     */
-    @TableField(exist = false)
-    List<Book> books;
-
-    /**
-     * 该知识点下的网课资源
-     */
-    @TableField(exist = false)
-    List<Lesson> lessons;
-
-    /**
-     * 该知识点下的项目资源
-     */
-    @TableField(exist = false)
-    List<Project> projects;
+//    /**
+//     * 该知识点下的电子书资源
+//     */
+//    @TableField(exist = false)
+//    List<Book> books;
+//
+//    /**
+//     * 该知识点下的网课资源
+//     */
+//    @TableField(exist = false)
+//    List<Lesson> lessons;
+//
+//    /**
+//     * 该知识点下的项目资源
+//     */
+//    @TableField(exist = false)
+//    List<Project> projects;
 }
