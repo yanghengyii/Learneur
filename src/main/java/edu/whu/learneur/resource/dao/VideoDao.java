@@ -10,6 +10,6 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface VideoDao extends BaseMapper<Video> {
-    @Select("")
-    IPage<Video> findVideosByKnowledgeId(Long KnowledgeId, Page<?> page);
+    @Select("SELECT id_video,author,BVid,length,pic_path,description,title FROM knowledge_resource natural join video where id_knowledge = ${KnowledgeId}")
+    IPage<Video> findVideosByKnowledgeId(Long KnowledgeId, Page<Tutorial> page);
 }
