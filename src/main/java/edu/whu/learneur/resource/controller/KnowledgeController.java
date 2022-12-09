@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import edu.whu.learneur.domain.Knowledge;
 import edu.whu.learneur.domain.Project;
+import edu.whu.learneur.resource.entity.Book;
+import edu.whu.learneur.resource.entity.Lesson;
+import edu.whu.learneur.resource.entity.Video;
 import edu.whu.learneur.resource.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -51,6 +54,6 @@ public class KnowledgeController {
     public ResponseEntity<IPage<Project>> findProjects(Long id_knowledge,
                                                        @RequestParam(defaultValue = "0") Integer pageNum,
                                                        @RequestParam(defaultValue = "15") Integer pageSize){
-
+        return
     }
 }
