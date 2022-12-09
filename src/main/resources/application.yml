@@ -3,7 +3,7 @@ spring:
     url: jdbc:mysql://localhost:3306/learneur
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: j1101714214
+    password: yhy9490101
   mail:
     host: smtp.qq.com
     username: 2607038766@qq.com
@@ -41,3 +41,6 @@ mybatis-plus:
 
 jwt:
   secret: f7558b981defc498a41bb5ef6288b82d6355a8135c067e1f2fbd7b43fb9e7ea4203870a7de0abd34d388710ea6032d5b249c24b4f563f25141f32b50f4f4be3c
+
+time:
+  cron: 0 0 0 * * ?

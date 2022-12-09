@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class Book {
     private static final long serialVersionUID = 1L;
@@ -12,7 +14,7 @@ public class Book {
     /**
      * 主键
      */
-    @TableId(value = "id_book", type = IdType.ASSIGN_ID)
+    @TableId(value = "id_book", type = IdType.AUTO)
     private Long id;
 
     /**
@@ -56,4 +58,7 @@ public class Book {
     private String fileType;
 
     private String publishDate;
+
+    @TableField(exist = false)
+    List<Knowledge> knowledge;
 }

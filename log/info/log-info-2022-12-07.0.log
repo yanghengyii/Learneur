@@ -1,0 +1,99 @@
+2022-12-07 22:04:53.298 [main] INFO  edu.whu.learneur.LearneurApplication - Starting LearneurApplication using Java 1.8.0_271 on LAPTOP-MTFLNKU4 with PID 24032 (F:\java_code\Learneur\Learneur\target\classes started by Lenovo in F:\java_code\Learneur\Learneur)
+2022-12-07 22:04:53.300 [main] INFO  edu.whu.learneur.LearneurApplication - No active profile set, falling back to 1 default profile: "default"
+2022-12-07 22:14:29.172 [main] INFO  edu.whu.learneur.LearneurApplication - Starting LearneurApplication using Java 1.8.0_271 on LAPTOP-MTFLNKU4 with PID 26288 (F:\java_code\Learneur\Learneur\target\classes started by Lenovo in F:\java_code\Learneur\Learneur)
+2022-12-07 22:14:29.174 [main] INFO  edu.whu.learneur.LearneurApplication - No active profile set, falling back to 1 default profile: "default"
+2022-12-07 22:14:29.825 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-07 22:14:29.828 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2022-12-07 22:14:29.876 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 0 Neo4j repository interfaces.
+2022-12-07 22:14:29.880 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-07 22:14:29.880 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2022-12-07 22:14:29.900 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 1 Neo4j repository interfaces.
+2022-12-07 22:14:29.911 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-07 22:14:29.912 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-12-07 22:14:29.925 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whu.learneur.neo4j.dao.KnowledgeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-07 22:14:29.927 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2022-12-07 22:14:30.548 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2022-12-07 22:14:30.554 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-07 22:14:30.555 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-07 22:14:30.555 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-07 22:14:30.725 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-07 22:14:30.725 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1519 ms
+2022-12-07 22:14:32.091 [main] INFO  org.neo4j.driver.internal.DriverFactory - Direct driver instance 1839529707 created for server address wslhost:7687
+2022-12-07 22:14:32.379 [main] INFO  org.neo4j.driver.internal.InternalDriver - Closing driver instance 1839529707
+2022-12-07 22:14:32.638 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-12-07 22:14:32.646 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-12-07 22:17:28.951 [main] INFO  edu.whu.learneur.LearneurApplication - Starting LearneurApplication using Java 1.8.0_271 on LAPTOP-MTFLNKU4 with PID 26536 (F:\java_code\Learneur\Learneur\target\classes started by Lenovo in F:\java_code\Learneur\Learneur)
+2022-12-07 22:17:28.952 [main] INFO  edu.whu.learneur.LearneurApplication - No active profile set, falling back to 1 default profile: "default"
+2022-12-07 22:17:29.512 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-07 22:17:29.514 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2022-12-07 22:17:29.553 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 0 Neo4j repository interfaces.
+2022-12-07 22:17:29.557 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-07 22:17:29.558 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2022-12-07 22:17:29.578 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 1 Neo4j repository interfaces.
+2022-12-07 22:17:29.589 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-07 22:17:29.590 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-12-07 22:17:29.604 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whu.learneur.neo4j.dao.KnowledgeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-07 22:17:29.604 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2022-12-07 22:17:30.174 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2022-12-07 22:17:30.182 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-07 22:17:30.183 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-07 22:17:30.183 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-07 22:17:30.339 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-07 22:17:30.339 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1359 ms
+2022-12-07 22:17:31.537 [main] INFO  org.neo4j.driver.internal.DriverFactory - Direct driver instance 299161977 created for server address wslhost:7687
+2022-12-07 22:17:31.798 [main] INFO  org.neo4j.driver.internal.InternalDriver - Closing driver instance 299161977
+2022-12-07 22:17:32.038 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-12-07 22:17:32.047 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-12-07 22:18:06.413 [main] INFO  edu.whu.learneur.LearneurApplication - Starting LearneurApplication using Java 1.8.0_271 on LAPTOP-MTFLNKU4 with PID 8420 (F:\java_code\Learneur\Learneur\target\classes started by Lenovo in F:\java_code\Learneur\Learneur)
+2022-12-07 22:18:06.416 [main] INFO  edu.whu.learneur.LearneurApplication - No active profile set, falling back to 1 default profile: "default"
+2022-12-07 22:18:06.981 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-07 22:18:06.983 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2022-12-07 22:18:07.025 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 0 Neo4j repository interfaces.
+2022-12-07 22:18:07.028 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-07 22:18:07.028 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2022-12-07 22:18:07.050 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 1 Neo4j repository interfaces.
+2022-12-07 22:18:07.060 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-07 22:18:07.061 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-12-07 22:18:07.075 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whu.learneur.neo4j.dao.KnowledgeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-07 22:18:07.075 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2022-12-07 22:18:07.616 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2022-12-07 22:18:07.623 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-07 22:18:07.624 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-07 22:18:07.624 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-07 22:18:07.784 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-07 22:18:07.784 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1329 ms
+2022-12-07 22:18:08.982 [main] INFO  org.neo4j.driver.internal.DriverFactory - Direct driver instance 384406278 created for server address wslhost:7687
+2022-12-07 22:18:09.269 [main] INFO  org.neo4j.driver.internal.InternalDriver - Closing driver instance 384406278
+2022-12-07 22:18:09.513 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-12-07 22:18:09.523 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-12-07 22:18:57.568 [main] INFO  edu.whu.learneur.LearneurApplication - Starting LearneurApplication using Java 1.8.0_271 on LAPTOP-MTFLNKU4 with PID 19012 (F:\java_code\Learneur\Learneur\target\classes started by Lenovo in F:\java_code\Learneur\Learneur)
+2022-12-07 22:18:57.571 [main] INFO  edu.whu.learneur.LearneurApplication - No active profile set, falling back to 1 default profile: "default"
+2022-12-07 22:18:58.123 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-07 22:18:58.125 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2022-12-07 22:18:58.169 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40 ms. Found 0 Neo4j repository interfaces.
+2022-12-07 22:18:58.172 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-07 22:18:58.173 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2022-12-07 22:18:58.195 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 1 Neo4j repository interfaces.
+2022-12-07 22:18:58.209 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-12-07 22:18:58.210 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-12-07 22:18:58.227 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whu.learneur.neo4j.dao.KnowledgeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2022-12-07 22:18:58.227 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2022-12-07 22:18:58.775 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2022-12-07 22:18:58.782 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-07 22:18:58.782 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-07 22:18:58.782 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-07 22:18:58.942 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-07 22:18:58.942 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1340 ms
+2022-12-07 22:19:00.255 [main] INFO  org.neo4j.driver.internal.DriverFactory - Direct driver instance 1213733435 created for server address wslhost:7687
+2022-12-07 22:19:00.667 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static org.springframework.core.env.Environment edu.whu.learneur.utils.CodeUtils.env
+2022-12-07 22:19:00.769 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@70091872, org.springframework.security.web.session.ForceEagerSessionCreationFilter@105db94d, org.springframework.security.web.session.ForceEagerSessionCreationFilter@74123110, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1d99ee1b, org.springframework.security.web.context.SecurityContextPersistenceFilter@5fe46d52, org.springframework.security.web.header.HeaderWriterFilter@569348e1, org.springframework.security.web.authentication.logout.LogoutFilter@26fadd98, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3dfd7eaa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7cfb8e98, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3915e7c3, org.springframework.security.web.session.SessionManagementFilter@2f15a964, org.springframework.security.web.access.ExceptionTranslationFilter@21002393, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6afbe6a1]
+2022-12-07 22:19:01.287 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-07 22:19:01.297 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2022-12-07 22:19:01.306 [main] INFO  edu.whu.learneur.LearneurApplication - Started LearneurApplication in 4.061 seconds (JVM running for 4.923)
+2022-12-07 22:19:11.022 [SpringApplicationShutdownHook] INFO  org.neo4j.driver.internal.InternalDriver - Closing driver instance 1213733435

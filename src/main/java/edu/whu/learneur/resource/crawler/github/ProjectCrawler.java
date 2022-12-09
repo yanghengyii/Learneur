@@ -51,19 +51,24 @@ public class ProjectCrawler implements Crawler<Project> {
     }
     public List<Project> crawl(String key) {
         List<Project> res = new ArrayList<>();
-        String fullUrl = url + key + "&sort=stars&page=0&per_page=30";
-        try{
-            String response = getResponse(fullUrl);
-            res.addAll(parse(response));
+        String fullUrl;
+        for(int i = 0; i < 30; i++){
+            fullUrl = url + key + "&sort=stars&page="+i+"&per_page=30";
+            try{
+                String response = getResponse(fullUrl);
+                if(response != null) {
+                    res.addAll(parse(response));
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
         }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+
         return res;
     }
     public List<Project> parse(String jsonStr) {
        List<Project> res = new ArrayList<>();
-        System.out.println(jsonStr);
         JSONObject obj = new JSONObject(jsonStr);
         JSONArray projects = obj.getJSONArray("items");
         for(int i = 0; i < projects.length(); i++) {
@@ -90,15 +95,14 @@ public class ProjectCrawler implements Crawler<Project> {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
         return LocalDate.parse(s, formatter);
     }
-//    public static void main(String[] args) throws Exception{
-//        List<String> stringList = new ArrayList<>();
-//        stringList.add("java");
-//        stringList.add("cloud");
-//        stringList.add("markdown");
-//        ProjectCrawler crawler = new ProjectCrawler();
-//        List<Project> res =crawler.crawl("java");
-//        for(Project project: res) {
-//            System.out.println(project.toString());
-//        }
-//    }
+
+    public static void main(String[] args) {
+        ProjectCrawler crawler = new ProjectCrawler();
+        List<Project> res = crawler.crawl("java");
+        for(Project p : res) {
+            System.out.println(p);
+        }
+        System.out.println(res.size());
+
+    }
 }

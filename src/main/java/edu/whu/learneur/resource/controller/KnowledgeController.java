@@ -2,11 +2,7 @@ package edu.whu.learneur.resource.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import edu.whu.learneur.domain.Knowledge;
-import edu.whu.learneur.domain.Project;
-import edu.whu.learneur.resource.entity.Book;
-import edu.whu.learneur.resource.entity.Lesson;
-import edu.whu.learneur.resource.entity.Video;
+import edu.whu.learneur.resource.entity.*;
 import edu.whu.learneur.resource.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

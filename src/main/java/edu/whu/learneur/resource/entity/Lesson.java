@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,7 +19,7 @@ public class Lesson {
     /**
      * 主键
      */
-    @TableId(value = "id_lesson", type = IdType.ASSIGN_ID)
+    @TableId(value = "id_lesson", type = IdType.AUTO)
     private Long id;
 
     /**
@@ -40,5 +42,8 @@ public class Lesson {
      */
     @TableField(value = "img_path")
     private String imgPath;
+
+    @TableField(exist = false)
+    List<Knowledge> knowledge;
 
 }
