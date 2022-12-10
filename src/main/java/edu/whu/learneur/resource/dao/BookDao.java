@@ -9,6 +9,6 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface BookDao extends BaseMapper<Book> {
-    @Select("")
-    IPage<Book> findBooksByKnowledgeId(Long KnowledgeId, Page<?> page);
+    @Select("SELECT id_book,title,img_path,path,author,publisher,language,download_url FROM knowledge_resource natural join book where id_knowledge = ${KnowledgeId}")
+    IPage<Book> findBooksByKnowledgeId(Long KnowledgeId, Page<Book> page);
 }
