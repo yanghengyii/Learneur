@@ -3,12 +3,14 @@ package edu.whu.learneur.neo4j.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.neo4j.core.schema.*;
 
 import java.util.List;
 
 @Data
 @Node("knowledge")
+@NoArgsConstructor
 public class Knowledge {
     @Id
     @GeneratedValue
