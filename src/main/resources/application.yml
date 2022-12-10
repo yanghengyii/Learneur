@@ -29,6 +29,14 @@ spring:
     authentication:
       username: neo4j
       password: 12345678
+  elasticsearch:
+    username: javaeecourse
+    password: 12345678
+    host-and-port: localhost:9200
+    http-ca:
+      sha256-fingerprint:
+        89:26:C3:E6:09:BF:4F:8A:6C:DE:3E:3E:33:DA:01:5F:60:9D:5A:F4:ED:41:50:38:38:0F:23:77:24:D9:9E:A1
+    path-prefix: learneur
 
 server:
   port: 8080
@@ -44,3 +52,38 @@ jwt:
 
 time:
   cron: 0 0 0 * * ?
+
+elasticsearch:
+  query:
+    match-specific-type-resource:
+      '{
+        "bool": {
+          "filter": { "term": { "resource_type": "?0" } },
+          "should": [
+            { "term": { "name.keyword": { "value": "?1", "boost": 100 } } },
+            { "match": { "name": "?1" } },
+            { "match": { "description": "?1" } }
+          ]
+        }
+      }'
+    match-all-type-resource:
+      '{
+        "bool": {
+          "should": [
+            { "term": { "name.keyword": { "value": "?0", "boost": 100 } } },
+            { "match": { "name": "?0" } },
+            { "match": { "description": "?0" } }
+          ]
+        }
+      }'
+    match-knowledge:
+      '{
+        "bool": {
+          "should": [
+            { "term": { "name.keyword": { "value": "?0", "boost": 100 } } },
+            { "match": { "name": { "query": "?0", "boost": 2.5 } } },
+            { "match": { "description": { "query": "?0", "boost": 2.5 } } },
+            { "match": { "resources_description": { "query": "?0", "boost": 1.0 } } }
+          ]
+        }
+      }'
