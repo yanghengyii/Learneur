@@ -16,7 +16,11 @@ public interface KnowledgeRepoInterface {
 
     Optional<Knowledge> deleteById(Long id);
 
-    Optional<Relation> deleteRelationById(Long id);
+    Optional<Relation> deleteRelationById(Long start, Long end);
 
     Optional<List<Relation>> findRelationByNameAndType(String name, String type);
+
+    Optional<List<Relation>> findRelationByName(String name, Integer depth);
+
+    Optional<List<Knowledge>> findAllRelated(String name);
 }

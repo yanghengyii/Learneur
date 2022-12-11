@@ -18,7 +18,7 @@ public interface GKnowledgeService {
     List<Relation> updateRelationById(Long relationId, String type, String description);
 
     Knowledge deleteTagById(Long id);
-    Relation deleteRelationById(Long id);
+    Relation deleteRelationById(Long id,Long end);
 
     KnowledgeAndRelations getGraphByName(String name);
 

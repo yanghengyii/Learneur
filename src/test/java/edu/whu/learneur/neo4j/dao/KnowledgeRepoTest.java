@@ -37,4 +37,9 @@ class KnowledgeRepoTest {
     void findRelationByNameAndType() {
         knowledgeRepo.findRelationByNameAndType("c","common");
     }
+
+    @Test
+    void findRelationByName() {
+        knowledgeRepo.findRelationByName("c",3);
+    }
 }
