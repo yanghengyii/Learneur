@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import edu.whu.learneur.constant.ResourcesType;
+import edu.whu.learneur.exception.ResourceException;
 import edu.whu.learneur.resource.dao.KRDao;
 import edu.whu.learneur.resource.entity.*;
 import edu.whu.learneur.resource.service.IKRService;
@@ -17,7 +18,7 @@ import java.util.List;
 @Service
 public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> implements IKRService {
 
-    public List<KnowledgeResource> addBook(Long knowledgeId,List<Book> bookList) throws UserServiceException{
+    public List<KnowledgeResource> addBook(Long knowledgeId,List<Book> bookList) throws ResourceException{
         List<KnowledgeResource> results = new ArrayList<>();
         for(Book book:bookList) {
             if(notExist(knowledgeId, book.getId(), ResourcesType.BOOK)) {
@@ -33,7 +34,7 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
         return results;
     }
 
-    public List<KnowledgeResource> addProject(Long knowledgeId,List<Project> projectList) throws UserServiceException{
+    public List<KnowledgeResource> addProject(Long knowledgeId,List<Project> projectList) throws ResourceException{
         List<KnowledgeResource> results = new ArrayList<>();
         for(Project project:projectList) {
             if(notExist(knowledgeId, project.getIdProject(), ResourcesType.PROJECT)){
@@ -49,7 +50,7 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
         return results;
     }
 
-    public List<KnowledgeResource> addLesson(Long knowledgeId,List<Lesson> lessonList) throws UserServiceException{
+    public List<KnowledgeResource> addLesson(Long knowledgeId,List<Lesson> lessonList) throws ResourceException{
         List<KnowledgeResource> results = new ArrayList<>();
         for(Lesson lesson:lessonList) {
             if(notExist(knowledgeId, lesson.getId(), ResourcesType.LESSON)){
@@ -64,7 +65,7 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
         return results;
     }
 
-    public List<KnowledgeResource> addTutorial(Long knowledgeId,List<Tutorial> tutorialList) throws UserServiceException{
+    public List<KnowledgeResource> addTutorial(Long knowledgeId,List<Tutorial> tutorialList) throws ResourceException{
         List<KnowledgeResource> results = new ArrayList<>();
         for(Tutorial tutorial:tutorialList) {
             if(notExist(knowledgeId, tutorial.getId(), ResourcesType.TUTORIAL)){
@@ -80,7 +81,7 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
         return results;
     }
 
-    public List<KnowledgeResource> addVideo(Long knowledgeId,List<Video> videoList) throws UserServiceException{
+    public List<KnowledgeResource> addVideo(Long knowledgeId,List<Video> videoList) throws ResourceException{
         List<KnowledgeResource> results = new ArrayList<>();
         for(Video video:videoList) {
             if(notExist(knowledgeId, video.getId(), ResourcesType.VIDEO)){
@@ -94,7 +95,7 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
         }
         return results;
     }
-    public IPage<KnowledgeResource> findResourcePageByKnowledgeId(int current,int size,Long knowledgeId){
+    public IPage<KnowledgeResource> findResourcePageByKnowledgeId(int current,int size,Long knowledgeId) throws ResourceException{
         IPage<KnowledgeResource> result = new Page<>(current,size);
         IPage<KnowledgeResource> returnPage;
         LambdaQueryWrapper<KnowledgeResource> lqw = new LambdaQueryWrapper<>();
@@ -103,7 +104,7 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
             returnPage = getBaseMapper().selectPage(result,lqw);
         }
         catch (Exception e){
-            throw new UserServiceException("查询失败");
+            throw new ResourceException("查询失败");
         }
         return returnPage;
     }
