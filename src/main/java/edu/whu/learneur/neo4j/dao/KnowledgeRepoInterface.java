@@ -23,4 +23,6 @@ public interface KnowledgeRepoInterface {
     Optional<List<Relation>> findRelationByName(String name, Integer depth);
 
     Optional<List<Knowledge>> findAllRelated(String name);
+
+    Optional<Relation> addRelationByNames(String name1, String name2, String type, String description);
 }

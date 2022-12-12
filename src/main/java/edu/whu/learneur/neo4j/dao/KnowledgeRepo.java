@@ -152,4 +152,21 @@ public class KnowledgeRepo implements KnowledgeRepoInterface {
                 }).collect(Collectors.toList());
         return Optional.of(knowledges);
     }
+
+    @Override
+    public Optional<Relation> addRelationByNames(String name1, String name2, String type, String description) {
+        Relation relation = neo4jClient
+                .query(String.format("MATCH (n:knowledge),(m:knowledge) WHERE n.name = '%s' AND m.name = '%s' CREATE (n)-[r:%s {description:'%s'}]->(m) RETURN r",name1,name2,type,description))
+                .fetch().one().map(record -> {
+                    Relation relation1 = new Relation();
+                    InternalRelationship internalRelationship = (InternalRelationship) record.get("r");
+                    relation1.setId(internalRelationship.id());
+                    relation1.setType(internalRelationship.type());
+                    relation1.setDescription(internalRelationship.get("description").asString());
+                    relation1.setStart(internalRelationship.startNodeId());
+                    relation1.setEnd(internalRelationship.endNodeId());
+                    return relation1;
+                }).orElse(null);
+        return Optional.ofNullable(relation);
+    }
 }

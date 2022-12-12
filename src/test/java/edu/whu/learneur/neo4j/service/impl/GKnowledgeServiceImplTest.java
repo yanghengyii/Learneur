@@ -117,4 +117,12 @@ class GKnowledgeServiceImplTest {
         KnowledgeAndRelations o = gKnowledgeService.getGraphByName("c");
         System.out.println(o);
     }
+
+    @Test
+    void addRelationByNames() {
+        gKnowledgeService.addTag(new Knowledge("c","c"));
+        gKnowledgeService.addTag(new Knowledge("java","java"));
+        Relation o = gKnowledgeService.addRelationByNames("c","java","include","include");
+        System.out.println(o);
+    }
 }

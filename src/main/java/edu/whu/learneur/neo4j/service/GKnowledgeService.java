@@ -13,6 +13,8 @@ public interface GKnowledgeService {
     Knowledge addTag(Knowledge knowledge);
     Relation addRelation(Long knowledgeId, Long relatedId, String type, String description);
 
+    Relation addRelationByNames(String name1, String name2, String type, String description);
+
     Knowledge updateTagById(Knowledge knowledge, Long id);
 
     List<Relation> updateRelationById(Long relationId, String type, String description);
