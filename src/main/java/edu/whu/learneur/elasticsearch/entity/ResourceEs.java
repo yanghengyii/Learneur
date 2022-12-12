@@ -5,11 +5,13 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.*;
 
+import java.io.Serializable;
+
 @Document(indexName = "learneur_resource")
 @Setting(replicas = 0)
 @Data
 @Builder
-public class ResourceEs {
+public class ResourceEs implements Serializable {
     @Id
     private String id;
 

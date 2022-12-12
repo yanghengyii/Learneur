@@ -4,10 +4,13 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.*;
 
+import java.io.Serializable;
+import java.util.List;
+
 @Document(indexName = "learneur_knowledge")
 @Setting(replicas = 0)
 @Data
-public class KnowledgeEs {
+public class KnowledgeEs implements Serializable {
     @Id
     private Long id;
 
@@ -19,7 +22,13 @@ public class KnowledgeEs {
     @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String description;
 
-    @Field(type = FieldType.Text, analyzer = "ik_max_word")
-    private String resourcesDecription;
+    @Field(type = FieldType.Nested)
+    private List<ResourceEs> resources;
+
+    public KnowledgeEs(Long id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
 
 }

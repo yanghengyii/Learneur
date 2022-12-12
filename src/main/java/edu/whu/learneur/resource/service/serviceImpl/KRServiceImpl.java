@@ -81,9 +81,9 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
         return results;
     }
 
-    public List<Long> findKnowledgeIdByResource(Long ResourceId){
+    public List<Long> findKnowledgeIdByResource(Long resourceId){
         LambdaQueryWrapper<KnowledgeResource> lqw = new LambdaQueryWrapper<>();
-        lqw.like(KnowledgeResource::getIdResources,ResourceId);
+        lqw.like(KnowledgeResource::getIdResources,resourceId);
         List<Long> result=null;
         try{
             for(KnowledgeResource KR:getBaseMapper().selectList(lqw)){
