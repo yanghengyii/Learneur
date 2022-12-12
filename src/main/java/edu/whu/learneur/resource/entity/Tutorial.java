@@ -20,7 +20,7 @@ public class Tutorial {
 
     String link;
 
-    String summary;
+    String description;
 
     @TableField(exist = false)
     List<Knowledge> knowledge;

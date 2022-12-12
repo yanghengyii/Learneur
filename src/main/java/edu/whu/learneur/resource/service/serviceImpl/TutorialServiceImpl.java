@@ -20,10 +20,16 @@ public class TutorialServiceImpl extends ServiceImpl<TutorialDao, Tutorial> impl
         List<Tutorial> success = new ArrayList<>();
         for(Tutorial tutorial : tutorialList){
             LambdaQueryWrapper<Tutorial> lqw = new LambdaQueryWrapper<>();
-            lqw.like(Tutorial::getName,tutorial.getName());
-            if(getBaseMapper().selectList(lqw).isEmpty()){
+            lqw.eq(Tutorial::getName,tutorial.getName());
+            Tutorial tmp = getBaseMapper().selectOne(lqw);
+            if(tmp == null){
                 getBaseMapper().insert(tutorial);
                 success.add(tutorial);
+            }
+            else if(!tmp.equals(tutorial)) {
+                tutorial.setId(tmp.getId());
+                getBaseMapper().updateById(tutorial);
+
             }
         }
         return success;

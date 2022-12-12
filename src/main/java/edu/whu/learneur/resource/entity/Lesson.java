@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Lesson {
+public class Lesson extends Tutorial{
     private static final long serialVersionUID = 1L;
 
     /**
@@ -25,7 +25,7 @@ public class Lesson {
     /**
      * 名称
      */
-    private String title;
+    private String name;
 
     /**
      * 简要描述

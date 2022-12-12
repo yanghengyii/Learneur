@@ -53,6 +53,9 @@ jwt:
 time:
   cron: 0 0 0 * * ?
 
+resource:
+  lesson: 1
+
 elasticsearch:
   query:
     match-specific-type-resource:

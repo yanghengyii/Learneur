@@ -2,7 +2,7 @@
 create table lesson
 (
     id_lesson       bigint comment '主键' primary key auto_increment,
-    title           varchar(32) comment '名称',
+    name            varchar(32) comment '名称',
     description     varchar(200) comment '简要描述',
     link            varchar(50) comment '链接',
     img_path        varchar(50) comment '配图'
@@ -14,11 +14,9 @@ create table book
     id_book         bigint comment '主键' primary key,
     title           varchar(32) comment '书籍名称',
     img_path        varchar(50) comment '配图',
-    path            varchar(50) comment '书籍本地路径',
     author          varchar(32) comment '书籍作者',
     publisher       varchar(32) comment '出版商',
-    language        varchar(32) comment '语言',
-    download_url    varchar(50) comment '下载链接'
+    language        varchar(32) comment '语言'
 ) comment '书籍' collate = utf8mb4_unicode_ci;
 
 
@@ -53,7 +51,7 @@ create table tutorial
     id_tutorial     bigint comment '主键' primary key,
     name            varchar(50) comment '名称',
     link            varchar(100) comment '链接',
-    summary         varchar(200) comment '简介'
+    description     varchar(200) comment '简介'
 )comment '教程' collate = utf8mb4_unicode_ci;
 
 
@@ -65,7 +63,7 @@ create table knowledge (
 
 
 create table knowledge_resource (
-    id_resources bigint comment '资源id' not null ,
+    id_resource bigint comment '资源id' not null ,
     id_knowledge bigint comment '知识点id' not null,
     type            int comment '资源类型: 1:网课; 2:书籍; 3:项目; 4:教程; 5:视频'
 ) comment '知识点与资源关联表' collate = utf8mb4_unicode_ci;

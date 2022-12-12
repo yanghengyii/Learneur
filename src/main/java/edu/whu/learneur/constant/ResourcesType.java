@@ -1,9 +1,12 @@
 package edu.whu.learneur.constant;
 
 public enum ResourcesType {
-    BOOK(1),
-    LESSON(2),
-    PROJECT(3);
+    LESSON(1),
+    BOOK(2),
+    PROJECT(3),
+    TUTORIAL(4),
+    VIDEO(5);
+
 
     private int type;
     ResourcesType(int type) {

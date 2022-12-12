@@ -1,11 +1,13 @@
 package edu.whu.learneur.resource.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import edu.whu.learneur.resource.entity.*;
+import edu.whu.learneur.resource.entity.Knowledge;
 import edu.whu.learneur.resource.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/mysql-knowledge")

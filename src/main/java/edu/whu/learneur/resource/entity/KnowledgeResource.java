@@ -28,8 +28,8 @@ public class KnowledgeResource implements Serializable {
     /**
      * 资源id
      */
-    @TableField(value = "id_resources")
-    private Long idResources;
+    @TableField(value = "id_resource")
+    private Long idResource;
 
     /**
      * 知识点id

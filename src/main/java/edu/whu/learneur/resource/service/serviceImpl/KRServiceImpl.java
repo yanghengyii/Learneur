@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import edu.whu.learneur.constant.ResourcesType;
 import edu.whu.learneur.resource.dao.KRDao;
 import edu.whu.learneur.resource.entity.*;
 import edu.whu.learneur.resource.service.IKRService;
@@ -19,12 +20,15 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
     public List<KnowledgeResource> addBook(Long knowledgeId,List<Book> bookList) throws UserServiceException{
         List<KnowledgeResource> results = new ArrayList<>();
         for(Book book:bookList) {
-            KnowledgeResource knowledgeResources = new KnowledgeResource();
-            knowledgeResources.setIdKnowledge(knowledgeId);
-            knowledgeResources.setIdResources(book.getId());
-            knowledgeResources.setType(2);
-            getBaseMapper().insert(knowledgeResources);
-            results.add(knowledgeResources);
+            if(notExist(knowledgeId, book.getId(), ResourcesType.BOOK)) {
+                KnowledgeResource knowledgeResource = new KnowledgeResource();
+                knowledgeResource.setIdKnowledge(knowledgeId);
+                knowledgeResource.setIdResource(book.getId());
+                knowledgeResource.setType(ResourcesType.BOOK.getType());
+
+                getBaseMapper().insert(knowledgeResource);
+                results.add(knowledgeResource);
+            }
         }
         return results;
     }
@@ -32,12 +36,15 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
     public List<KnowledgeResource> addProject(Long knowledgeId,List<Project> projectList) throws UserServiceException{
         List<KnowledgeResource> results = new ArrayList<>();
         for(Project project:projectList) {
-            KnowledgeResource knowledgeResources = new KnowledgeResource();
-            knowledgeResources.setIdKnowledge(knowledgeId);
-            knowledgeResources.setIdResources(project.getIdProject());
-            knowledgeResources.setType(3);
-            getBaseMapper().insert(knowledgeResources);
-            results.add(knowledgeResources);
+            if(notExist(knowledgeId, project.getIdProject(), ResourcesType.PROJECT)){
+                KnowledgeResource knowledgeResources = new KnowledgeResource();
+                knowledgeResources.setIdKnowledge(knowledgeId);
+                knowledgeResources.setIdResource(project.getIdProject());
+                knowledgeResources.setType(ResourcesType.PROJECT.getType());
+                getBaseMapper().insert(knowledgeResources);
+                results.add(knowledgeResources);
+            }
+
         }
         return results;
     }
@@ -45,12 +52,14 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
     public List<KnowledgeResource> addLesson(Long knowledgeId,List<Lesson> lessonList) throws UserServiceException{
         List<KnowledgeResource> results = new ArrayList<>();
         for(Lesson lesson:lessonList) {
-            KnowledgeResource knowledgesResources = new KnowledgeResource();
-            knowledgesResources.setIdKnowledge(knowledgeId);
-            knowledgesResources.setIdResources(lesson.getId());
-            knowledgesResources.setType(1);
-            getBaseMapper().insert(knowledgesResources);
-            results.add(knowledgesResources);
+            if(notExist(knowledgeId, lesson.getId(), ResourcesType.LESSON)){
+                KnowledgeResource knowledgeResource = new KnowledgeResource();
+                knowledgeResource.setIdKnowledge(knowledgeId);
+                knowledgeResource.setIdResource(lesson.getId());
+                knowledgeResource.setType(ResourcesType.LESSON.getType());
+                getBaseMapper().insert(knowledgeResource);
+                results.add(knowledgeResource);
+            }
         }
         return results;
     }
@@ -58,12 +67,15 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
     public List<KnowledgeResource> addTutorial(Long knowledgeId,List<Tutorial> tutorialList) throws UserServiceException{
         List<KnowledgeResource> results = new ArrayList<>();
         for(Tutorial tutorial:tutorialList) {
-            KnowledgeResource knowledgesResources = new KnowledgeResource();
-            knowledgesResources.setIdKnowledge(knowledgeId);
-            knowledgesResources.setIdResources(tutorial.getId());
-            knowledgesResources.setType(4);
-            getBaseMapper().insert(knowledgesResources);
-            results.add(knowledgesResources);
+            if(notExist(knowledgeId, tutorial.getId(), ResourcesType.TUTORIAL)){
+                KnowledgeResource knowledgeResource = new KnowledgeResource();
+                knowledgeResource.setIdKnowledge(knowledgeId);
+                knowledgeResource.setIdResource(tutorial.getId());
+                knowledgeResource.setType(ResourcesType.TUTORIAL.getType());
+                getBaseMapper().insert(knowledgeResource);
+                results.add(knowledgeResource);
+            }
+
         }
         return results;
     }
@@ -71,36 +83,22 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
     public List<KnowledgeResource> addVideo(Long knowledgeId,List<Video> videoList) throws UserServiceException{
         List<KnowledgeResource> results = new ArrayList<>();
         for(Video video:videoList) {
-            KnowledgeResource knowledgesResources = new KnowledgeResource();
-            knowledgesResources.setIdKnowledge(knowledgeId);
-            knowledgesResources.setIdResources(video.getId());
-            knowledgesResources.setType(5);
-            getBaseMapper().insert(knowledgesResources);
-            results.add(knowledgesResources);
+            if(notExist(knowledgeId, video.getId(), ResourcesType.VIDEO)){
+                KnowledgeResource knowledgeResource = new KnowledgeResource();
+                knowledgeResource.setIdKnowledge(knowledgeId);
+                knowledgeResource.setIdResource(video.getId());
+                knowledgeResource.setType(ResourcesType.VIDEO.getType());
+                getBaseMapper().insert(knowledgeResource);
+                results.add(knowledgeResource);
+            }
         }
         return results;
     }
-
-    public List<Long> findKnowledgeIdByResource(Long ResourceId){
-        LambdaQueryWrapper<KnowledgeResource> lqw = new LambdaQueryWrapper<>();
-        lqw.like(KnowledgeResource::getIdResources,ResourceId);
-        List<Long> result=null;
-        try{
-            for(KnowledgeResource KR:getBaseMapper().selectList(lqw)){
-                result.add(KR.getIdKnowledge());
-            }
-        }
-        catch (Exception e){
-            throw new RuntimeException("未找到对应知识点");
-        }
-        return result;
-    }
-
-    public IPage<KnowledgeResource> findResourcePageByKnowledgeId(int current,int size,Long KnowledgeId){
+    public IPage<KnowledgeResource> findResourcePageByKnowledgeId(int current,int size,Long knowledgeId){
         IPage<KnowledgeResource> result = new Page<>(current,size);
-        IPage<KnowledgeResource> returnPage = null;
+        IPage<KnowledgeResource> returnPage;
         LambdaQueryWrapper<KnowledgeResource> lqw = new LambdaQueryWrapper<>();
-        lqw.like(KnowledgeResource::getIdKnowledge,KnowledgeId);
+        lqw.like(KnowledgeResource::getIdKnowledge,knowledgeId);
         try{
             returnPage = getBaseMapper().selectPage(result,lqw);
         }
@@ -112,7 +110,13 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
 
 
 
-
+    private boolean notExist(long knowledgeId, long resourceId, ResourcesType type) {
+        LambdaQueryWrapper<KnowledgeResource> lqw = new LambdaQueryWrapper<>();
+        lqw.eq(KnowledgeResource::getIdResource, resourceId)
+                .eq(KnowledgeResource::getIdKnowledge, knowledgeId)
+                .eq(KnowledgeResource::getType, type);
+        return getBaseMapper().selectOne(lqw) == null;
+    }
 
 
 

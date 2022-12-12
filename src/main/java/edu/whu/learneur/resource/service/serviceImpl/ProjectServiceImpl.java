@@ -18,13 +18,17 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectDao, Project> impleme
         List<Project> success = new ArrayList<>();
         for(Project project: projects) {
             LambdaQueryWrapper<Project> lqw = new LambdaQueryWrapper<>();
-            lqw.eq(Project::getName, project.getName());
-            List list = getBaseMapper().selectList(lqw);
-            if(list.isEmpty()) {
+            lqw.eq(Project::getLink, project.getLink());
+            Project tmp =  getBaseMapper().selectOne(lqw);
+            if(tmp == null) {
                 getBaseMapper().insert(project);
+                success.add(project);
+            }
+            else if(!tmp.equals(project)){
+                project.setIdProject(tmp.getIdProject());
+                getBaseMapper().updateById(project);
             }
         }
-
         return success;
     }
 
@@ -37,9 +41,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectDao, Project> impleme
     @Override
     public IPage<Project> findAllProjects(Integer pageNum, Integer pageSize) {
         Page<Project> page = new Page<>(pageNum, pageSize);
-        LambdaQueryWrapper<Project> lqw = new LambdaQueryWrapper<>();
-        lqw.orderByDesc(Project::getStarGazers).orderByDesc(Project::getForks);
-        return getBaseMapper().selectPage(page, lqw);
+        return getBaseMapper().findProjects(page);
     }
 
     @Override

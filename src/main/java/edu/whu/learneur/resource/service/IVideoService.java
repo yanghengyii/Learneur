@@ -11,4 +11,6 @@ public interface IVideoService extends IService<Video> {
     List<Video> addVideos(List<Video> videoList) throws UserServiceException;
 
     IPage<Video> findVideoPage(Long knowledgeId, Integer pageNum, Integer pageSize);
+
+    IPage<Video> findAllVideos(Integer pageNum, Integer pageSize);
 }

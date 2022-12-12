@@ -28,10 +28,10 @@ public class Book {
     @TableField(value = "cover_url")
     private String coverUrl;
 
-    /**
-     * 书籍本地路径
-     */
-    private String path;
+//    /**
+//     * 书籍本地路径
+//     */
+//    private String path;
 
     /**
      * 书籍作者
@@ -51,8 +51,8 @@ public class Book {
     /**
      * 下载链接
      */
-    @TableField(value = "download_url")
-    private String downloadUrl;
+//    @TableField(value = "download_url")
+//    private String downloadUrl;
 
     private String fileSize;
     private String fileType;

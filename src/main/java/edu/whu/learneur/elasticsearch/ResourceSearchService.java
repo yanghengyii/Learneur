@@ -51,7 +51,7 @@ public class ResourceSearchService {
     }
 
     public void save(Lesson lesson) {
-        save(ResourceType.Lesson, lesson.getId(), lesson.getTitle(), lesson.getDescription());
+        save(ResourceType.Lesson, lesson.getId(), lesson.getName(), lesson.getDescription());
     }
 
     public void save(Project project) {
@@ -59,7 +59,7 @@ public class ResourceSearchService {
     }
 
     public void save(Tutorial tutorial) {
-        save(ResourceType.Tutorial, tutorial.getId(), tutorial.getName(), tutorial.getSummary());
+        save(ResourceType.Tutorial, tutorial.getId(), tutorial.getName(), tutorial.getDescription());
     }
 
     public void save(Video video) {
