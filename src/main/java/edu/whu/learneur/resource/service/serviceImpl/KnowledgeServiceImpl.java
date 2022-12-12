@@ -43,7 +43,8 @@ public class KnowledgeServiceImpl extends ServiceImpl<KnowledgeDao, Knowledge> i
             result = getBaseMapper().selectList(lqw).get(0);
         }
         catch (Exception e){
-            throw new ResourceException("无此知识点");
+            return null;
+//            throw new ResourceException("无此知识点");
         }
         return result;
     }

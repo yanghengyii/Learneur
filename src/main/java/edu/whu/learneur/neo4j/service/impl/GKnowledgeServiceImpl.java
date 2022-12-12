@@ -6,6 +6,7 @@ import edu.whu.learneur.neo4j.domain.Knowledge;
 import edu.whu.learneur.neo4j.domain.Relation;
 import edu.whu.learneur.neo4j.dto.KnowledgeAndRelations;
 import edu.whu.learneur.neo4j.service.GKnowledgeService;
+import edu.whu.learneur.resource.service.IKnowledgeService;
 import org.neo4j.driver.Record;
 import org.neo4j.driver.internal.InternalRelationship;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class GKnowledgeServiceImpl implements GKnowledgeService {
     KnowledgeRepoInterface knowledgeRepoInterface;
 
     @Autowired
+    private IKnowledgeService knowledgeService;
+
+    @Autowired
     Neo4jClient neo4jClient;
 
     public Knowledge getTagById(Long id)
@@ -40,7 +44,23 @@ public class GKnowledgeServiceImpl implements GKnowledgeService {
 
     public Knowledge addTag(Knowledge knowledge)
     {
-        return knowledgeRepository.save(knowledge);
+        edu.whu.learneur.resource.entity.Knowledge knowledge1 = knowledgeService.findByName(knowledge.getName());
+
+        if (knowledge1 != null)
+        {
+            knowledge.setForeignId(knowledge1.getId());
+            return knowledgeRepository.save(knowledge);
+        }
+        else
+        {
+            edu.whu.learneur.resource.entity.Knowledge knowledge2 = new edu.whu.learneur.resource.entity.Knowledge();
+            knowledge2.setKnowledgeName(knowledge.getName());
+            knowledge2.setKnowledgeDescription(knowledge.getDescription());
+            knowledgeService.addKnowledge(knowledge2);
+            knowledge.setForeignId(knowledgeService.findByName(knowledge.getName()).getId());
+            return knowledgeRepository.save(knowledge);
+        }
+
     }
 
     public List<Knowledge> getFirst25Knowledge()

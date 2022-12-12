@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/learneur
+    url: jdbc:mysql://wslhost:3306/learneur
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: j1101714214
+    password: 12345678
   mail:
     host: smtp.qq.com
     username: 2607038766@qq.com
