@@ -18,8 +18,8 @@ public class RelationController {
     GKnowledgeService gKnowledgeService;
 
     @PostMapping("")
-    public ResponseEntity<Relation> addRelation(@RequestBody Long knowledgeId, @RequestBody Long relatedId, @RequestBody String type, @RequestBody String description) {
-        return ResponseEntity.ok(gKnowledgeService.addRelation(knowledgeId, relatedId, type, description));
+    public ResponseEntity<Relation> addRelation(@RequestBody Relation relation) {
+        return ResponseEntity.ok(gKnowledgeService.addRelation(relation.getStart(), relation.getEnd(), relation.getType(), relation.getDescription()));
     }
 
     @PutMapping("")
@@ -28,7 +28,7 @@ public class RelationController {
     }
 
     @DeleteMapping("")
-    public ResponseEntity<Relation> deleteRelation(@RequestParam Long relationId) {
-        return ResponseEntity.ok(gKnowledgeService.deleteRelationById(relationId));
+    public ResponseEntity<Relation> deleteRelation(@RequestParam Long start, @RequestParam Long end) {
+        return ResponseEntity.ok(gKnowledgeService.deleteRelationById(start, end));
     }
 }

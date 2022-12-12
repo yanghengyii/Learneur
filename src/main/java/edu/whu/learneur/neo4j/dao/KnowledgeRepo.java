@@ -1,15 +1,20 @@
 package edu.whu.learneur.neo4j.dao;
 
+import cn.hutool.core.lang.Singleton;
 import edu.whu.learneur.neo4j.domain.Knowledge;
 import edu.whu.learneur.neo4j.domain.Relation;
+import org.apache.http.annotation.Obsolete;
 import org.neo4j.driver.Record;
 import org.neo4j.driver.internal.InternalNode;
 import org.neo4j.driver.internal.InternalRelationship;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.neo4j.core.Neo4jClient;
+import org.springframework.data.neo4j.core.schema.Relationship;
 import org.springframework.data.neo4j.repository.query.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -82,9 +87,9 @@ public class KnowledgeRepo implements KnowledgeRepoInterface {
     }
 
     @Override
-    public Optional<Relation> deleteRelationById(Long id) {
+    public Optional<Relation> deleteRelationById(Long start, Long end) {
         Relation relation = neo4jClient
-                .query(String.format("MATCH (n:knowledge)-[r]->(m:knowledge) WHERE id(r) = %d DELETE r RETURN r",id))
+                .query(String.format("MATCH (n:knowledge)-[r]->(m:knowledge) WHERE id(n) = %d AND id(m) = %d DELETE r RETURN r",start,end))
                 .fetch().one().map(record -> {
                     Relation relation1 = new Relation();
                     InternalRelationship internalRelationship = (InternalRelationship) record.get("r");
@@ -113,5 +118,38 @@ public class KnowledgeRepo implements KnowledgeRepoInterface {
                     return relation;
                 }).collect(Collectors.toList());
         return Optional.of(relations);
+    }
+
+    @Override
+    public Optional<List<Relation>> findRelationByName(String name, Integer depth) {
+        List<Relation> relations = neo4jClient
+                .query(String.format("MATCH (n:knowledge)-[r*1..%d]->(m:knowledge) WHERE n.name = '%s' RETURN DISTINCT r",depth,name))
+                .fetch().all().stream().map(record -> {
+                    Relation relation = new Relation();
+                    List<InternalRelationship> collections = (List<InternalRelationship>)record.get("r");
+                    relation.setId(collections.get(collections.size()-1).id());
+                    relation.setType(collections.get(collections.size()-1).type());
+                    relation.setDescription(collections.get(collections.size()-1).get("description").asString());
+                    relation.setType(collections.get(collections.size()-1).get("type").asString());
+                    relation.setStart(collections.get(collections.size()-1).startNodeId());
+                    relation.setEnd(collections.get(collections.size()-1).endNodeId());
+                    return relation;
+                }).collect(Collectors.toList());
+        return Optional.of(relations);
+    }
+
+    @Override
+    public Optional<List<Knowledge>> findAllRelated(String name) {
+        List<Knowledge> knowledges = neo4jClient
+                .query(String.format("MATCH (n:knowledge)-[r*1..3]->(m:knowledge) WHERE n.name = '%s' RETURN DISTINCT m",name))
+                .fetch().all().stream().map(record -> {
+                    Knowledge knowledge = new Knowledge();
+                    InternalNode internalNode = (InternalNode) record.get("m");
+                    knowledge.setId(internalNode.id());
+                    knowledge.setName(internalNode.get("name").asString());
+                    knowledge.setDescription(internalNode.get("description").asString());
+                    return knowledge;
+                }).collect(Collectors.toList());
+        return Optional.of(knowledges);
     }
 }

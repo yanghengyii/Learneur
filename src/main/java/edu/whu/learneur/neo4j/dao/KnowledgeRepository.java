@@ -16,9 +16,6 @@ public interface KnowledgeRepository extends Neo4jRepository<Knowledge,Long> {
     @Query("MATCH (n:knowledge) WHERE n.name = $name RETURN n")
     Optional<List<Knowledge>> findByName(String name);
 
-    @Query("MATCH (n:knowledge)-[]->(m:knowledge) WHERE n.name = $name RETURN m")
-    Optional<List<Knowledge>> findAllRelated(String name);
-
     @Query("MATCH (n:knowledge) RETURN n LIMIT 25")
     Optional<List<Knowledge>> findFirst25Knowledge();
 
