@@ -120,29 +120,29 @@ class GKnowledgeServiceImplTest {
 
     @Test
     void addRelationByNames() {
-        gKnowledgeService.addTag(new Knowledge("Spring","Spring是Java EE编程领域的一个轻量级开源框架，该框架由一个叫Rod Johnson的程序员在 2002 年最早提出并随后创建，是为了解决企业级编程开发中的复杂性，实现敏捷开发的应用型框架 。"));
-        gKnowledgeService.addTag(new Knowledge("Spring基础语法","Spring基础语法是指Spring中主要使用的基础语法，主要基于Java"));
-        gKnowledgeService.addTag(new Knowledge("Java","Java是一门面向对象的编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念，因此Java语言具有功能强大和简单易用两个特征。"));
-        gKnowledgeService.addTag(new Knowledge("Java基础语法","一个Java程序可以认为是一系列对象的集合，而这些对象通过调用彼此的方法来协同工作。"));
+        gKnowledgeService.addTag(new Knowledge("spring","Spring是Java EE编程领域的一个轻量级开源框架，该框架由一个叫Rod Johnson的程序员在 2002 年最早提出并随后创建，是为了解决企业级编程开发中的复杂性，实现敏捷开发的应用型框架 。"));
+        gKnowledgeService.addTag(new Knowledge("spring基础语法","Spring基础语法是指Spring中主要使用的基础语法，主要基于Java"));
+        gKnowledgeService.addTag(new Knowledge("java","Java是一门面向对象的编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念，因此Java语言具有功能强大和简单易用两个特征。"));
+        gKnowledgeService.addTag(new Knowledge("java基础语法","一个Java程序可以认为是一系列对象的集合，而这些对象通过调用彼此的方法来协同工作。"));
         gKnowledgeService.addTag(new Knowledge("maven","aven 翻译为\\'专家\\'、\\'内行\\'，是 Apache 下的一个纯 Java 开发的开源项目。基于项目对象模型（缩写：POM）概念，Maven利用一个中央信息片断能管理一个项目的构建、报告和文档等步骤。"));
-        gKnowledgeService.addTag(new Knowledge("Jar包","在软件领域，JAR文件（Java归档，英语：Java Archive）是一种软件包文件格式，通常用于聚合大量的Java类文件、相关的元数据和资源（文本、图片等）文件到一个文件，以便开发Java平台应用软件或库。"));
+        gKnowledgeService.addTag(new Knowledge("jar包","在软件领域，JAR文件（Java归档，英语：Java Archive）是一种软件包文件格式，通常用于聚合大量的Java类文件、相关的元数据和资源（文本、图片等）文件到一个文件，以便开发Java平台应用软件或库。"));
         gKnowledgeService.addTag(new Knowledge("pom.xml","POM是项目对象模型(Project Object Model)的简称,它是Maven项目中的文件，使用XML表示，名称叫做pom.xml。作用类似ant的build.xml文件，功能更强大。该文件用于管理：源代码、配置文件、开发者的信息和角色、问题追踪系统、组织信息、项目授权、项目的url、项目的依赖关系等等。事实上，在Maven世界中，project可以什么都没有，甚至没有代码，但是必须包含pom.xml文件。"));
         gKnowledgeService.addTag(new Knowledge("maven repository","在 Maven 的术语中，仓库是一个位置（place）。Maven 仓库是项目中依赖的第三方库，这个库所在的位置叫做仓库。在 Maven 中，任何一个依赖、插件或者项目构建的输出，都可以称之为构件。Maven 仓库能帮助我们管理构件（主要是JAR），它就是放置所有JAR文件（WAR，ZIP，POM等等）的地方。"));
-        gKnowledgeService.addTag(new Knowledge("Spring Core","Spring core是用来负责发现、创建并处理bean之间的关系的一个工具包。core把bean的创建、bean的互相注入的方法定义完毕，上层服务只需要进行调用；提供功能但不调用就是spring core的存在意义。"));
+        gKnowledgeService.addTag(new Knowledge("spring Core","Spring core是用来负责发现、创建并处理bean之间的关系的一个工具包。core把bean的创建、bean的互相注入的方法定义完毕，上层服务只需要进行调用；提供功能但不调用就是spring core的存在意义。"));
         gKnowledgeService.addTag(new Knowledge("bean","Spring Bean是被实例的，组装的及被Spring 容器管理的Java对象。"));
         gKnowledgeService.addTag(new Knowledge("annotation","Java 语言中的类、方法、变量、参数和包等都可以被标注。和 Javadoc 不同，Java 标注可以通过反射获取标注内容。在编译器生成类文件时，标注可以被嵌入到字节码中。Java 虚拟机可以保留标注内容，在运行时可以获取到标注内容 。 当然它也支持自定义 Java 标注。"));
-        gKnowledgeService.addTag(new Knowledge("Spring Injection","通过spring工厂和配置文件为spring的成员变量赋值"));
-        gKnowledgeService.addTag(new Knowledge("Spring Boot","Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。"));
-        gKnowledgeService.addTag(new Knowledge("IOC container","IoC全称为inversion of control（控制反转），依赖注入是一种IOC的表现形式，主要表现为让第三方来管理自己的依赖。"));
+        gKnowledgeService.addTag(new Knowledge("spring Injection","通过spring工厂和配置文件为spring的成员变量赋值"));
+        gKnowledgeService.addTag(new Knowledge("spring boot","Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。"));
+        gKnowledgeService.addTag(new Knowledge("ioc container","IoC全称为inversion of control（控制反转），依赖注入是一种IOC的表现形式，主要表现为让第三方来管理自己的依赖。"));
         gKnowledgeService.addTag(new Knowledge("http/https","HTTP协议是超文本传输协议的缩写，英文是Hyper Text Transfer Protocol。它是从WEB服务器传输超文本标记语言(HTML)到本地浏览器的传送协议。"));
-        gKnowledgeService.addTag(new Knowledge("Tomcat","Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选。"));
-        gKnowledgeService.addTag(new Knowledge("Jetty","Jetty 是一个开源的servlet容器，它为基于Java的web容器，例如JSP和servlet提供运行环境。"));
-        gKnowledgeService.addTag(new Knowledge("Spring Initialier","Spring Initializer 是帮助我们快速生成 Spring Boot 项目的工具，它是以 Web 网站的形式对外提供的，但是它的 API 也是公开的，因此我们可以在各种 IDE 平台，编辑器平台中见到它的身影。"));
-        gKnowledgeService.addTag(new Knowledge("Spring Controller","在Spring中 Controller注解用于指示Spring类的实例是一个控制器，相对于实现Controller接口变得更加简单。而且实现Controller接口只能处理一个单一的请求，而是用@Controller注解可以支持同时处理多个请求动作，更加灵活。"));
-        gKnowledgeService.addTag(new Knowledge("Restful Api","RESTful API 是两个计算机系统用于通过互联网安全地交换信息的接口。大多数业务应用程序必须与其他内部和第三方应用程序进行通信才能执行各种任务。"));
-        gKnowledgeService.addTag(new Knowledge("Swagger","Swagger 是一个规范且完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。"));
-        gKnowledgeService.addTag(new Knowledge("Web Api","Web API是网络应用程序接口。包含了广泛的功能，网络应用通过API接口，可以实现存储服务、消息服务、计算服务等能力，利用这些能力可以进行开发出强大功能的web应用。"));
-        gKnowledgeService.addTag(new Knowledge("HTTP Status code","当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含 HTTP 状态码的信息头（server header）用以响应浏览器的请求。"));
+        gKnowledgeService.addTag(new Knowledge("tomcat","Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选。"));
+        gKnowledgeService.addTag(new Knowledge("jetty","Jetty 是一个开源的servlet容器，它为基于Java的web容器，例如JSP和servlet提供运行环境。"));
+        gKnowledgeService.addTag(new Knowledge("spring snitialier","Spring Initializer 是帮助我们快速生成 Spring Boot 项目的工具，它是以 Web 网站的形式对外提供的，但是它的 API 也是公开的，因此我们可以在各种 IDE 平台，编辑器平台中见到它的身影。"));
+        gKnowledgeService.addTag(new Knowledge("spring controller","在Spring中 Controller注解用于指示Spring类的实例是一个控制器，相对于实现Controller接口变得更加简单。而且实现Controller接口只能处理一个单一的请求，而是用@Controller注解可以支持同时处理多个请求动作，更加灵活。"));
+        gKnowledgeService.addTag(new Knowledge("restful api","RESTful API 是两个计算机系统用于通过互联网安全地交换信息的接口。大多数业务应用程序必须与其他内部和第三方应用程序进行通信才能执行各种任务。"));
+        gKnowledgeService.addTag(new Knowledge("swagger","Swagger 是一个规范且完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。"));
+        gKnowledgeService.addTag(new Knowledge("web api","Web API是网络应用程序接口。包含了广泛的功能，网络应用通过API接口，可以实现存储服务、消息服务、计算服务等能力，利用这些能力可以进行开发出强大功能的web应用。"));
+        gKnowledgeService.addTag(new Knowledge("http status code","当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含 HTTP 状态码的信息头（server header）用以响应浏览器的请求。"));
         gKnowledgeService.addTag(new Knowledge("Postman","Postman是一款可用于测试接口的HTTP工具"));
         gKnowledgeService.addTag(new Knowledge("Spring Service","Service是项目中用于处理业务逻辑的，因为每种数据在做某种操作时，应该都有某些规则"));
         gKnowledgeService.addTag(new Knowledge("Vue","Vue是一套用于构建用户界面的渐进式JavaScript框架。"));

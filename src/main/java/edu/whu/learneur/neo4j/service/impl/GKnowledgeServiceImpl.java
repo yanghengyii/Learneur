@@ -85,7 +85,7 @@ public class GKnowledgeServiceImpl implements GKnowledgeService {
     @Override
     public Relation addRelationByNames(String name1, String name2, String type) {
         String description = name1 + "-[" + type + "]->" + name2;
-        return knowledgeRepoInterface.addRelationByNames(name1,name2,type,description).orElse(null);
+        return knowledgeRepoInterface.addRelationByNames(name1.toLowerCase(),name2.toLowerCase(),type,description).orElse(null);
     }
 
     @Override

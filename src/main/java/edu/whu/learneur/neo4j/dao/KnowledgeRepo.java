@@ -67,6 +67,7 @@ public class KnowledgeRepo implements KnowledgeRepoInterface {
                     knowledge1.setId(internalNode.id());
                     knowledge1.setName(internalNode.get("name").asString());
                     knowledge1.setDescription(internalNode.get("description").asString());
+                    knowledge1.setForeignId(internalNode.get("foreign_id").asLong());
                     return knowledge1;
                 }).orElse(null);
         return Optional.ofNullable(knowledget);
@@ -81,6 +82,7 @@ public class KnowledgeRepo implements KnowledgeRepoInterface {
                     knowledge1.setId(internalNode.id());
                     knowledge1.setName(internalNode.get("name").asString());
                     knowledge1.setDescription(internalNode.get("description").asString());
+                    knowledge1.setForeignId(internalNode.get("foreign_id").asLong());
                     return knowledge1;
                 }).orElse(null);
         return Optional.ofNullable(knowledget);
@@ -148,6 +150,7 @@ public class KnowledgeRepo implements KnowledgeRepoInterface {
                     knowledge.setId(internalNode.id());
                     knowledge.setName(internalNode.get("name").asString());
                     knowledge.setDescription(internalNode.get("description").asString());
+                    knowledge.setForeignId(internalNode.get("foreign_id").asLong());
                     return knowledge;
                 }).collect(Collectors.toList());
         return Optional.of(knowledges);
@@ -156,7 +159,7 @@ public class KnowledgeRepo implements KnowledgeRepoInterface {
     @Override
     public Optional<Relation> addRelationByNames(String name1, String name2, String type, String description) {
         Relation relation = neo4jClient
-                .query(String.format("MATCH (n:knowledge),(m:knowledge) WHERE n.name = '%s' AND m.name = '%s' CREATE (n)-[r:%s {description:'%s'}]->(m) RETURN r",name1,name2,type,description))
+                .query(String.format("MATCH (n:knowledge),(m:knowledge) WHERE n.name = '%s' AND m.name = '%s' CREATE (n)-[r:%s {type:'%s' ,description:'%s'}]->(m) RETURN r",name1,name2,type,type,description))
                 .fetch().one().map(record -> {
                     Relation relation1 = new Relation();
                     InternalRelationship internalRelationship = (InternalRelationship) record.get("r");

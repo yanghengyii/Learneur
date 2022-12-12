@@ -23,7 +23,6 @@ public class Knowledge {
     private String description;
 
     @Property("foreign_id")
-    @JsonIgnore
     private Long foreignId;
 
     @Relationship(direction = Relationship.Direction.OUTGOING,type = "preKnowledge")
@@ -43,7 +42,7 @@ public class Knowledge {
     private List<Relation> commons;
 
     public Knowledge(String name, String description) {
-        this.name = name;
+        this.name = name.toLowerCase();
         this.description = description;
     }
 
