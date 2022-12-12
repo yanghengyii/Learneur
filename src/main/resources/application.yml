@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:mysql://10.132.54.169:3305/javaee_program
+    url: jdbc:mysql://localhost:3306/learneur
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: 741221
+    password: j1101714214
   mail:
     host: smtp.qq.com
     username: 2607038766@qq.com
@@ -25,7 +25,7 @@ spring:
       content-type: text/html
     cache: false
   neo4j:
-    uri: bolt://10.132.54.169:7687
+    uri: bolt://wslhost:7687
     authentication:
       username: neo4j
       password: 12345678
@@ -47,6 +47,7 @@ mybatis-plus:
     db-config:
       update-strategy: ignored # not update if null
 
+
 jwt:
   secret: f7558b981defc498a41bb5ef6288b82d6355a8135c067e1f2fbd7b43fb9e7ea4203870a7de0abd34d388710ea6032d5b249c24b4f563f25141f32b50f4f4be3c
 
@@ -61,7 +62,7 @@ elasticsearch:
     match-specific-type-resource:
       '{
         "bool": {
-          "filter": { "term": { "resource_type": "?0" } },
+          "filter": { "term": { "resourceType": "?0" } },
           "should": [
             { "term": { "name.keyword": { "value": "?1", "boost": 100 } } },
             { "match": { "name": "?1" } },
@@ -86,7 +87,108 @@ elasticsearch:
             { "term": { "name.keyword": { "value": "?0", "boost": 100 } } },
             { "match": { "name": { "query": "?0", "boost": 2.5 } } },
             { "match": { "description": { "query": "?0", "boost": 2.5 } } },
-            { "match": { "resources_description": { "query": "?0", "boost": 1.0 } } }
+            {
+              "nested": {
+                "path": "resources",
+                "query": {
+                  "bool": {
+                    "should": [
+                      { "match": { "resources.name": { "query": "?0", "boost": 1.0 } } },
+                      { "match": { "resources.description": { "query": "?0", "boost": 1.0 } } }
+                    ]
+                  }
+                }
+              }
+            }
           ]
         }
       }'
+    match-note:
+      '{
+        "bool": {
+          "should": [
+            { "term": { "title.keyword": { "value": "?0", "boost": 100 } } },
+            { "match": { "title": "?0 } },
+            { "match": { "content": "?0" } }
+          ]
+        }
+      }'
+    nested-term-knowledge-resource:
+      '{
+        "nested": {
+          "path": "resources",
+          "query": {
+            "bool": {
+              "must": [
+                { "term": { "resources.resourceType": ?0 } },
+                { "term": { "resources.resourceId": ?1 } }
+              ]
+            }
+          }
+        }
+      }'
+  script:
+    update:
+      add-knowledge-resources:
+        'String combine(int a, int b) {
+          return String.valueOf(a) + " " + String.valueOf(b);
+        }
+        if (ctx._source.resources == null) {
+          ctx._source.resources = new ArrayList();
+        }
+        Map map = new HashMap();
+        for ( def r: params.resources ) {
+          map.put(combine(r.resourceType, r.resourceId), r);
+        }
+        for ( def r: ctx._source.resources ) {
+          def key = combine(r.resourceType, r.resourceId);
+          if (map.containsKey(key)) {
+            def r_new = map.get(key);
+            r.name = r_new.name;
+            r.description = r_new.description; 
+            map.remove(key);
+          }
+        }
+        for ( def r: map.entrySet() ) {
+          ctx._source.resources.add(r.getValue());
+        }'
+      add-knowledge-resource:
+        'if (ctx._source.resources == null) {
+          ctx._source.resources = new ArrayList();
+        }
+        def r_new = params.resource;
+        for ( def r: ctx._source.resources ) {
+          if (r.resourceType == r_new.resourceType 
+                && r.resourceId == r_new.resourceId) {
+            r.name = r_new.name;
+            r.description = r_new.description;
+            return;
+          }
+        }
+        ctx._source.resources.add(r_new);'
+      remove-knowledge-resources:
+        'String combine(int a, int b) {
+          return String.valueOf(a) + " " + String.valueOf(b);
+        }
+        if (ctx._source.resources == null || ctx._source.resources.isEmpty()) {
+           return;
+         }
+         Map map = new HashMap();
+         for ( def r: params.resources ) {
+            map.put(combine(r.resourceType, r.resourceId), r);
+        }
+        ctx._source.resources.removeIf(
+          r -> map.containsKey(combine(r.resourceType, r.resourceId)));'
+      remove-knowledge-resource:
+        'if (ctx._source.resources == null || ctx._source.resources.isEmpty()) {
+           return;
+         }
+         def r_rm = params.resource;
+         for ( int i = 0; i < ctx._source.resources.size(); i++ ) {
+           def r = ctx._source.resources.get(i);
+            if (r.resourceType == r_rm.resourceType 
+                && r.resourceId == r_rm.resourceId) {
+               ctx._source.resources.remove(i);
+               return;
+            }
+         }'

@@ -30,11 +30,16 @@ class KnowledgeRepoTest {
 
     @Test
     void deleteRelationById() {
-        knowledgeRepo.deleteRelationById(11L);
+//        knowledgeRepo.deleteRelationById(11L);
     }
 
     @Test
     void findRelationByNameAndType() {
         knowledgeRepo.findRelationByNameAndType("c","common");
+    }
+
+    @Test
+    void findRelationByName() {
+        knowledgeRepo.findRelationByName("c",3);
     }
 }

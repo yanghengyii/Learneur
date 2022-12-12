@@ -11,10 +11,27 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ResourceEsRepository extends ElasticsearchRepository<ResourceEs, String> {
 
-    @Query("${elasticsearch.query.match-specific-type-resource}")
+    @Query("{\n" +
+            "        \"bool\": {\n" +
+            "          \"filter\": { \"term\": { \"resourceType\": \"?0\" } },\n" +
+            "          \"should\": [\n" +
+            "            { \"term\": { \"name.keyword\": { \"value\": \"?1\", \"boost\": 100 } } },\n" +
+            "            { \"match\": { \"name\": \"?1\" } },\n" +
+            "            { \"match\": { \"description\": \"?1\" } }\n" +
+            "          ]\n" +
+            "        }\n" +
+            "      }")
     SearchPage<ResourceEs> matchSpecificTypeResource(int type, String keyword, Pageable pageable);
 
-    @Query("${elasticsearch.query.match-all-type-resource}")
+    @Query("{\n" +
+            "        \"bool\": {\n" +
+            "          \"should\": [\n" +
+            "            { \"term\": { \"name.keyword\": { \"value\": \"?0\", \"boost\": 100 } } },\n" +
+            "            { \"match\": { \"name\": \"?0\" } },\n" +
+            "            { \"match\": { \"description\": \"?0\" } }\n" +
+            "          ]\n" +
+            "        }\n" +
+            "      }")
     SearchPage<ResourceEs> matchAllTypeResource(String keyword, Pageable pageable);
 
     ResourceEs findByResourceTypeAndResourceId(Short resourceType, Long resourceId);

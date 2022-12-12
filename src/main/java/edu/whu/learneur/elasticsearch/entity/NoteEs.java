@@ -1,13 +1,19 @@
 package edu.whu.learneur.elasticsearch.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.*;
+
+import java.io.Serializable;
 
 @Document(indexName = "learneur_note")
 @Setting(replicas = 0)
 @Data
-public class NoteEs {
+@NoArgsConstructor
+@AllArgsConstructor
+public class NoteEs implements Serializable {
     @Id
     private Long id;
 

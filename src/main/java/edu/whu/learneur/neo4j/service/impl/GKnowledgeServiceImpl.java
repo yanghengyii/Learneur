@@ -19,6 +19,7 @@ import java.util.Map;
 @Service
 public class GKnowledgeServiceImpl implements GKnowledgeService {
 
+    private static final Integer DEPTH = 3;
     @Autowired
     KnowledgeRepository knowledgeRepository;
     @Autowired
@@ -74,23 +75,20 @@ public class GKnowledgeServiceImpl implements GKnowledgeService {
     }
 
     @Override
-    public Relation deleteRelationById(Long id) {
-        return knowledgeRepoInterface.deleteRelationById(id).orElse(null);
+    public Relation deleteRelationById(Long id,Long end) {
+        return knowledgeRepoInterface.deleteRelationById(id,end).orElse(null);
     }
 
     @Override
     public KnowledgeAndRelations getGraphByName(String name) {
         KnowledgeAndRelations knowledgeAndRelations = new KnowledgeAndRelations();
-        knowledgeAndRelations.setKnowledges(knowledgeRepository.findAllRelated(name).orElse(null));
-        knowledgeAndRelations.getKnowledges().add(knowledgeRepository.findByName(name).orElse(null).get(0));
-        List<Relation> pres = knowledgeRepoInterface.findRelationByNameAndType(name,"preKnowledge").orElse(null);
-        List<Relation> includes = knowledgeRepoInterface.findRelationByNameAndType(name,"include").orElse(null);
-        List<Relation> commons = knowledgeRepoInterface.findRelationByNameAndType(name,"common").orElse(null);
-        List<Relation> associateds = knowledgeRepoInterface.findRelationByNameAndType(name,"associated").orElse(null);
-        knowledgeAndRelations.setPreKnowledges(pres);
-        knowledgeAndRelations.setIncludes(includes);
-        knowledgeAndRelations.setCommons(commons);
-        knowledgeAndRelations.setAssociateds(associateds);
+        knowledgeAndRelations.setKnowledges(knowledgeRepoInterface.findAllRelated(name).orElse(null));
+        List<Knowledge> knowledges = knowledgeRepository.findByName(name).orElse(null);
+        if (knowledges != null && knowledges.size() > 0) {
+            knowledgeAndRelations.getKnowledges().add(knowledges.get(0));
+        }
+        List<Relation> relations = knowledgeRepoInterface.findRelationByName(name,3).orElse(null);
+        knowledgeAndRelations.setRelations(relations);
         return knowledgeAndRelations;
     }
 }

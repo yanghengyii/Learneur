@@ -14,3 +14,10 @@ neo4j:5.1.0-community
 
 username: neo4j
 password: 12345678
+
+## Docker deploy
+please run macen package first then
+```shell
+docker build -f Dockerfile -t my-backend:v1.0 . 
+docker run -d -p 8080:8080 --name my-backend my-backend:v1.0  
+```
