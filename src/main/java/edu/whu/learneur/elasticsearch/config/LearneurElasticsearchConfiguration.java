@@ -1,22 +1,18 @@
 package edu.whu.learneur.elasticsearch.config;
 
-import co.elastic.clients.transport.TransportUtils;
-import org.elasticsearch.client.RestHighLevelClient;
+import edu.whu.learneur.elasticsearch.utils.TransportUtil;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.client.ClientConfiguration;
-import org.springframework.data.elasticsearch.client.RestClients;
-import org.springframework.data.elasticsearch.config.AbstractElasticsearchConfiguration;
-import org.springframework.data.mapping.model.FieldNamingStrategy;
-import org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy;
+import org.springframework.data.elasticsearch.client.elc.ElasticsearchConfiguration;
+import org.springframework.data.elasticsearch.core.RefreshPolicy;
 import org.springframework.http.HttpHeaders;
 import org.springframework.lang.NonNull;
 
 import javax.net.ssl.SSLContext;
 
 @Configuration
-public class LearneurElasticsearchConfiguration extends AbstractElasticsearchConfiguration {
+public class LearneurElasticsearchConfiguration extends ElasticsearchConfiguration {
     @Value("${spring.elasticsearch.http-ca.sha256-fingerprint}")
     private String fingerprint;
 
@@ -29,30 +25,26 @@ public class LearneurElasticsearchConfiguration extends AbstractElasticsearchCon
     @Value("${spring.elasticsearch.host-and-port}")
     private String hostAndPort;
 
-    @Value("${spring.elasticsearch.path-prefix}")
-    private String pathPrefix;
-
     @Override
-    @Bean
     @NonNull
-    public RestHighLevelClient elasticsearchClient() {
-        HttpHeaders compatibilityHeaders = new HttpHeaders();
-        compatibilityHeaders.add("Accept", "application/vnd.elasticsearch+json;compatible-with=7");
-        compatibilityHeaders.add("Content-Type", "application/vnd.elasticsearch+json;"
-                + "compatible-with=7");
-        SSLContext sslContext = TransportUtils.sslContextFromCaFingerprint(fingerprint);
-        ClientConfiguration clientConfiguration = ClientConfiguration.builder()
+    public ClientConfiguration clientConfiguration() {
+//        HttpHeaders compatibilityHeaders = new HttpHeaders();
+//        compatibilityHeaders.add("Accept", "application/vnd.elasticsearch+json;compatible-with=7");
+//        compatibilityHeaders.add("Content-Type", "application/vnd.elasticsearch+json;"
+//                + "compatible-with=7");
+        SSLContext sslContext = TransportUtil.sslContextFromCaFingerprint(fingerprint);
+        return ClientConfiguration.builder()
                 .connectedTo(hostAndPort)
                 .usingSsl(sslContext)
-                .withDefaultHeaders(compatibilityHeaders)
+                // .withDefaultHeaders(compatibilityHeaders)
                 .withBasicAuth(username, password)
                 .build();
-        return RestClients.create(clientConfiguration).rest();
     }
 
     @Override
-    @NonNull
-    protected FieldNamingStrategy fieldNamingStrategy() {
-        return new SnakeCaseFieldNamingStrategy();
+    public RefreshPolicy refreshPolicy() {
+        return RefreshPolicy.IMMEDIATE;
     }
+
+
 }
