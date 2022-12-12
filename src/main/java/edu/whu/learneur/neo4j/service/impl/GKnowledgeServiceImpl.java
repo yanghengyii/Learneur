@@ -49,7 +49,6 @@ public class GKnowledgeServiceImpl implements GKnowledgeService {
         if (knowledge1 != null)
         {
             knowledge.setForeignId(knowledge1.getId());
-            return knowledgeRepository.save(knowledge);
         }
         else
         {
@@ -58,8 +57,8 @@ public class GKnowledgeServiceImpl implements GKnowledgeService {
             knowledge2.setKnowledgeDescription(knowledge.getDescription());
             knowledgeService.addKnowledge(knowledge2);
             knowledge.setForeignId(knowledgeService.findByName(knowledge.getName()).getId());
-            return knowledgeRepository.save(knowledge);
         }
+        return knowledgeRepository.save(knowledge);
     }
 
     public List<Knowledge> getFirst25Knowledge()
@@ -84,7 +83,8 @@ public class GKnowledgeServiceImpl implements GKnowledgeService {
     }
 
     @Override
-    public Relation addRelationByNames(String name1, String name2, String type, String description) {
+    public Relation addRelationByNames(String name1, String name2, String type) {
+        String description = name1 + "-[" + type + "]->" + name2;
         return knowledgeRepoInterface.addRelationByNames(name1,name2,type,description).orElse(null);
     }
 

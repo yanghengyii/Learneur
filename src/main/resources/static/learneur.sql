@@ -8,7 +8,6 @@ create table lesson
     img_path        varchar(50) comment '配图'
 ) comment '网课' collate = utf8mb4_unicode_ci;
 
-
 create table book
 (
     id_book         bigint comment '主键' primary key,
@@ -56,9 +55,9 @@ create table tutorial
 
 
 create table knowledge (
-    id_knowledge            bigint comment '主键' primary key ,
+    id_knowledge            bigint comment '主键' primary key AUTO_INCREMENT,
     knowledge_name          varchar(50) comment '知识点' not null ,
-    knowledge_description   varchar(200) comment '知识点描述'
+    knowledge_description   varchar(400) comment '知识点描述'
 ) comment '知识点' collate = utf8mb4_unicode_ci;
 
 
