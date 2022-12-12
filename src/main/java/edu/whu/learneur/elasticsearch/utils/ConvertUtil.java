@@ -19,7 +19,7 @@ public class ConvertUtil {
     }
 
     public static ResourceEs LessonToResourceEs(Lesson lesson) {
-        return typeAndIdAndNameAndDescriptionToEs(ResourceType.Lesson, lesson.getId(), lesson.getTitle(), lesson.getDescription());
+        return typeAndIdAndNameAndDescriptionToEs(ResourceType.Lesson, lesson.getId(), lesson.getName(), lesson.getDescription());
     }
 
     public static ResourceEs ProjectToResourceEs(Project project) {
@@ -27,7 +27,7 @@ public class ConvertUtil {
     }
 
     public static ResourceEs TutorialToResourceEs(Tutorial tutorial) {
-        return typeAndIdAndNameAndDescriptionToEs(ResourceType.Tutorial, tutorial.getId(), tutorial.getName(), tutorial.getSummary());
+        return typeAndIdAndNameAndDescriptionToEs(ResourceType.Tutorial, tutorial.getId(), tutorial.getName(), tutorial.getDescription());
     }
 
     public static ResourceEs VideoToResourceEs(Video video) {

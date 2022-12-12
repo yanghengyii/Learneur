@@ -106,3 +106,13 @@
 2022-12-12 17:31:47.956 [http-nio-8080-exec-4] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2022-12-12 17:31:47.957 [http-nio-8080-exec-4] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
 2022-12-12 17:32:49.096 [SpringApplicationShutdownHook] INFO  org.neo4j.driver.internal.InternalDriver - Closing driver instance 638466103
+2022-12-12 21:46:26.390 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-12 21:46:26.391 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-12 21:46:26.391 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-12 21:46:26.565 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-12 21:46:31.098 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-12-12 22:06:32.262 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-12 22:06:32.264 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-12 22:06:32.264 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-12 22:06:32.429 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-12 22:06:36.905 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]

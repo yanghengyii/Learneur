@@ -59,7 +59,7 @@ public class RunoobCrawler extends RequestConfig implements Crawler<Tutorial> {
                 System.out.println(summary);
                 info.setLink(finalLink);
                 info.setName(title);
-                info.setSummary(summary);
+                info.setDescription(summary);
                 infos.add(info);
 
 
