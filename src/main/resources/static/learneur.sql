@@ -11,7 +11,7 @@ create table lesson
 
 create table book
 (
-    id_book         bigint comment '主键' primary key,
+    id_book         bigint comment '主键' primary key auto_increment,
     title           varchar(32) comment '书籍名称',
     img_path        varchar(50) comment '配图',
     author          varchar(32) comment '书籍作者',
@@ -22,7 +22,7 @@ create table book
 
 create table video
 (
-    id_video        bigint comment '主键' primary key ,
+    id_video        bigint comment '主键' primary key auto_increment,
     author          varchar(50) comment '作者',
     BVid            varchar(50) comment 'BV号',
     length          varchar(50) comment '长度',
@@ -34,7 +34,7 @@ create table video
 
 create table project
 (
-    id_project      bigint comment '主键' primary key,
+    id_project      bigint comment '主键' primary key auto_increment,
     name            varchar(50) comment '名称',
     update_time     date comment '更新时间',
     link            varchar(50) comment '跳转链接',
@@ -48,7 +48,7 @@ create table project
 
 create table tutorial
 (
-    id_tutorial     bigint comment '主键' primary key,
+    id_tutorial     bigint comment '主键' primary key auto_increment,
     name            varchar(50) comment '名称',
     link            varchar(100) comment '链接',
     description     varchar(200) comment '简介'
@@ -56,7 +56,7 @@ create table tutorial
 
 
 create table knowledge (
-    id_knowledge            bigint comment '主键' primary key ,
+    id_knowledge            bigint comment '主键' primary key auto_increment,
     knowledge_name          varchar(50) comment '知识点' not null ,
     knowledge_description   varchar(200) comment '知识点描述'
 ) comment '知识点' collate = utf8mb4_unicode_ci;
@@ -69,7 +69,7 @@ create table knowledge_resource (
 ) comment '知识点与资源关联表' collate = utf8mb4_unicode_ci;
 
 create table note (
-    note_id              bigint auto_increment comment '主键'  primary key,
+    note_id              bigint auto_increment comment '主键'  primary key auto_increment,
     note_title           varchar(128) null comment '文章标题',
     note_author_id       bigint null comment '文章作者id',
     note_KP              varchar(128) null comment '文章知识点',
