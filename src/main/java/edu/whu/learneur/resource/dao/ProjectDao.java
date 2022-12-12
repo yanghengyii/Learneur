@@ -10,6 +10,6 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface ProjectDao extends BaseMapper<Project> {
-    @Select("")
-    IPage<Project> findProjectsByKnowledgeId(Long knowledgeId, Page<?> page);
+    @Select("SELECT id_project,name,update_time,link,description,star_gazers,forks,home_page,readme FROM knowledge_resource natural join project where id_knowledge = ${KnowledgeId}")
+    IPage<Project> findProjectsByKnowledgeId(Long knowledgeId, Page<Project> page);
 }

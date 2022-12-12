@@ -10,6 +10,6 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface LessonDao extends BaseMapper<Lesson> {
-    @Select("")
-    IPage<Lesson> findLessonsByKnowledgeId(Long KnowledgeId, Page<?> page);
+    @Select("SELECT id_lesson,title,description,link,img_path FROM knowledge_resource natural join lesson where id_knowledge = ${KnowledgeId}")
+    IPage<Lesson> findLessonsByKnowledgeId(Long KnowledgeId, Page<Lesson> page);
 }

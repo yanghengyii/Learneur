@@ -9,6 +9,6 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface TutorialDao extends BaseMapper<Tutorial> {
-    @Select("")
-    IPage<Tutorial> findTutorialsByKnowledgeId(Long KnowledgeId, Page<?> page);
+    @Select("SELECT id_tutorial,name,link,summary FROM knowledge_resource natural join tutorial where id_knowledge = ${KnowledgeId}")
+    IPage<Tutorial> findTutorialsByKnowledgeId(Long KnowledgeId, Page<Tutorial> page);
 }
