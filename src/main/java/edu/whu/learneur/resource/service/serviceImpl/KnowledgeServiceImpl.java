@@ -35,7 +35,7 @@ public class KnowledgeServiceImpl extends ServiceImpl<KnowledgeDao, Knowledge> i
         return getBaseMapper().findAll();
     }
 
-    public Knowledge findByName(String name){
+    public Knowledge findByName(String name) throws ResourceException{
         LambdaQueryWrapper<Knowledge> lqw = new LambdaQueryWrapper<>();
         lqw.like(Knowledge::getKnowledgeName,name);
         Knowledge result;
@@ -43,7 +43,7 @@ public class KnowledgeServiceImpl extends ServiceImpl<KnowledgeDao, Knowledge> i
             result = getBaseMapper().selectList(lqw).get(0);
         }
         catch (Exception e){
-            throw new UserServiceException("无此知识点");
+            throw new ResourceException("无此知识点");
         }
         return result;
     }

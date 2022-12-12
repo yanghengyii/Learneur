@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class VideoServiceImpl extends ServiceImpl<VideoDao, Video> implements IVideoService {
     @Override
-    public List<Video> addVideos(List<Video> videoList) throws UserServiceException {
+    public List<Video> addVideos(List<Video> videoList){
         List<Video> success = new ArrayList<>();
         for(Video video : videoList){
             LambdaQueryWrapper<Video> lqw = new LambdaQueryWrapper<>();

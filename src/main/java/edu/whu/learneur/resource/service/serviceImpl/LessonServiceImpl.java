@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import edu.whu.learneur.exception.ResourceException;
 import edu.whu.learneur.exception.UserServiceException;
 import edu.whu.learneur.resource.dao.LessonDao;
 import edu.whu.learneur.resource.entity.Lesson;
@@ -16,7 +17,7 @@ import java.util.List;
 @Service
 public class LessonServiceImpl extends ServiceImpl<LessonDao, Lesson> implements ILessonService {
 
-    public List<Lesson> addLessons(List<Lesson> lessonList) throws UserServiceException {
+    public List<Lesson> addLessons(List<Lesson> lessonList){
         List<Lesson> success = new ArrayList<>();
         for(Lesson newLesson : lessonList){
             LambdaQueryWrapper<Lesson> lqw = new LambdaQueryWrapper<>();

@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class TutorialServiceImpl extends ServiceImpl<TutorialDao, Tutorial> implements ITutorialService {
 
-    public List<Tutorial> addTutorial(List<Tutorial> tutorialList) throws UserServiceException {
+    public List<Tutorial> addTutorial(List<Tutorial> tutorialList){
         List<Tutorial> success = new ArrayList<>();
         for(Tutorial tutorial : tutorialList){
             LambdaQueryWrapper<Tutorial> lqw = new LambdaQueryWrapper<>();
