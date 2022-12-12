@@ -69,6 +69,13 @@ public class NotesServiceImpl extends ServiceImpl<NotesDao, Notes> implements IN
     }
 
     @Override
+    public IPage<Notes> findNotesOrderByCreateTime(int pages, int cols) {
+        LambdaQueryWrapper<Notes> lqw = new LambdaQueryWrapper<>();
+        lqw.orderByDesc(Notes::getCreatedTime);
+        return notesDao.selectPage(new Page<>(pages, cols), lqw);
+    }
+
+    @Override
     public boolean deleteNote(Long idNote) {
         return notesDao.deleteById(idNote) > 0;
     }

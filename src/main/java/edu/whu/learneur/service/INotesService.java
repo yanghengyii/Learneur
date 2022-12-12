@@ -52,6 +52,14 @@ public interface INotesService extends IService<Notes> {
     Notes findNotes(Long idNote);
 
     /**
+     * 根据创建时间获取文章
+     * @param pages
+     * @param cols
+     * @return
+     */
+    IPage<Notes> findNotesOrderByCreateTime(int pages, int cols);
+
+    /**
      * 删除一篇笔记
      * @param idNote    笔记id
      * @return

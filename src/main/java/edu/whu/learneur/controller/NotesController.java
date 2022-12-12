@@ -39,6 +39,15 @@ public class NotesController {
         return ResponseEntity.ok(notesService.findNotes(idNote));
     }
 
+    @GetMapping("/get-notes-by-time")
+    @PermitAll
+    public ResponseEntity<IPage<Notes>> getNotesByTime(
+            @RequestParam(value = "pages", defaultValue = "0") int pages,
+            @RequestParam(value = "cols", defaultValue = "15") int cols
+    ) {
+        return ResponseEntity.ok(notesService.findNotesOrderByCreateTime(pages, cols));
+    }
+
     @DeleteMapping("/delete/{idNote}")
     @PreAuthorize("hasAnyAuthority('admin') or #username = authentication.name")
     public ResponseEntity<Boolean> deleteNote(
