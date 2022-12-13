@@ -30,12 +30,12 @@ spring:
       username: neo4j
       password: 12345678
   elasticsearch:
-    username: javaeecourse
+    username: elastic
     password: 12345678
     host-and-port: localhost:9200
     http-ca:
       sha256-fingerprint:
-        89:26:C3:E6:09:BF:4F:8A:6C:DE:3E:3E:33:DA:01:5F:60:9D:5A:F4:ED:41:50:38:38:0F:23:77:24:D9:9E:A1
+        17:83:6E:74:B7:92:98:A7:3C:E5:2E:75:D7:F3:CD:82:FB:D1:C4:95:0A:EC:A2:F7:4D:5F:00:91:AC:C8:5D:93
     path-prefix: learneur
 
 server:
