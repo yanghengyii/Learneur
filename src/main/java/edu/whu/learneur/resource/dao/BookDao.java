@@ -9,15 +9,22 @@ import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface BookDao extends BaseMapper<Book> {
-    @Select("SELECT id_book,title,img_path,path,author,publisher,language,download_url FROM knowledge_resource natural join book where id_knowledge = ${KnowledgeId}")
+    @Select("SELECT book.* FROM knowledge_resource join book on knowledge_resource.id_resource = book.id_book where id_knowledge = #{KnowledgeId} and type = 2")
     IPage<Book> findBooksByKnowledgeId(Long KnowledgeId, Page<Book> page);
 
     @Select("SELECT * FROM book")
     @Results({@Result(id = true, property = "id", column = "id_book"),
-            @Result(property = "knowledge", column = "id_resource",
+            @Result(property = "knowledge", column = "id_book",
                     many = @Many(
                             select = "edu.whu.learneur.resource.dao.KnowledgeDao.findKnowledgeByBookId"
                     ))
     })
     IPage<Book> findBooks(Page<Book> page);
+
+    @Insert("INSERT INTO knowledge_resource VALUES(#{bookId},#{knowledgeId}, 2)")
+    void insertKR(long bookId,long knowledgeId);
+
+    @Select("select exists (select * from knowledge_resource where id_knowledge = #{knowledgeId} "
+            + "and id_resource = #{bookId} and type = 2)")
+    int existKR(long knowledgeId, long bookId);
 }

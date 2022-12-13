@@ -70,8 +70,11 @@ public class AuthenticationController {
             );
             final UserDetails userDetails = userDetailsService.loadUserByUsername(users.getUsername());
             final String token = jwtTokenUtils.generateToken(userDetails);
+            System.out.println("---------------------");
             redisTemplate.boundValueOps(users.getUsername()).set(token, LearneurConst.JWT_EXPIRED_TIME, TimeUnit.MILLISECONDS);
+
             usersService.updateOnlineStatusByUsername(users.getUsername());
+
             return ResponseEntity.ok(token);
         } catch (Exception e) {
             log.warn("用户: " + users.getUsername() + " 认证未通过, 时间 - " + LocalDateTime.now());

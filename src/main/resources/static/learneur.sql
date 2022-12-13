@@ -13,7 +13,7 @@ create table book
 (
     id_book         bigint comment '主键' primary key auto_increment,
     title           varchar(32) comment '书籍名称',
-    img_path        varchar(50) comment '配图',
+    cover_url        varchar(50) comment '配图',
     author          varchar(32) comment '书籍作者',
     publisher       varchar(32) comment '出版商',
     language        varchar(32) comment '语言'
@@ -26,7 +26,7 @@ create table video
     author          varchar(50) comment '作者',
     BVid            varchar(50) comment 'BV号',
     length          varchar(50) comment '长度',
-    pic_path        varchar(100) comment '图片链接',
+    pic        varchar(100) comment '图片链接',
     description     varchar(100) comment '简介',
     title           varchar(50) comment '标题'
 

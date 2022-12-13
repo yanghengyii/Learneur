@@ -8,9 +8,11 @@ import edu.whu.learneur.resource.entity.Video;
 import java.util.List;
 
 public interface IVideoService extends IService<Video> {
-    List<Video> addVideos(List<Video> videoList) throws UserServiceException;
+    List<Video> addVideos(List<Video> videoList,long knowledgeId) throws UserServiceException;
 
     IPage<Video> findVideoPage(Long knowledgeId, Integer pageNum, Integer pageSize);
 
     IPage<Video> findAllVideos(Integer pageNum, Integer pageSize);
+
+
 }

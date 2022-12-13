@@ -7,3 +7,10 @@ Found multiple occurrences of org.json.JSONObject on the class path:
 
 You may wish to exclude one of them to ensure predictable runtime behavior
 
+2022-12-12 22:31:47.173 [http-nio-8080-exec-1] WARN  e.whu.learneur.controller.AuthenticationController - 用户: lzy 认证未通过, 时间 - 2022-12-12T22:31:47.173
+2022-12-12 22:33:20.571 [http-nio-8080-exec-2] WARN  e.whu.learneur.controller.AuthenticationController - 用户: lzy 认证未通过, 时间 - 2022-12-12T22:33:20.571
+2022-12-12 22:34:12.976 [http-nio-8080-exec-1] WARN  e.whu.learneur.controller.AuthenticationController - 用户: lzy 认证未通过, 时间 - 2022-12-12T22:34:12.976
+2022-12-12 22:35:18.951 [http-nio-8080-exec-2] WARN  e.whu.learneur.controller.AuthenticationController - 用户: lzy 认证未通过, 时间 - 2022-12-12T22:35:18.951
+2022-12-12 22:37:31.015 [http-nio-8080-exec-1] WARN  e.whu.learneur.controller.AuthenticationController - 用户: lzy 认证未通过, 时间 - 2022-12-12T22:37:31.015
+2022-12-12 22:37:58.247 [http-nio-8080-exec-1] WARN  e.whu.learneur.controller.AuthenticationController - 用户: lzy 认证未通过, 时间 - 2022-12-12T22:37:58.247
+2022-12-12 22:38:33.353 [http-nio-8080-exec-1] WARN  e.whu.learneur.controller.AuthenticationController - 用户: lzy 认证未通过, 时间 - 2022-12-12T22:38:33.353

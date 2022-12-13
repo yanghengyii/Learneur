@@ -31,8 +31,6 @@ public class CrawlerController {
     @Autowired
     private IKnowledgeService knowledgeService;
     @Autowired
-    private IKRService krService;
-    @Autowired
     private IBookService bookService;
     @Autowired
     private IVideoService videoService;
@@ -48,8 +46,8 @@ public class CrawlerController {
         List<Knowledge> list= knowledgeService.findAll();
         for(Knowledge knowledge : list) {
             List<Video> res = videoCrawler.crawl(knowledge.getKnowledgeName());
-            res = videoService.addVideos(res);
-            krService.addVideo(knowledge.getId(), res);
+            res = videoService.addVideos(res,knowledge.getIdKnowledge());
+            //krService.addVideo(knowledge.getIdKnowledge(), res);
         }
     }
 
@@ -58,8 +56,7 @@ public class CrawlerController {
         List<Knowledge> list = knowledgeService.findAll();
         for(Knowledge knowledge: list) {
             List<Project> res = projectCrawler.crawl(knowledge.getKnowledgeName());
-            res = projectService.addProjects(res);
-            krService.addProject(knowledge.getId(), res);
+            res = projectService.addProjects(res , knowledge.getIdKnowledge());
         }
     }
 
@@ -69,8 +66,7 @@ public class CrawlerController {
         try{
             for(Knowledge knowledge: list) {
                 List<Lesson> res = itheimaCrawler.crawl(knowledge.getKnowledgeName());
-                res = lessonService.addLessons(res);
-                krService.addLesson(knowledge.getId(), res);
+                res = lessonService.addLessons(res, knowledge.getIdKnowledge());
             }
         }
         catch (Exception e) {
@@ -84,22 +80,22 @@ public class CrawlerController {
         try{
             for(Knowledge knowledge: list) {
                 List<Tutorial> res = runoobCrawler.crawl(knowledge.getKnowledgeName());
-                res = tutorialService.addTutorial(res);
-                krService.addTutorial(knowledge.getId(), res);
+                res = tutorialService.addTutorial(res, knowledge.getIdKnowledge());
             }
         }
         catch (Exception e) {
             e.printStackTrace();
         }
     }
-    @Scheduled(cron = "${time.cron}")
+    @Scheduled(cron = "${time.test}")
     public void crawlBooks() {
         List<Knowledge> list = knowledgeService.findAll();
+        System.out.println(list.size());
         try{
             for(Knowledge knowledge: list) {
+                System.out.println("------"+knowledge.getIdKnowledge());
                 List<Book> res = bookCrawler.crawl(knowledge.getKnowledgeName());
-                res = bookService.addBooks(res);
-                krService.addBook(knowledge.getId(), res);
+                res = bookService.addBooks(res, knowledge.getIdKnowledge());
             }
         }
         catch (Exception e) {

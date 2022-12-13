@@ -16,19 +16,24 @@ import java.util.List;
 @Service
 public class VideoServiceImpl extends ServiceImpl<VideoDao, Video> implements IVideoService {
     @Override
-    public List<Video> addVideos(List<Video> videoList){
+    public List<Video> addVideos(List<Video> videoList,long knowledgeId){
         List<Video> success = new ArrayList<>();
         for(Video video : videoList){
             LambdaQueryWrapper<Video> lqw = new LambdaQueryWrapper<>();
-            lqw.eq(Video::getBVid,video.getBVid());
+            lqw.eq(Video::getBvid,video.getBvid());
             Video tmp = getBaseMapper().selectOne(lqw);
             if(tmp == null){
                 getBaseMapper().insert(video);
+
                 success.add(video);
             }
             else if(!tmp.equals(video)) {
                 video.setId(tmp.getId());
                 getBaseMapper().updateById(video);
+            }
+
+            if(getBaseMapper().existKR(knowledgeId, video.getId()) == 0){
+                getBaseMapper().insertKR(video.getId(),knowledgeId);
             }
         }
         return success;

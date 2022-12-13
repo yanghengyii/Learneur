@@ -40,8 +40,8 @@ public class Lesson extends Tutorial{
     /**
      * 配图
      */
-    @TableField(value = "img_path")
-    private String imgPath;
+    @TableField(value = "cover_url")
+    private String coverUrl;
 
     @TableField(exist = false)
     List<Knowledge> knowledge;

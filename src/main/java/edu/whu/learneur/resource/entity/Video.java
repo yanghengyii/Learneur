@@ -14,7 +14,7 @@ public class Video {
     private Long id;
 
     private String author;
-    private String BVid;
+    private String bvid;
     private String length;
     private String pic;
     private String description;

@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class TutorialServiceImpl extends ServiceImpl<TutorialDao, Tutorial> implements ITutorialService {
 
-    public List<Tutorial> addTutorial(List<Tutorial> tutorialList){
+    public List<Tutorial> addTutorial(List<Tutorial> tutorialList, long knowledgeId){
         List<Tutorial> success = new ArrayList<>();
         for(Tutorial tutorial : tutorialList){
             LambdaQueryWrapper<Tutorial> lqw = new LambdaQueryWrapper<>();
@@ -30,6 +30,9 @@ public class TutorialServiceImpl extends ServiceImpl<TutorialDao, Tutorial> impl
                 tutorial.setId(tmp.getId());
                 getBaseMapper().updateById(tutorial);
 
+            }
+            if(getBaseMapper().existKR(knowledgeId, tutorial.getId()) == 0){
+                getBaseMapper().insertKR(tutorial.getId(),knowledgeId);
             }
         }
         return success;

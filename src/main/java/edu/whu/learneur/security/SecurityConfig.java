@@ -38,7 +38,11 @@ public class SecurityConfig {
                 .antMatchers("/knowledge/*").permitAll()          // 用户界面通告
                 .antMatchers("/relation*").permitAll()            // 知识图谱关系界面通告
                 .antMatchers("/index").permitAll()                  // 首页都通过
-                .antMatchers("/resources/").permitAll()
+                .antMatchers("/videos").permitAll()
+                .antMatchers("/projects").permitAll()
+                .antMatchers("/tutorials").permitAll()
+                .antMatchers("/books").permitAll()
+                .antMatchers("/resource/**").permitAll()
                 .antMatchers("/admin/").hasAuthority("admin")
                 .anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS);

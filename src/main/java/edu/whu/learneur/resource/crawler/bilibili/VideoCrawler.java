@@ -2,6 +2,7 @@ package edu.whu.learneur.resource.crawler.bilibili;
 
 import edu.whu.learneur.resource.crawler.Crawler;
 import edu.whu.learneur.resource.entity.Video;
+import org.elasticsearch.common.recycler.Recycler;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
@@ -116,27 +117,21 @@ public class VideoCrawler implements Crawler<Video> {
          */
     @Override
     public List<Video> crawl(String key) {
-        List<Video> videos = new ArrayList<>(100);
-        List<CompletableFuture<List<Video>>> futures = new ArrayList<>(users.length);
+        List<Video> videos = new ArrayList<>();
+        //List<CompletableFuture<List<Video>>> futures = new ArrayList<>(users.length);
 
         for (int user : users) {
             String fullUrl = getUrlString(user, pageSize, 1, key);
-            CompletableFuture<List<Video>> future = CompletableFuture.supplyAsync(() -> {
-                try {
-                    return parse(getResponse(fullUrl));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return null;
-            });
-            futures.add(future);
+            try{
+                List<Video> res = parse(getResponse(fullUrl));
+                videos.addAll(res);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
 
-        CompletableFuture<Void> allDone = CompletableFuture.allOf(futures.toArray(new CompletableFuture[futures.size()]));
-        allDone.join();
-        for (CompletableFuture<List<Video>> future : futures) {
-            videos.addAll(future.join());
-        }
         return videos;
     }
 
@@ -169,6 +164,9 @@ public class VideoCrawler implements Crawler<Video> {
 
     public List<Video> parse(String jsonString) {
         List<Video> videos = new ArrayList<>(30);
+        if(jsonString == null) {
+            return null;
+        }
         JSONObject jsonObject = new JSONObject(jsonString);
         JSONObject data = jsonObject.getJSONObject("data");
         JSONObject pageInfo = data.getJSONObject("page");
@@ -177,9 +175,9 @@ public class VideoCrawler implements Crawler<Video> {
         for (int i = 0; i < videoList.length(); i++) {
             Video temp = new Video();
             JSONObject video = videoList.getJSONObject(i);
-            temp.setBVid(video.getString("bvid"));
+            temp.setBvid(video.getString("bvid"));
             temp.setAuthor(video.getString("author"));
-            temp.setDescription(video.getString("description"));
+            temp.setDescription(video.getString("description").substring(0,Math.min(500,video.getString("description").length())));
             temp.setLength(video.getString("length"));
             temp.setPic(video.getString("pic"));
             temp.setTitle(video.getString("title"));

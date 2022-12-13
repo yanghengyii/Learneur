@@ -20,8 +20,8 @@ public class VideoController {
 
 
     @GetMapping("")
-    public ResponseEntity<IPage<Video>> findAllVideos(@RequestParam Integer pageNum,
-                                                      @RequestParam Integer pageSize){
+    public ResponseEntity<IPage<Video>> findAllVideos(@RequestParam(defaultValue = "0") Integer pageNum,
+                                                      @RequestParam(defaultValue = "20") Integer pageSize){
         IPage<Video> res = videoService.findAllVideos(pageNum, pageSize);
         return ResponseEntity.ok(res);
 

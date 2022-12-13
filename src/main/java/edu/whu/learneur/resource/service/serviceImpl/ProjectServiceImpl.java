@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 public class ProjectServiceImpl extends ServiceImpl<ProjectDao, Project> implements IProjectService {
-    public List<Project> addProjects(List<Project> projects) {
+    public List<Project> addProjects(List<Project> projects, long knowledgeId) {
         List<Project> success = new ArrayList<>();
         for(Project project: projects) {
             LambdaQueryWrapper<Project> lqw = new LambdaQueryWrapper<>();
@@ -27,6 +27,9 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectDao, Project> impleme
             else if(!tmp.equals(project)){
                 project.setIdProject(tmp.getIdProject());
                 getBaseMapper().updateById(project);
+            }
+            if(getBaseMapper().existKR(knowledgeId, project.getIdProject()) == 0){
+                getBaseMapper().insertKR(project.getIdProject(),knowledgeId);
             }
         }
         return success;

@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class BookServiceImpl extends ServiceImpl<BookDao, Book> implements IBookService {
 
-    public List<Book> addBooks(List<Book> bookList){
+    public List<Book> addBooks(List<Book> bookList, long knowledgeId){
         List<Book> success = new ArrayList<>();
         for(Book book : bookList){
             LambdaQueryWrapper<Book> lqw = new LambdaQueryWrapper<>();
@@ -24,12 +24,21 @@ public class BookServiceImpl extends ServiceImpl<BookDao, Book> implements IBook
                     .eq(Book::getFileType, book.getFileType());
             Book tmp = getBaseMapper().selectOne(lqw);
             if(tmp == null){
-                getBaseMapper().insert(book);
-                success.add(book);
+                try{
+                    getBaseMapper().insert(book);
+                    success.add(book);
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+
             }
             else if(!tmp.equals(book)){
                 book.setId(tmp.getId());
                 getBaseMapper().updateById(book);
+            }
+            if(getBaseMapper().existKR(knowledgeId, book.getId()) == 0){
+                getBaseMapper().insertKR(book.getId(),knowledgeId);
             }
         }
         return success;

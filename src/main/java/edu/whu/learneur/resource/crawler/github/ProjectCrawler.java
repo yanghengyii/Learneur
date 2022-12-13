@@ -52,13 +52,16 @@ public class ProjectCrawler implements Crawler<Project> {
     public List<Project> crawl(String key) {
         List<Project> res = new ArrayList<>();
         String fullUrl;
-        for(int i = 0; i < 30; i++){
+        int i = 0;
+        while(res.size() < 100){
             fullUrl = url + key + "&sort=stars&page="+i+"&per_page=30";
+            fullUrl = fullUrl.replaceAll(" ", "%20");
             try{
                 String response = getResponse(fullUrl);
                 if(response != null) {
                     res.addAll(parse(response));
                 }
+                i++;
             }
             catch (Exception e){
                 e.printStackTrace();
@@ -78,7 +81,8 @@ public class ProjectCrawler implements Crawler<Project> {
             temp.setIdProject(project.getLong("id"));
             temp.setName(project.getString("full_name"));
             temp.setLink(project.getString("html_url"));
-            temp.setDescription(project.getString("description"));
+            temp.setDescription(project.isNull("description")?null:
+                    project.getString("description").substring(0,Math.min(500, project.getString("description").length())));
             temp.setForks(project.getInt("forks_count"));
             temp.setStarGazers(project.getInt("stargazers_count"));
             temp.setLanguage(project.isNull("language")? null : project.getString("language"));

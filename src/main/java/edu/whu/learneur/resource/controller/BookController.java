@@ -18,8 +18,8 @@ public class BookController {
     private IBookService bookService;
 
     @GetMapping("")
-    public ResponseEntity<IPage<Book>> findAllBooks(@RequestParam Integer pageNum,
-                                                    @RequestParam Integer pageSize) {
+    public ResponseEntity<IPage<Book>> findAllBooks(@RequestParam(defaultValue = "0") Integer pageNum,
+                                                    @RequestParam(defaultValue = "20") Integer pageSize) {
         IPage<Book> res = bookService.findAllBooks(pageNum, pageSize);
         return ResponseEntity.ok(res);
     }

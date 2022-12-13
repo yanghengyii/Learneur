@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 public interface IBookService extends IService<Book> {
-    List<Book> addBooks(List<Book> bookList) throws UserServiceException;
+    List<Book> addBooks(List<Book> bookList, long knowledgeId) throws UserServiceException;
 
     IPage<Book> findBookPage(Long knowledgeId, Integer pageNum, Integer pageSize);
 
