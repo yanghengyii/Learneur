@@ -19,12 +19,30 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+
+/**
+ * <p>
+ *     知识图谱节点数据访问层
+ *     用于处理数据库的操作
+ *     与KnowledgeService配合使用
+ * </p>
+ * @author Geraltigas
+ * @since 2022-12-10
+ * @version 1.0
+ */
 @Repository
 public class KnowledgeRepo implements KnowledgeRepoInterface {
 
     @Autowired
     Neo4jClient neo4jClient;
 
+
+    /**
+     * @param relationId 关系id
+     * @param type 关系类型
+     * @param description 关系描述
+     * @return Optional<List<Relation>> 更新的关系列表
+     */
     public Optional<List<Relation>> updateRelationById(Long relationId, String type, String description) {
         List<Relation> update = neo4jClient
                 .query(String.format("MATCH (n:knowledge)-[r]->(m:knowledge) WHERE id(r) = %d MERGE (n)-[r2:%s {type:'%s',description:'%s'}]->(m) delete r RETURN r2",relationId,type,type,description))
@@ -42,6 +60,13 @@ public class KnowledgeRepo implements KnowledgeRepoInterface {
         //@Query("MATCH (n:knowledge)-[r]->(m:knowledge) WHERE id(r) = $relationId MERGE (n)-[r2:`:#{literal(#type)}` {type:$type,description:$description}]->(m) delete r RETURN id(startNode(r2)) as start,id(endNode(r2)) as end,id(r2) as id,r2.type as type,r2.description as description")
     }
 
+    /**
+     * @param knowledgeId 节点id
+     * @param relatedId 相关节点id
+     * @param type 关系类型
+     * @param description 关系描述
+     * @return Optional<Relation> 新增的关系
+     */
     public Optional<Relation> addRelation(Long knowledgeId, Long relatedId, String type, String description) {
       Relation relation = neo4jClient
                 .query(String.format("MATCH (n:knowledge),(m:knowledge) WHERE id(n) = %d AND id(m)=%d MERGE (n)-[r:%s {type:'%s',description:'%s'}]->(m) RETURN r", knowledgeId,relatedId,type,type,description))
@@ -58,6 +83,11 @@ public class KnowledgeRepo implements KnowledgeRepoInterface {
         return Optional.ofNullable(relation);
     };
 
+    /**
+     * @param knowledge 节点
+     * @param id 节点id
+     * @return Optional<Knowledge> 更新的节点
+     */
     public Optional<Knowledge> updateTagById(Knowledge knowledge, Long id) {
         Knowledge knowledget = neo4jClient
                 .query(String.format("MATCH (n:knowledge) WHERE id(n) = %d SET n.name = '%s',n.description = '%s' RETURN n",id,knowledge.getName(),knowledge.getDescription()))
@@ -73,6 +103,10 @@ public class KnowledgeRepo implements KnowledgeRepoInterface {
         return Optional.ofNullable(knowledget);
     }
 
+    /**
+     * @param id 节点id
+     * @return Optional<Knowledge> 删除的节点
+     */
     public Optional<Knowledge> deleteById(Long id) {
         Knowledge knowledget = neo4jClient
                 .query(String.format("MATCH (n:knowledge) WHERE id(n) = %d DETACH DELETE n RETURN n",id))
@@ -82,12 +116,17 @@ public class KnowledgeRepo implements KnowledgeRepoInterface {
                     knowledge1.setId(internalNode.id());
                     knowledge1.setName(internalNode.get("name").asString());
                     knowledge1.setDescription(internalNode.get("description").asString());
-                    knowledge1.setForeignId(internalNode.get("foreign_id").asLong());
+                    knowledge1.setForeignId(null);
                     return knowledge1;
                 }).orElse(null);
         return Optional.ofNullable(knowledget);
     }
 
+    /**
+     * @param start 起始节点id
+     * @param end 结束节点id
+     * @return Optional<Relation> 删除的关系
+     */
     @Override
     public Optional<Relation> deleteRelationById(Long start, Long end) {
         Relation relation = neo4jClient
@@ -105,6 +144,11 @@ public class KnowledgeRepo implements KnowledgeRepoInterface {
         return Optional.ofNullable(relation);
     }
 
+    /**
+     * @param name 节点名称
+     * @param type 关系类型
+     * @return Optional<List<Relation>>> 关系列表
+     */
     @Override
     public Optional<List<Relation>> findRelationByNameAndType(String name, String type) {
         List<Relation> relations = neo4jClient
@@ -122,6 +166,11 @@ public class KnowledgeRepo implements KnowledgeRepoInterface {
         return Optional.of(relations);
     }
 
+    /**
+     * @param name 节点名称
+     * @param depth 深度
+     * @return Optional<List<Relation>>> 关系列表
+     */
     @Override
     public Optional<List<Relation>> findRelationByName(String name, Integer depth) {
         List<Relation> relations = neo4jClient
@@ -140,6 +189,10 @@ public class KnowledgeRepo implements KnowledgeRepoInterface {
         return Optional.of(relations);
     }
 
+    /**
+     * @param name 节点名称
+     * @return Optional<List<Knowledge>>> 节点列表
+     */
     @Override
     public Optional<List<Knowledge>> findAllRelated(String name) {
         List<Knowledge> knowledges = neo4jClient
@@ -156,6 +209,13 @@ public class KnowledgeRepo implements KnowledgeRepoInterface {
         return Optional.of(knowledges);
     }
 
+    /**
+     * @param name1 起始节点名称
+     * @param name2 结束节点名称
+     * @param description  关系描述
+     * @param type 关系类型
+     * @return Optional<Relation> 新增关系
+     */
     @Override
     public Optional<Relation> addRelationByNames(String name1, String name2, String type, String description) {
         Relation relation = neo4jClient
