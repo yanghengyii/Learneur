@@ -11,6 +11,8 @@ import java.util.List;
 public interface IKnowledgeService extends IService<Knowledge> {
     Knowledge findById(Long id);
 
+    Knowledge findByName(String name);
+
     IPage<Knowledge> findKnowledge(Integer pageNum, Integer  pageSize);
 
     List<Knowledge> findAll();
