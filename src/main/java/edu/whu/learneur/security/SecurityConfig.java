@@ -40,6 +40,7 @@ public class SecurityConfig {
                 .antMatchers("/index").permitAll()                  // 首页都通过
                 .antMatchers("/resources/").permitAll()
                 .antMatchers("/admin/").hasAuthority("admin")
+                .antMatchers("/search/*").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
         return security.build();
