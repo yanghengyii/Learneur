@@ -15,7 +15,7 @@ public interface LessonDao extends BaseMapper<Lesson> {
     @Insert("INSERT INTO knowledge_resource VALUES(#{lessonId},#{knowledgeId}, 1)")
     void insertKR(long lessonId,long knowledgeId);
     @Select("SELECT * FROM lesson")
-    @Results({@Result(id = true, property = "id", column = "id_lesson"),
+    @Results({@Result(id = true, property = "idLesson", column = "id_lesson"),
             @Result(property = "knowledge", column = "id_lesson",
                     many = @Many(
                             select = "edu.whu.learneur.resource.dao.KnowledgeDao.findKnowledgeByLessonId"

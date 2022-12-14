@@ -14,5 +14,7 @@ public interface IVideoService extends IService<Video> {
 
     IPage<Video> findAllVideos(Integer pageNum, Integer pageSize);
 
+    Video findById(long id);
+
 
 }

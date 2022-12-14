@@ -22,13 +22,13 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
         List<KnowledgeResource> results = new ArrayList<>();
         for(Book book:bookList) {
             System.out.println("----------------------1");
-            System.out.println(book.getId());
+            System.out.println(book.getIdBook());
             System.out.println(knowledgeId);
-            if(notExist(knowledgeId, book.getId(), 2)) {
+            if(notExist(knowledgeId, book.getIdBook(), 2)) {
                 System.out.println("----------------------2");
                 KnowledgeResource knowledgeResource = new KnowledgeResource();
                 knowledgeResource.setIdKnowledge(knowledgeId);
-                knowledgeResource.setIdResource(book.getId());
+                knowledgeResource.setIdResource(book.getIdBook());
                 knowledgeResource.setType(2);
 
                 getBaseMapper().insert(knowledgeResource);
@@ -57,10 +57,10 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
     public List<KnowledgeResource> addLesson(Long knowledgeId,List<Lesson> lessonList) throws ResourceException{
         List<KnowledgeResource> results = new ArrayList<>();
         for(Lesson lesson:lessonList) {
-            if(notExist(knowledgeId, lesson.getId(), 1)){
+            if(notExist(knowledgeId, lesson.getIdLesson(), 1)){
                 KnowledgeResource knowledgeResource = new KnowledgeResource();
                 knowledgeResource.setIdKnowledge(knowledgeId);
-                knowledgeResource.setIdResource(lesson.getId());
+                knowledgeResource.setIdResource(lesson.getIdLesson());
                 knowledgeResource.setType(1);
                 getBaseMapper().insert(knowledgeResource);
                 results.add(knowledgeResource);
@@ -72,10 +72,10 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
     public List<KnowledgeResource> addTutorial(Long knowledgeId,List<Tutorial> tutorialList) throws ResourceException{
         List<KnowledgeResource> results = new ArrayList<>();
         for(Tutorial tutorial:tutorialList) {
-            if(notExist(knowledgeId, tutorial.getId(),4)){
+            if(notExist(knowledgeId, tutorial.getIdTutorial(),4)){
                 KnowledgeResource knowledgeResource = new KnowledgeResource();
                 knowledgeResource.setIdKnowledge(knowledgeId);
-                knowledgeResource.setIdResource(tutorial.getId());
+                knowledgeResource.setIdResource(tutorial.getIdTutorial());
                 knowledgeResource.setType(4);
                 getBaseMapper().insert(knowledgeResource);
                 results.add(knowledgeResource);
@@ -88,10 +88,10 @@ public class KRServiceImpl extends ServiceImpl<KRDao, KnowledgeResource> impleme
     public List<KnowledgeResource> addVideo(Long knowledgeId,List<Video> videoList) throws ResourceException{
         List<KnowledgeResource> results = new ArrayList<>();
         for(Video video:videoList) {
-            if(notExist(knowledgeId, video.getId(), 5)){
+            if(notExist(knowledgeId, video.getIdVideo(), 5)){
                 KnowledgeResource knowledgeResource = new KnowledgeResource();
                 knowledgeResource.setIdKnowledge(knowledgeId);
-                knowledgeResource.setIdResource(video.getId());
+                knowledgeResource.setIdResource(video.getIdVideo());
                 knowledgeResource.setType(5);
                 getBaseMapper().insert(knowledgeResource);
                 results.add(knowledgeResource);

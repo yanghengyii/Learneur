@@ -15,6 +15,7 @@ public class ProjectController {
     private IProjectService projectService;
 
     @GetMapping("")
+    @CrossOrigin
     public ResponseEntity<IPage<Project>> findAllProjects(@RequestParam(defaultValue = "0") Integer pageNum,
                                                           @RequestParam(defaultValue = "20") Integer pageSize) {
 
@@ -23,6 +24,7 @@ public class ProjectController {
     }
 
     @GetMapping("/{projectId}")
+    @CrossOrigin
     public ResponseEntity<Project> getProjectById(@PathVariable Long projectId) {
         return ResponseEntity.ok(projectService.findById(projectId));
     }

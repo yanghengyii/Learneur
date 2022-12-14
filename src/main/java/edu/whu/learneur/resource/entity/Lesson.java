@@ -13,14 +13,14 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Lesson extends Tutorial{
+public class Lesson {
     private static final long serialVersionUID = 1L;
 
     /**
      * 主键
      */
     @TableId(value = "id_lesson", type = IdType.AUTO)
-    private Long id;
+    private Long idLesson;
 
     /**
      * 名称

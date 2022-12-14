@@ -34,11 +34,11 @@ public class BookServiceImpl extends ServiceImpl<BookDao, Book> implements IBook
 
             }
             else if(!tmp.equals(book)){
-                book.setId(tmp.getId());
+                book.setIdBook(tmp.getIdBook());
                 getBaseMapper().updateById(book);
             }
-            if(getBaseMapper().existKR(knowledgeId, book.getId()) == 0){
-                getBaseMapper().insertKR(book.getId(),knowledgeId);
+            if(getBaseMapper().existKR(knowledgeId, book.getIdBook()) == 0){
+                getBaseMapper().insertKR(book.getIdBook(),knowledgeId);
             }
         }
         return success;
@@ -54,7 +54,7 @@ public class BookServiceImpl extends ServiceImpl<BookDao, Book> implements IBook
         return getBaseMapper().findBooks(page);
     }
 
-    public Book findById(long id){
-        return getBaseMapper().selectById(id);
+    public Book findById(Long id){
+        return getBaseMapper().findBookById(id);
     }
 }

@@ -24,6 +24,16 @@ public interface ProjectDao extends BaseMapper<Project> {
     })
     IPage<Project> findProjects(Page<Project> page);
 
+
+    @Select("SELECT * FROM project where id_project = #{id}")
+    @Results({@Result(id = true, property = "idProject", column = "id_project"),
+            @Result(property = "knowledge", column = "id_project",
+                    many = @Many(
+                            select = "edu.whu.learneur.resource.dao.KnowledgeDao.findKnowledgeByProjectId"
+                    ))
+    })
+    Project findProjectById(long id);
+
     @Insert("INSERT INTO knowledge_resource VALUES(#{projectId},#{knowledgeId}, 3)")
     void insertKR(long projectId,long knowledgeId);
 

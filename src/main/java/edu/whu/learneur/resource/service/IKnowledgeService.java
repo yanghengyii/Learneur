@@ -16,4 +16,6 @@ public interface IKnowledgeService extends IService<Knowledge> {
     List<Knowledge> findAll();
 
     void addKnowledge(Knowledge knowledge) throws UserServiceException;
+
+    IPage<Knowledge> findTop(Integer pageNum, Integer  pageSize);
 }

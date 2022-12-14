@@ -15,5 +15,5 @@ public interface IBookService extends IService<Book> {
 
     IPage<Book> findAllBooks(Integer pageNum, Integer pageSize);
 
-    Book findById(long id);
+    Book findById(Long id);
 }

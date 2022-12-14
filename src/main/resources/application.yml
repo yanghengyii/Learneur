@@ -32,11 +32,7 @@ spring:
   elasticsearch:
     username: elastic
     password: 12345678
-    host-and-port: localhost:9200
-    http-ca:
-      sha256-fingerprint:
-        17:83:6E:74:B7:92:98:A7:3C:E5:2E:75:D7:F3:CD:82:FB:D1:C4:95:0A:EC:A2:F7:4D:5F:00:91:AC:C8:5D:93
-    path-prefix: learneur
+    host-and-port: 192.168.1.147:9200
   redis:
     host: 10.132.54.169
     port: 6379

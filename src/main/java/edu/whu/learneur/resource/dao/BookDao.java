@@ -13,7 +13,7 @@ public interface BookDao extends BaseMapper<Book> {
     IPage<Book> findBooksByKnowledgeId(Long KnowledgeId, Page<Book> page);
 
     @Select("SELECT * FROM book")
-    @Results({@Result(id = true, property = "id", column = "id_book"),
+    @Results({@Result(id = true, property = "idBook", column = "id_book"),
             @Result(property = "knowledge", column = "id_book",
                     many = @Many(
                             select = "edu.whu.learneur.resource.dao.KnowledgeDao.findKnowledgeByBookId"
@@ -27,4 +27,13 @@ public interface BookDao extends BaseMapper<Book> {
     @Select("select exists (select * from knowledge_resource where id_knowledge = #{knowledgeId} "
             + "and id_resource = #{bookId} and type = 2)")
     int existKR(long knowledgeId, long bookId);
+
+    @Select("SELECT * FROM book where id_book=#{id}")
+    @Results({@Result(id = true, property = "idBook", column = "id_book"),
+            @Result(property = "knowledge", column = "id_book",
+                    many = @Many(
+                            select = "edu.whu.learneur.resource.dao.KnowledgeDao.findKnowledgeByBookId"
+                    ))
+    })
+    Book findBookById(long id);
 }

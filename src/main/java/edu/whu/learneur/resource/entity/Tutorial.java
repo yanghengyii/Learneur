@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Tutorial {
     @TableId(value = "id_tutorial",type = IdType.AUTO)
-    private Long id;
+    private Long idTutorial;
 
     String name;
 

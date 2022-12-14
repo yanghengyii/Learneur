@@ -15,7 +15,7 @@ public interface VideoDao extends BaseMapper<Video> {
     IPage<Video> findVideosByKnowledgeId(Long KnowledgeId, Page<Tutorial> page);
 
     @Select("SELECT * FROM video")
-    @Results({@Result(id = true, property = "id", column = "id_video"),
+    @Results({@Result(id = true, property = "idVideo", column = "id_video"),
             @Result(property = "knowledge", column = "id_video",
                     many = @Many(
                             select = "edu.whu.learneur.resource.dao.KnowledgeDao.findKnowledgeByVideoId"
@@ -29,4 +29,13 @@ public interface VideoDao extends BaseMapper<Video> {
     @Select("select exists (select * from knowledge_resource where id_knowledge = #{knowledgeId} "
     + "and id_resource = #{videoId} and type = 5)")
     int existKR(long knowledgeId, long videoId);
+
+    @Select("SELECT * FROM video where id_video=#{id}")
+    @Results({@Result(id = true, property = "idVideo", column = "id_video"),
+            @Result(property = "knowledge", column = "id_video",
+                    many = @Many(
+                            select = "edu.whu.learneur.resource.dao.KnowledgeDao.findKnowledgeByVideoId"
+                    ))
+    })
+    Video findVideoById(long id);
 }

@@ -7,10 +7,7 @@ import edu.whu.learneur.resource.service.IVideoService;
 import edu.whu.learneur.resource.service.serviceImpl.VideoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/videos")
@@ -20,9 +17,18 @@ public class VideoController {
 
 
     @GetMapping("")
+    @CrossOrigin
     public ResponseEntity<IPage<Video>> findAllVideos(@RequestParam(defaultValue = "0") Integer pageNum,
                                                       @RequestParam(defaultValue = "20") Integer pageSize){
         IPage<Video> res = videoService.findAllVideos(pageNum, pageSize);
+        return ResponseEntity.ok(res);
+
+    }
+
+    @GetMapping("/{id}")
+    @CrossOrigin
+    public ResponseEntity<Video> findAllVideos(@PathVariable Long id){
+        Video res = videoService.findById(id);
         return ResponseEntity.ok(res);
 
     }

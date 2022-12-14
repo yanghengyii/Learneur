@@ -29,11 +29,11 @@ public class LessonServiceImpl extends ServiceImpl<LessonDao, Lesson> implements
                 success.add(newLesson);
             }
             else if(!tmp.equals(newLesson)){
-                newLesson.setId(tmp.getId());
+                newLesson.setIdLesson(tmp.getIdLesson());
                 getBaseMapper().updateById(newLesson);
             }
-            if(getBaseMapper().existKR(knowledgeId, newLesson.getId()) == 0){
-                getBaseMapper().insertKR(newLesson.getId(),knowledgeId);
+            if(getBaseMapper().existKR(knowledgeId, newLesson.getIdLesson()) == 0){
+                getBaseMapper().insertKR(newLesson.getIdLesson(),knowledgeId);
             }
         }
         return success;

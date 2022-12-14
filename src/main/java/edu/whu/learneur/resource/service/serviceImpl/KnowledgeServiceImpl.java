@@ -10,6 +10,7 @@ import edu.whu.learneur.exception.UserServiceException;
 import edu.whu.learneur.resource.dao.KnowledgeDao;
 import edu.whu.learneur.resource.entity.Knowledge;
 import edu.whu.learneur.resource.service.IKnowledgeService;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -54,5 +55,9 @@ public class KnowledgeServiceImpl extends ServiceImpl<KnowledgeDao, Knowledge> i
         qw.orderByAsc("id_knowledge");
         getBaseMapper().selectPage(page, qw);
         return page;
+    }
+
+    public IPage<Knowledge> findTop(Integer pageNum, Integer  pageSize) {
+        return getBaseMapper().findTop(new Page<Knowledge>(pageNum, pageSize));
     }
 }

@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface TutorialDao extends BaseMapper<Tutorial> {
-    @Select("SELECT tutorial.* FROM knowledge_resource join tutorial on knowledge.id_resource = tutorial.id_tutorial where id_knowledge = #{KnowledgeId} and type = 4" )
+    @Select("SELECT tutorial.* FROM knowledge_resource join tutorial on knowledge_resource.id_resource = tutorial.id_tutorial where id_knowledge = #{KnowledgeId} and type = 4" )
     IPage<Tutorial> findTutorialsByKnowledgeId(Long KnowledgeId, Page<Tutorial> page);
 
     @Insert("INSERT INTO knowledge_resource VALUES(#{tutorialId},#{knowledgeId}, 4)")

@@ -28,12 +28,12 @@ public class VideoServiceImpl extends ServiceImpl<VideoDao, Video> implements IV
                 success.add(video);
             }
             else if(!tmp.equals(video)) {
-                video.setId(tmp.getId());
+                video.setIdVideo(tmp.getIdVideo());
                 getBaseMapper().updateById(video);
             }
 
-            if(getBaseMapper().existKR(knowledgeId, video.getId()) == 0){
-                getBaseMapper().insertKR(video.getId(),knowledgeId);
+            if(getBaseMapper().existKR(knowledgeId, video.getIdVideo()) == 0){
+                getBaseMapper().insertKR(video.getIdVideo(),knowledgeId);
             }
         }
         return success;
@@ -48,7 +48,7 @@ public class VideoServiceImpl extends ServiceImpl<VideoDao, Video> implements IV
         return getBaseMapper().findVideos(new Page<>(pageNum, pageSize));
     }
     public Video findById(long id){
-        return getBaseMapper().selectById(id);
+        return getBaseMapper().findVideoById(id);
     }
 
 }

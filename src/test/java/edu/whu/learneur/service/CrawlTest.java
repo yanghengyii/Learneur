@@ -30,7 +30,7 @@ public class CrawlTest {
     @Test
     public void projectTest() {
         List<Project> res = projectCrawler.crawl("python");
-        projectService.addProjects(res);
+        projectService.addProjects(res,60);
         IPage<Project> page = projectService.findAllProjects(0, 30);
         System.out.println(page.getPages());
         for(Project project: page.getRecords()) {

@@ -49,7 +49,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectDao, Project> impleme
 
     @Override
     public Project findById(Long id) {
-        return getBaseMapper().selectById(id);
+        return getBaseMapper().findProjectById(id);
     }
 
 

@@ -27,12 +27,12 @@ public class TutorialServiceImpl extends ServiceImpl<TutorialDao, Tutorial> impl
                 success.add(tutorial);
             }
             else if(!tmp.equals(tutorial)) {
-                tutorial.setId(tmp.getId());
+                tutorial.setIdTutorial(tmp.getIdTutorial());
                 getBaseMapper().updateById(tutorial);
 
             }
-            if(getBaseMapper().existKR(knowledgeId, tutorial.getId()) == 0){
-                getBaseMapper().insertKR(tutorial.getId(),knowledgeId);
+            if(getBaseMapper().existKR(knowledgeId, tutorial.getIdTutorial()) == 0){
+                getBaseMapper().insertKR(tutorial.getIdTutorial(),knowledgeId);
             }
         }
         return success;

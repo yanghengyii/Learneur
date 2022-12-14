@@ -15,7 +15,7 @@ public class Book {
      * 主键
      */
     @TableId(value = "id_book", type = IdType.AUTO)
-    private Long id;
+    private Long idBook;
 
     /**
      * 书籍名称
