@@ -2,10 +2,10 @@
 create table lesson
 (
     id_lesson       bigint comment '主键' primary key auto_increment,
-    name            varchar(32) comment '名称',
-    description     varchar(200) comment '简要描述',
-    link            varchar(50) comment '链接',
-    img_path        varchar(50) comment '配图'
+    name            varchar(1000) comment '名称',
+    description     varchar(5000) comment '简要描述',
+    link            varchar(500) comment '链接',
+    cover_url        varchar(500) comment '配图'
 ) comment '网课' collate = utf8mb4_unicode_ci;
 
 

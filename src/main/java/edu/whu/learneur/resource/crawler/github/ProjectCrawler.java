@@ -19,6 +19,7 @@ import java.util.List;
 public class ProjectCrawler implements Crawler<Project> {
     private String url="https://api.github.com/search/repositories?q=";
 
+
     public String getResponse(String url) throws Exception {
         URL obj = new URL(url);
         HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
@@ -52,7 +53,7 @@ public class ProjectCrawler implements Crawler<Project> {
     public List<Project> crawl(String key) {
         List<Project> res = new ArrayList<>();
         String fullUrl;
-        int i = 0;
+        int i = 0, j = 0;
         while(res.size() < 100){
             fullUrl = url + key + "&sort=stars&page="+i+"&per_page=30";
             fullUrl = fullUrl.replaceAll(" ", "%20");
@@ -61,16 +62,25 @@ public class ProjectCrawler implements Crawler<Project> {
                 if(response != null) {
                     res.addAll(parse(response));
                 }
-                i++;
+                else{
+                    if(++j > 30) {
+                        break;
+                    }
+                }
+
             }
             catch (Exception e){
                 e.printStackTrace();
+
             }
         }
 
         return res;
     }
     public List<Project> parse(String jsonStr) {
+        if(jsonStr == null) {
+            return null;
+        }
        List<Project> res = new ArrayList<>();
         JSONObject obj = new JSONObject(jsonStr);
         JSONArray projects = obj.getJSONArray("items");

@@ -51,7 +51,7 @@ public class CrawlerController {
         }
     }
 
-    @Scheduled(cron = "${time.cron}")
+    @Scheduled(cron = "${time.test}")
     public void crawlProjects() {
         List<Knowledge> list = knowledgeService.findAll();
         for(Knowledge knowledge: list) {
@@ -87,7 +87,7 @@ public class CrawlerController {
             e.printStackTrace();
         }
     }
-    @Scheduled(cron = "${time.test}")
+    @Scheduled(cron = "${time.cron}")
     public void crawlBooks() {
         List<Knowledge> list = knowledgeService.findAll();
         System.out.println(list.size());

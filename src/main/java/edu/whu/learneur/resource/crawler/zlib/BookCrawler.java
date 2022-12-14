@@ -62,6 +62,14 @@ public class BookCrawler implements Crawler<Book> {
         }
         book.setAuthor(author);
 
+        String link="";
+        try{
+            link = node.select("a").attr("href").toString();
+        }catch (IndexOutOfBoundsException e){
+
+        }
+        book.setLink(link);
+
         // get publisher
         String publisher = "";
         try {

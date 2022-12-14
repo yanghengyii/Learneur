@@ -56,8 +56,9 @@ jwt:
 
 
 time:
-  cron: 0 31 10 * * ?
-  test: 0 14 16 * * ?
+  cron: 0 0 23 * * ?
+  test: 0 48 23 * * ?
+  project: 1-60 1-60 0-2 0 0 ? *
 
 resource:
   lesson: 1

@@ -93,7 +93,7 @@ public class GKnowledgeServiceImpl implements GKnowledgeService {
             knowledge2.setKnowledgeName(knowledge.getName());
             knowledge2.setKnowledgeDescription(knowledge.getDescription());
             knowledgeService.addKnowledge(knowledge2);
-            knowledge.setForeignId(knowledgeService.findByName(knowledge.getName()).getId());
+            knowledge.setForeignId(knowledgeService.findByName(knowledge.getName()).getIdKnowledge());
         }
         return knowledgeRepository.save(knowledge);
     }

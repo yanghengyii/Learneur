@@ -51,8 +51,7 @@ public class Book {
     /**
      * 下载链接
      */
-//    @TableField(value = "download_url")
-//    private String downloadUrl;
+    private String link;
 
     private String fileSize;
     private String fileType;
