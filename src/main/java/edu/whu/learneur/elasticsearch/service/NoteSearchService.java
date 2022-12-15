@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Setter(onMethod_ = @Autowired)
 public class NoteSearchService {
@@ -25,7 +27,11 @@ public class NoteSearchService {
         noteEsRepository.save(noteEs);
     }
 
-    public void delete(Notes note) {
-        noteEsRepository.deleteById(note.getNoteId());
+    public void delete(Long id) {
+        noteEsRepository.deleteById(id);
+    }
+
+    public void delete(List<Long> ids) {
+        noteEsRepository.deleteAllById(ids);
     }
 }
