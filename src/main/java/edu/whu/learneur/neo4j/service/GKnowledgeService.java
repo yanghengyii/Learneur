@@ -24,5 +24,7 @@ public interface GKnowledgeService {
 
     KnowledgeAndRelations getGraphByName(String name);
 
-    List<Knowledge> getFirst25Knowledge();
+    List<Knowledge> getFirst25Knowledge(int skip, int limit);
+
+    Long getKnowledgeCount();
 }

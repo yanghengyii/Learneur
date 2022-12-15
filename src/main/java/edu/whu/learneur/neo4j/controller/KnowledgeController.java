@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 /**
  * <p>
  *     知识图谱节点控制器
@@ -28,12 +27,11 @@ public class KnowledgeController {
     @Autowired
     GKnowledgeService gKnowledgeService;
 
-
     /**
      * @param name 节点名称
      * @return 返回所有与该节点相关的节点和关系
      */
-    @GetMapping("")
+    @GetMapping("/all")
     public ResponseEntity<KnowledgeAndRelations> getGraphByName(@RequestParam String name) {
         KnowledgeAndRelations knowledgeAndRelations = gKnowledgeService.getGraphByName(name);
         if (knowledgeAndRelations.getKnowledges().size() == 0) {
@@ -81,7 +79,7 @@ public class KnowledgeController {
         return ResponseEntity.ok(knowledge1);
     }
 
-    /**
+    /**S
      * @param id 需要删除的节点id
      * @return 返回删除的节点
      */
@@ -97,9 +95,15 @@ public class KnowledgeController {
     /**
      * @return 随机获取25个节点用于展示
      */
-    @GetMapping("/first25")
-    public ResponseEntity<List<Knowledge>> getFirst25Knowledge() {
-        return ResponseEntity.ok(gKnowledgeService.getFirst25Knowledge());
+    @GetMapping("/first25/{pagesize}/{pagenum}")
+    public ResponseEntity<List<Knowledge>> getFirst25Knowledge(@PathVariable int pagesize, @PathVariable int pagenum) {
+        int skip = (pagenum - 1) * pagesize;
+        return ResponseEntity.ok(gKnowledgeService.getFirst25Knowledge(skip, pagesize));
+    }
+
+    @GetMapping("/count")
+    public ResponseEntity<Long> getKnowledgeCount() {
+        return ResponseEntity.ok(gKnowledgeService.getKnowledgeCount());
     }
 
 }

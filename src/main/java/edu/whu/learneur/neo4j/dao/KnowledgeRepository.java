@@ -39,7 +39,10 @@ public interface KnowledgeRepository extends Neo4jRepository<Knowledge,Long> {
      * </p>
      * @return 节点列表
      */
-    @Query("MATCH (n:knowledge) RETURN n LIMIT 25")
-    Optional<List<Knowledge>> findFirst25Knowledge();
+    @Query("MATCH (n:knowledge) RETURN n SKIP $skip LIMIT $limit")
+    Optional<List<Knowledge>> findFirst25Knowledge(int skip,int limit);
+
+    @Query("MATCH (n:knowledge) RETURN count(n)")
+    int countKnowledge();
 
 }

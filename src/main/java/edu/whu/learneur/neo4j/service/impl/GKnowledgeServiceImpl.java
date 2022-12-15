@@ -105,9 +105,14 @@ public class GKnowledgeServiceImpl implements GKnowledgeService {
      * </p>
      * @return 节点列表
      */
-    public List<Knowledge> getFirst25Knowledge()
+    public List<Knowledge> getFirst25Knowledge(int page, int limit)
     {
-        return knowledgeRepository.findFirst25Knowledge().orElse(null);
+        return knowledgeRepository.findFirst25Knowledge(page, limit).orElse(null);
+    }
+
+    @Override
+    public Long getKnowledgeCount() {
+        return (long) knowledgeRepository.countKnowledge();
     }
 
 
