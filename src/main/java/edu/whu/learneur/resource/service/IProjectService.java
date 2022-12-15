@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 public interface IProjectService extends IService<Project> {
-    List<Project> addProjects(List<Project> projects) throws UserServiceException;
+    List<Project> addProjects(List<Project> projects, long knowledgeId) throws UserServiceException;
 
     IPage<Project> findProjectPage(Long knowledgeId, Integer pageNum, Integer pageSize);
 

@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/learneur
+    url: jdbc:mysql://10.132.54.169:3305/javaee_program
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: j1101714214
+    password: 741221
   mail:
     host: smtp.qq.com
     username: 2607038766@qq.com
@@ -25,18 +25,20 @@ spring:
       content-type: text/html
     cache: false
   neo4j:
-    uri: bolt://wslhost:7687
+    uri: bolt://10.132.54.169:7687
     authentication:
       username: neo4j
       password: 12345678
   elasticsearch:
-    username: javaeecourse
+    username: elastic
     password: 12345678
-    host-and-port: localhost:9200
-    http-ca:
-      sha256-fingerprint:
-        89:26:C3:E6:09:BF:4F:8A:6C:DE:3E:3E:33:DA:01:5F:60:9D:5A:F4:ED:41:50:38:38:0F:23:77:24:D9:9E:A1
-    path-prefix: learneur
+    host-and-port: 192.168.1.147:9200
+  redis:
+    host: 10.132.54.169
+    port: 6379
+    password: 741221
+    database: 1
+
 
 server:
   port: 8080
@@ -47,11 +49,19 @@ mybatis-plus:
     db-config:
       update-strategy: ignored # not update if null
 
+
 jwt:
   secret: f7558b981defc498a41bb5ef6288b82d6355a8135c067e1f2fbd7b43fb9e7ea4203870a7de0abd34d388710ea6032d5b249c24b4f563f25141f32b50f4f4be3c
 
+
+
 time:
-  cron: 0 0 0 * * ?
+  cron: 0 0 23 * * ?
+  test: 0 48 23 * * ?
+  project: 1-60 1-60 0-2 0 0 ? *
+
+resource:
+  lesson: 1
 
 elasticsearch:
   query:

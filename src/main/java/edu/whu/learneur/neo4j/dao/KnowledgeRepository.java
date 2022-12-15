@@ -11,28 +11,35 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * <p>
+ *     知识图谱数据库访问接口
+ *     继承Neo4jRepository接口
+ *     用于访问数据库
+ * </p>
+ * @author Geraltigas
+ * @since 2022-12-10
+ * @version 1.0
+ */
 @Repository
 public interface KnowledgeRepository extends Neo4jRepository<Knowledge,Long> {
+
+    /**
+     * <p>
+     *     根据节点name查找节点
+     * </p>
+     * @return 更新后的关系
+     */
     @Query("MATCH (n:knowledge) WHERE n.name = $name RETURN n")
     Optional<List<Knowledge>> findByName(String name);
 
-    @Query("MATCH (n:knowledge)-[]->(m:knowledge) WHERE n.name = $name RETURN m")
-    Optional<List<Knowledge>> findAllRelated(String name);
-
+    /**
+     * <p>
+     *     查找随机25个节点
+     * </p>
+     * @return 节点列表
+     */
     @Query("MATCH (n:knowledge) RETURN n LIMIT 25")
     Optional<List<Knowledge>> findFirst25Knowledge();
 
-
-
-//    @Query("MATCH (n:knowledge)-[r:preKnowledge]->(m:knowledge) WHERE n.name = $name RETURN r,n.name as from ,m.name as to")
-//    Optional<List<Map<String,String>>> findPreKnowledge(String name);
-//
-//    @Query("MATCH (n:knowledge)-[r:include]->(m:knowledge) WHERE n.name = $name RETURN r,n.name as from ,m.name as to")
-//    Optional<List<Map<String,String>>> findIncludes(String name);
-//
-//    @Query("MATCH (n:knowledge)-[r:common]->(m:knowledge) WHERE n.name = $name RETURN r,n.name as from ,m.name as to")
-//    Optional<List<Map<String,String>>> findCommons(String name);
-//
-//    @Query("MATCH (n:knowledge)-[r:associated]->(m:knowledge) WHERE n.name = $name RETURN r,n.name as from ,m.name as to")
-//    Optional<List<Map<String,String>>> findAssociateds(String name);
 }

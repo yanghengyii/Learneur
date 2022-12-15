@@ -16,14 +16,23 @@ import java.util.List;
 @Service
 public class TutorialServiceImpl extends ServiceImpl<TutorialDao, Tutorial> implements ITutorialService {
 
-    public List<Tutorial> addTutorial(List<Tutorial> tutorialList) throws UserServiceException {
+    public List<Tutorial> addTutorial(List<Tutorial> tutorialList, long knowledgeId){
         List<Tutorial> success = new ArrayList<>();
         for(Tutorial tutorial : tutorialList){
             LambdaQueryWrapper<Tutorial> lqw = new LambdaQueryWrapper<>();
-            lqw.like(Tutorial::getName,tutorial.getName());
-            if(getBaseMapper().selectList(lqw).isEmpty()){
+            lqw.eq(Tutorial::getName,tutorial.getName());
+            Tutorial tmp = getBaseMapper().selectOne(lqw);
+            if(tmp == null){
                 getBaseMapper().insert(tutorial);
                 success.add(tutorial);
+            }
+            else if(!tmp.equals(tutorial)) {
+                tutorial.setIdTutorial(tmp.getIdTutorial());
+                getBaseMapper().updateById(tutorial);
+
+            }
+            if(getBaseMapper().existKR(knowledgeId, tutorial.getIdTutorial()) == 0){
+                getBaseMapper().insertKR(tutorial.getIdTutorial(),knowledgeId);
             }
         }
         return success;

@@ -13,12 +13,14 @@ public interface GKnowledgeService {
     Knowledge addTag(Knowledge knowledge);
     Relation addRelation(Long knowledgeId, Long relatedId, String type, String description);
 
+    Relation addRelationByNames(String name1, String name2, String type);
+
     Knowledge updateTagById(Knowledge knowledge, Long id);
 
     List<Relation> updateRelationById(Long relationId, String type, String description);
 
     Knowledge deleteTagById(Long id);
-    Relation deleteRelationById(Long id);
+    Relation deleteRelationById(Long id,Long end);
 
     KnowledgeAndRelations getGraphByName(String name);
 

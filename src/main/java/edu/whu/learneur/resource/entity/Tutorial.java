@@ -14,13 +14,13 @@ import java.util.List;
 @NoArgsConstructor
 public class Tutorial {
     @TableId(value = "id_tutorial",type = IdType.AUTO)
-    private Long id;
+    private Long idTutorial;
 
     String name;
 
     String link;
 
-    String summary;
+    String description;
 
     @TableField(exist = false)
     List<Knowledge> knowledge;

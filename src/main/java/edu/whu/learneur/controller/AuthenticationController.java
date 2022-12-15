@@ -63,18 +63,24 @@ public class AuthenticationController {
      */
     @PostMapping("/login")
     @PermitAll
+    @CrossOrigin
     public ResponseEntity<String> login(@RequestBody Users users) {
         try {
+            System.out.println("---------------------0");
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(users.getUsername(), users.getPassword())
             );
+            System.out.println("---------------------1");
             final UserDetails userDetails = userDetailsService.loadUserByUsername(users.getUsername());
             final String token = jwtTokenUtils.generateToken(userDetails);
+            System.out.println("---------------------2");
             redisTemplate.boundValueOps(users.getUsername()).set(token, LearneurConst.JWT_EXPIRED_TIME, TimeUnit.MILLISECONDS);
+
             usersService.updateOnlineStatusByUsername(users.getUsername());
+
             return ResponseEntity.ok(token);
         } catch (Exception e) {
-            log.warn("用户: " + users.getUsername() + " 认证未通过, 时间 - " + LocalDateTime.now());
+            log.warn("用户: " + users.getEmail() + " 认证未通过, 时间 - " + LocalDateTime.now());
             return ResponseEntity.badRequest().body("认证未通过");
         }
     }
@@ -85,7 +91,9 @@ public class AuthenticationController {
      * @return      操作结果
      * @throws MessagingException
      */
-    @PostMapping("/get-email-code")
+    @GetMapping("/get-email-code")
+    @PermitAll
+    @CrossOrigin
     public ResponseEntity<String> getEmailCode(@RequestParam(value = "email") String email) throws MessagingException {
         Users users = usersService.findUserByEmail(email);
         if(Objects.nonNull(users)) {
@@ -107,6 +115,7 @@ public class AuthenticationController {
      * @throws MessagingException
      */
     @PostMapping("/get-forget-password-code")
+    @CrossOrigin
     private ResponseEntity<String> getForgetPasswordCode(@RequestParam(value = "email")String email) throws MessagingException {
         Users user = usersService.findUserByEmail(email);
         if(Objects.isNull(user)) {
@@ -128,6 +137,7 @@ public class AuthenticationController {
      */
     @PostMapping("/register")
     @PermitAll
+    @CrossOrigin
     public ResponseEntity<Boolean> register(@RequestBody RegisterUserDTO user) {
         boolean res = usersService.register(user);
         return ResponseEntity.ok(res);

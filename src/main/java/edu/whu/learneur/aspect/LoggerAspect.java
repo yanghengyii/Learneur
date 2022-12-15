@@ -20,7 +20,7 @@ public class LoggerAspect {
 
     @Around("pt()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
-        Object ret = null;
+        Object ret;
         String methodName = pjp.getSignature().getName();
         try {
             ret = pjp.proceed();

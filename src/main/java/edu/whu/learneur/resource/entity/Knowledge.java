@@ -30,7 +30,7 @@ public class Knowledge implements Serializable {
      * 主键
      */
     @TableId(value = "id_knowledge", type = IdType.AUTO)
-    private Long id;
+    private Long idKnowledge;
 
     /**
      * 知识点

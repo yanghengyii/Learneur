@@ -74,11 +74,11 @@ public class ResourceSearchService {
     }
 
     public void delete(Book book) {
-        delete(ResourceType.Book, book.getId());
+        delete(ResourceType.Book, book.getIdBook());
     }
 
     public void delete(Lesson lesson) {
-        delete(ResourceType.Lesson, lesson.getId());
+        delete(ResourceType.Lesson, lesson.getIdLesson());
     }
 
     public void delete(Project project) {
@@ -86,11 +86,11 @@ public class ResourceSearchService {
     }
 
     public void delete(Tutorial tutorial) {
-        delete(ResourceType.Tutorial, tutorial.getId());
+        delete(ResourceType.Tutorial, tutorial.getIdTutorial());
     }
 
     public void delete(Video video) {
-        delete(ResourceType.Video, video.getId());
+        delete(ResourceType.Video, video.getIdVideo());
     }
 
     private Long getresourceIdFromSearchHit(SearchHit<ResourceEs> hit) {

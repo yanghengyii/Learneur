@@ -14,17 +14,24 @@ import java.util.List;
 
 @Service
 public class ProjectServiceImpl extends ServiceImpl<ProjectDao, Project> implements IProjectService {
-    public List<Project> addProjects(List<Project> projects) {
+    public List<Project> addProjects(List<Project> projects, long knowledgeId) {
         List<Project> success = new ArrayList<>();
         for(Project project: projects) {
             LambdaQueryWrapper<Project> lqw = new LambdaQueryWrapper<>();
-            lqw.eq(Project::getName, project.getName());
-            List list = getBaseMapper().selectList(lqw);
-            if(list.isEmpty()) {
+            lqw.eq(Project::getLink, project.getLink());
+            Project tmp =  getBaseMapper().selectOne(lqw);
+            if(tmp == null) {
                 getBaseMapper().insert(project);
+                success.add(project);
+            }
+            else if(!tmp.equals(project)){
+                project.setIdProject(tmp.getIdProject());
+                getBaseMapper().updateById(project);
+            }
+            if(getBaseMapper().existKR(knowledgeId, project.getIdProject()) == 0){
+                getBaseMapper().insertKR(project.getIdProject(),knowledgeId);
             }
         }
-
         return success;
     }
 
@@ -37,14 +44,12 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectDao, Project> impleme
     @Override
     public IPage<Project> findAllProjects(Integer pageNum, Integer pageSize) {
         Page<Project> page = new Page<>(pageNum, pageSize);
-        LambdaQueryWrapper<Project> lqw = new LambdaQueryWrapper<>();
-        lqw.orderByDesc(Project::getStarGazers).orderByDesc(Project::getForks);
-        return getBaseMapper().selectPage(page, lqw);
+        return getBaseMapper().findProjects(page);
     }
 
     @Override
     public Project findById(Long id) {
-        return getBaseMapper().selectById(id);
+        return getBaseMapper().findProjectById(id);
     }
 
 

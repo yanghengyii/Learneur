@@ -20,12 +20,12 @@ public class Lesson {
      * 主键
      */
     @TableId(value = "id_lesson", type = IdType.AUTO)
-    private Long id;
+    private Long idLesson;
 
     /**
      * 名称
      */
-    private String title;
+    private String name;
 
     /**
      * 简要描述
@@ -40,8 +40,8 @@ public class Lesson {
     /**
      * 配图
      */
-    @TableField(value = "img_path")
-    private String imgPath;
+    @TableField(value = "cover_url")
+    private String coverUrl;
 
     @TableField(exist = false)
     List<Knowledge> knowledge;

@@ -55,9 +55,9 @@ public class ItheimaCrawler extends RequestConfig implements Crawler<Lesson> {
                 String finalLink = url + link;
                 String title = lists.get(i).select("h2").text();
                 String summary = lists.get(i).select("p[class=p1]").text();
-                info.setImgPath(photoLink);
+                info.setCoverUrl(photoLink);
                 info.setLink(finalLink);
-                info.setTitle(title);
+                info.setName(title);
                 info.setDescription(summary);
 
                 infos.add(info);

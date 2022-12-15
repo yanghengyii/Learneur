@@ -18,8 +18,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@Setter(onMethod_ = @Autowired)
 public class KnowledgeSearchService {
+    @Autowired
     private KnowledgeEsRepository knowledgeEsRepository;
 
     public Page<Long> search(String keyword, Pageable pageable) {
@@ -62,7 +62,7 @@ public class KnowledgeSearchService {
     }
 
     public void save(Knowledge knowledge) {
-        knowledgeEsRepository.save(new KnowledgeEs(knowledge.getId(), knowledge.getKnowledgeName(), knowledge.getKnowledgeDescription()));
+        knowledgeEsRepository.save(new KnowledgeEs(knowledge.getIdKnowledge(), knowledge.getKnowledgeName(), knowledge.getKnowledgeDescription()));
     }
 
     public void updateResource(ResourceEs resourceEs) {
@@ -167,15 +167,15 @@ public class KnowledgeSearchService {
     }
 
     public void removeKnowledgeLesson(Long knowledgeId, Lesson lesson) {
-        removeKnowledgeResource(knowledgeId, ResourceType.Lesson, lesson.getId());
+        removeKnowledgeResource(knowledgeId, ResourceType.Lesson, lesson.getIdLesson());
     }
 
     public void removeKnowledgeVideo(Long knowledgeId, Video video) {
-        removeKnowledgeResource(knowledgeId, ResourceType.Video, video.getId());
+        removeKnowledgeResource(knowledgeId, ResourceType.Video, video.getIdVideo());
     }
 
     public void removeKnowledgeTutorial(Long knowledgeId, Tutorial tutorial) {
-        removeKnowledgeResource(knowledgeId, ResourceType.Tutorial, tutorial.getId());
+        removeKnowledgeResource(knowledgeId, ResourceType.Tutorial, tutorial.getIdTutorial());
     }
 
     public void removeKnowledgeProject(Long knowledgeId, Project project) {

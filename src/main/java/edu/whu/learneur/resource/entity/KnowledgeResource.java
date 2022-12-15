@@ -2,6 +2,7 @@ package edu.whu.learneur.resource.entity;
 
 import java.io.Serializable;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -22,14 +23,12 @@ import lombok.EqualsAndHashCode;
 public class KnowledgeResource implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @TableId(value = "id")
-    private Long id;
 
     /**
      * 资源id
      */
-    @TableField(value = "id_resources")
-    private Long idResources;
+    @TableField(value = "id_resource")
+    private Long idResource;
 
     /**
      * 知识点id

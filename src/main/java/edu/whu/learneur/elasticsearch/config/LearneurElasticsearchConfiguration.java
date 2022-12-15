@@ -13,8 +13,6 @@ import javax.net.ssl.SSLContext;
 
 @Configuration
 public class LearneurElasticsearchConfiguration extends ElasticsearchConfiguration {
-    @Value("${spring.elasticsearch.http-ca.sha256-fingerprint}")
-    private String fingerprint;
 
     @Value("${spring.elasticsearch.username}")
     private String username;
@@ -32,10 +30,8 @@ public class LearneurElasticsearchConfiguration extends ElasticsearchConfigurati
 //        compatibilityHeaders.add("Accept", "application/vnd.elasticsearch+json;compatible-with=7");
 //        compatibilityHeaders.add("Content-Type", "application/vnd.elasticsearch+json;"
 //                + "compatible-with=7");
-        SSLContext sslContext = TransportUtil.sslContextFromCaFingerprint(fingerprint);
         return ClientConfiguration.builder()
                 .connectedTo(hostAndPort)
-                .usingSsl(sslContext)
                 // .withDefaultHeaders(compatibilityHeaders)
                 .withBasicAuth(username, password)
                 .build();

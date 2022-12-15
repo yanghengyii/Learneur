@@ -1,6 +1,5 @@
 package edu.whu.learneur.resource.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import edu.whu.learneur.resource.crawler.Itheima.ItheimaCrawler;
 import edu.whu.learneur.resource.crawler.bilibili.VideoCrawler;
 import edu.whu.learneur.resource.crawler.github.ProjectCrawler;
@@ -10,7 +9,6 @@ import edu.whu.learneur.resource.entity.*;
 import edu.whu.learneur.resource.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,8 +31,6 @@ public class CrawlerController {
     @Autowired
     private IKnowledgeService knowledgeService;
     @Autowired
-    private IKRService krService;
-    @Autowired
     private IBookService bookService;
     @Autowired
     private IVideoService videoService;
@@ -50,16 +46,17 @@ public class CrawlerController {
         List<Knowledge> list= knowledgeService.findAll();
         for(Knowledge knowledge : list) {
             List<Video> res = videoCrawler.crawl(knowledge.getKnowledgeName());
-            videoService.addVideos(res);
+            res = videoService.addVideos(res,knowledge.getIdKnowledge());
+            //krService.addVideo(knowledge.getIdKnowledge(), res);
         }
     }
 
-    @Scheduled(cron = "${time.cron}")
+    @Scheduled(cron = "${time.test}")
     public void crawlProjects() {
         List<Knowledge> list = knowledgeService.findAll();
         for(Knowledge knowledge: list) {
             List<Project> res = projectCrawler.crawl(knowledge.getKnowledgeName());
-            projectService.addProjects(res);
+            res = projectService.addProjects(res , knowledge.getIdKnowledge());
         }
     }
 
@@ -69,7 +66,7 @@ public class CrawlerController {
         try{
             for(Knowledge knowledge: list) {
                 List<Lesson> res = itheimaCrawler.crawl(knowledge.getKnowledgeName());
-                lessonService.addLessons(res);
+                res = lessonService.addLessons(res, knowledge.getIdKnowledge());
             }
         }
         catch (Exception e) {
@@ -83,7 +80,7 @@ public class CrawlerController {
         try{
             for(Knowledge knowledge: list) {
                 List<Tutorial> res = runoobCrawler.crawl(knowledge.getKnowledgeName());
-                tutorialService.addTutorial(res);
+                res = tutorialService.addTutorial(res, knowledge.getIdKnowledge());
             }
         }
         catch (Exception e) {
@@ -93,10 +90,12 @@ public class CrawlerController {
     @Scheduled(cron = "${time.cron}")
     public void crawlBooks() {
         List<Knowledge> list = knowledgeService.findAll();
+        System.out.println(list.size());
         try{
             for(Knowledge knowledge: list) {
+                System.out.println("------"+knowledge.getIdKnowledge());
                 List<Book> res = bookCrawler.crawl(knowledge.getKnowledgeName());
-                bookService.addBooks(res);
+                res = bookService.addBooks(res, knowledge.getIdKnowledge());
             }
         }
         catch (Exception e) {

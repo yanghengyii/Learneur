@@ -15,11 +15,11 @@ public class ConvertUtil {
     }
 
     public static ResourceEs BookToResourceEs(Book book) {
-        return typeAndIdAndNameAndDescriptionToEs(ResourceType.Book, book.getId(), book.getTitle(), null);
+        return typeAndIdAndNameAndDescriptionToEs(ResourceType.Book, book.getIdBook(), book.getTitle(), null);
     }
 
     public static ResourceEs LessonToResourceEs(Lesson lesson) {
-        return typeAndIdAndNameAndDescriptionToEs(ResourceType.Lesson, lesson.getId(), lesson.getTitle(), lesson.getDescription());
+        return typeAndIdAndNameAndDescriptionToEs(ResourceType.Lesson, lesson.getIdLesson(), lesson.getName(), lesson.getDescription());
     }
 
     public static ResourceEs ProjectToResourceEs(Project project) {
@@ -27,11 +27,11 @@ public class ConvertUtil {
     }
 
     public static ResourceEs TutorialToResourceEs(Tutorial tutorial) {
-        return typeAndIdAndNameAndDescriptionToEs(ResourceType.Tutorial, tutorial.getId(), tutorial.getName(), tutorial.getSummary());
+        return typeAndIdAndNameAndDescriptionToEs(ResourceType.Tutorial, tutorial.getIdTutorial(), tutorial.getName(), tutorial.getDescription());
     }
 
     public static ResourceEs VideoToResourceEs(Video video) {
-        return typeAndIdAndNameAndDescriptionToEs(ResourceType.Video, video.getId(), video.getTitle(), video.getDescription());
+        return typeAndIdAndNameAndDescriptionToEs(ResourceType.Video, video.getIdVideo(), video.getTitle(), video.getDescription());
     }
 
 

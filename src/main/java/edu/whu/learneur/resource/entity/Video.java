@@ -11,10 +11,10 @@ import java.util.List;
 @Data
 public class Video {
     @TableId(value = "id_video",type = IdType.AUTO)
-    private Long id;
+    private Long idVideo;
 
     private String author;
-    private String BVid;
+    private String bvid;
     private String length;
     private String pic;
     private String description;

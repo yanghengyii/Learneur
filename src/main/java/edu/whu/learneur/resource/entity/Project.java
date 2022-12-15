@@ -10,7 +10,7 @@ import java.util.List;
 
 @Data
 public class Project {
-    @TableId(value = "id_lesson", type = IdType.AUTO)
+    @TableId(value = "id_project", type = IdType.AUTO)
     private Long idProject;
 
     /**

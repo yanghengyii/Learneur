@@ -1,49 +1,66 @@
 package edu.whu.learneur.neo4j.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.neo4j.core.schema.*;
 
 import java.util.List;
 
+
+/**
+ * <p>
+ *     知识图谱数据库实体类
+ *     用于存储知识图谱数据库中的节点
+ * </p>
+ * @author Geraltigas
+ * @since 2022-12-10
+ * @version 1.0
+ */
 @Data
 @Node("knowledge")
 @NoArgsConstructor
 public class Knowledge {
+
+
+    /**
+     * <p>
+     *     节点id
+     * </p>
+     */
     @Id
     @GeneratedValue
     private Long id;
 
+
+    /**
+     * <p>
+     *     节点name
+     * </p>
+     */
     @Property("name")
     private String name;
 
+
+    /**
+     * <p>
+     *     节点描述
+     * </p>
+     */
     @Property("description")
     private String description;
 
+
+    /**
+     * <p>
+     *     节点对应的关系型数据库中的id
+     * </p>
+     */
     @Property("foreign_id")
-    @JsonIgnore
     private Long foreignId;
 
-    @Relationship(direction = Relationship.Direction.OUTGOING,type = "preKnowledge")
-    @JsonIgnore
-    private List<Relation> preKnowledges;
-
-    @Relationship(direction = Relationship.Direction.OUTGOING,type = "include")
-    @JsonIgnore
-    private List<Relation> includes;
-
-    @Relationship(direction = Relationship.Direction.OUTGOING,type = "associated")
-    @JsonIgnore
-    private List<Relation> associateds;
-
-    @Relationship(direction = Relationship.Direction.OUTGOING,type = "common")
-    @JsonIgnore
-    private List<Relation> commons;
-
     public Knowledge(String name, String description) {
-        this.name = name;
+        this.name = name.toLowerCase();
         this.description = description;
     }
 

@@ -43,7 +43,7 @@ public class ResourceController {
         return ResponseEntity.ok(knowledgeService.findKnowledge(pageNum, pageSize));
     }
 */
-
+    @CrossOrigin
     @GetMapping("/{knowledgeId}/projects")
     public ResponseEntity<IPage<Project>> findProjects(@PathVariable Long knowledgeId,
                                                        @RequestParam(defaultValue = "0") Integer pageNum,
@@ -51,7 +51,7 @@ public class ResourceController {
         IPage<Project> res = projectService.findProjectPage(knowledgeId, pageNum, pageSize);
         return ResponseEntity.ok(res);
     }
-
+    @CrossOrigin
     @GetMapping("/{knowledgeId}/lessons")
     public ResponseEntity<IPage<Lesson>> findLessons(@PathVariable Long knowledgeId,
                                                      @RequestParam(defaultValue = "0") Integer pageNum,
@@ -59,7 +59,7 @@ public class ResourceController {
         IPage<Lesson> res = lessonService.findLessonPage(knowledgeId, pageNum, pageSize);
         return ResponseEntity.ok(res);
     }
-
+    @CrossOrigin
     @GetMapping("/{knowledgeId}/books")
     public ResponseEntity<IPage<Book>> findBooks(@PathVariable Long knowledgeId,
                                                  @RequestParam(defaultValue = "0") Integer pageNum,
@@ -67,7 +67,7 @@ public class ResourceController {
         IPage<Book> res = bookService.findBookPage(knowledgeId, pageNum, pageSize);
         return ResponseEntity.ok(res);
     }
-
+    @CrossOrigin
     @GetMapping("/{knowledgeId}/tutorials")
     public ResponseEntity<IPage<Tutorial>> findTutorials(@PathVariable Long knowledgeId,
                                                         @RequestParam(defaultValue = "0") Integer pageNum,
@@ -76,7 +76,7 @@ public class ResourceController {
         IPage<Tutorial> res = tutorialService.findTutorialPage(knowledgeId, pageNum, pageSize);
         return ResponseEntity.ok(res);
     }
-
+    @CrossOrigin
     @GetMapping("/{knowledgeId}/videos")
     public ResponseEntity<IPage<Video>> findVideos(@PathVariable Long knowledgeId,
                                                    @RequestParam(defaultValue = "0") Integer pageNum,

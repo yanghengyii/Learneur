@@ -1,6 +1,7 @@
 package edu.whu.learneur.resource.crawler.zlib;
 
 
+import edu.whu.learneur.exception.ResourceException;
 import edu.whu.learneur.resource.crawler.Crawler;
 import edu.whu.learneur.resource.entity.Book;
 import org.jsoup.Jsoup;
@@ -18,12 +19,19 @@ public class BookCrawler implements Crawler<Book> {
     static String url = "https://z-lib.is/s?q=";
 
     @Override
-    public List<Book> crawl(String key) throws Exception{
+    public List<Book> crawl(String key) {
         List<Book> books = new ArrayList<>(30);
         String fullUrl = url + key;
-        Document doc = Jsoup.parse(new URL(fullUrl), 30000);
+        fullUrl= fullUrl.replaceAll(" ", "%20");
+        Document doc = null;
+        try {
+            doc = Jsoup.parse(new URL(fullUrl), 30000);
+        }catch (Exception e) {
+            throw new ResourceException("URL构建出错");
+        }
         Element searchResultBox = doc.getElementById("searchResultBox");
         assert searchResultBox != null;
+
         List<Element> booksNode = searchResultBox.getElementsByClass("resItemBox");
         for (Element bookNode : booksNode) {
             books.add(getBook(bookNode));
@@ -35,6 +43,7 @@ public class BookCrawler implements Crawler<Book> {
     private static Book getBook(Element node) {
         Book book = new Book();
 
+
         // get cover url
         Element titleNode = node.getElementsByClass("cover").get(0);
         String picUrl = (titleNode.attr("data-src").toString());
@@ -45,8 +54,21 @@ public class BookCrawler implements Crawler<Book> {
         book.setTitle(name);
 
         // get author
-        String author = node.getElementsByAttributeValue("itemprop","author").get(0).childNode(0).toString();
+        String author="";
+        try {
+            author = node.getElementsByAttributeValue("itemprop", "author").get(0).childNode(0).toString();
+        }catch (IndexOutOfBoundsException e){
+
+        }
         book.setAuthor(author);
+
+        String link="";
+        try{
+            link = node.select("a").attr("href").toString();
+        }catch (IndexOutOfBoundsException e){
+
+        }
+        book.setLink(link);
 
         // get publisher
         String publisher = "";

@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    @ExceptionHandler({NotesServiceException.class, UserServiceException.class, ResourcesServiceException.class})
+    @ExceptionHandler({NotesServiceException.class, UserServiceException.class, ResourceException.class})
     public ResponseEntity<Object> handlerException(RuntimeException exception, WebRequest webRequest) {
         ExceptionResponse response = new ExceptionResponse();
         response.setMessage(exception.getMessage());

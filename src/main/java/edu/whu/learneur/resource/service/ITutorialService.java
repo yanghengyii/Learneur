@@ -8,7 +8,7 @@ import edu.whu.learneur.resource.entity.Tutorial;
 import java.util.List;
 
 public interface ITutorialService extends IService<Tutorial> {
-    List<Tutorial> addTutorial(List<Tutorial> tutorialList) throws UserServiceException;
+    List<Tutorial> addTutorial(List<Tutorial> tutorialList, long knowledgeId) throws UserServiceException;
 
     IPage<Tutorial> findTutorialPage(Long knowledgeId, Integer pageNum, Integer pageSize);
 }
