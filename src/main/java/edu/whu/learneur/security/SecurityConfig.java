@@ -47,6 +47,7 @@ public class SecurityConfig {
                 .antMatchers("/notes/**").permitAll()
                 .antMatchers("/users/**").permitAll()
                 .antMatchers("/admin/").hasAuthority("admin")
+                .antMatchers("/search/*").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
         return security.build();

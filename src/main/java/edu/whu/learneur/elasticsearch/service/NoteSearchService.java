@@ -6,7 +6,10 @@ import edu.whu.learneur.elasticsearch.entity.NoteEs;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Setter(onMethod_ = @Autowired)
@@ -14,8 +17,8 @@ public class NoteSearchService {
 
     private NoteEsRepository noteEsRepository;
 
-    public Page<Long> search(String keyword) {
-        return noteEsRepository.matchNote(keyword, null)
+    public Page<Long> search(String keyword, Pageable pageable) {
+        return noteEsRepository.matchNote(keyword, pageable)
                 .map(noteEsSearchHit -> noteEsSearchHit.getContent().getId());
     }
 
@@ -24,7 +27,11 @@ public class NoteSearchService {
         noteEsRepository.save(noteEs);
     }
 
-    public void delete(Notes note) {
-        noteEsRepository.deleteById(note.getNoteId());
+    public void delete(Long id) {
+        noteEsRepository.deleteById(id);
+    }
+
+    public void delete(List<Long> ids) {
+        noteEsRepository.deleteAllById(ids);
     }
 }

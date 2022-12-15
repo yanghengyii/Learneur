@@ -17,6 +17,7 @@ import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -39,18 +40,18 @@ public class ResourceSearchService {
         return mybatisPlusPage;
     }
     public void save(ResourceEs resourceEs) {
-        knowledgeSearchService.updateResource(resourceEs);
         ResourceEs existedResource = resourceEsRepository.
                 findByResourceTypeAndResourceId(resourceEs.getResourceType(), resourceEs.getResourceId());
         if (existedResource != null) {
             resourceEs.setId(existedResource.getId());
+            knowledgeSearchService.updateResource(resourceEs);
         }
         resourceEsRepository.save(resourceEs);
     }
 
     public void delete(Short resourceType, Long resourceId) {
-        knowledgeSearchService.deleteResource(resourceType, resourceId);
         resourceEsRepository.deleteByResourceTypeAndResourceId(resourceType, resourceId);
+        knowledgeSearchService.deleteResource(resourceType, resourceId);
     }
 
     public void save(Book book) {

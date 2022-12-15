@@ -4,12 +4,14 @@ package edu.whu.learneur.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import edu.whu.learneur.domain.Notes;
 import edu.whu.learneur.domain.Users;
+import edu.whu.learneur.elasticsearch.service.NoteSearchService;
 import edu.whu.learneur.exception.NotesServiceException;
 import edu.whu.learneur.service.INotesService;
 import edu.whu.learneur.service.IUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.PermitAll;
@@ -32,6 +34,9 @@ public class NotesController {
 
     @Autowired
     private IUsersService usersService;
+
+    @Autowired
+    private NoteSearchService noteSearchService;
 
     @GetMapping("/detail/{idNote}")
     @PermitAll
@@ -64,6 +69,7 @@ public class NotesController {
             @PathVariable Long idNote
     ) {
         notesService.incrementViewCount(idNote);
+        noteSearchService.delete(idNote);
         return ResponseEntity.ok(notesService.deleteNote(idNote));
     }
 
@@ -73,6 +79,7 @@ public class NotesController {
             @RequestParam(value = "username", defaultValue = "") String username,
             @PathVariable List<Long> idNotes
     ) {
+        noteSearchService.delete(idNotes);
         return ResponseEntity.ok(notesService.deleteNoteByBatch(idNotes));
     }
 
@@ -86,6 +93,7 @@ public class NotesController {
         if(Objects.isNull(notes)) {
             return ResponseEntity.badRequest().build();
         }
+        noteSearchService.save(notes);
         return ResponseEntity.ok(note);
     }
 
@@ -96,6 +104,8 @@ public class NotesController {
             @RequestParam(value = "username", defaultValue = "") String username,
             @PathVariable Long idNote
     ) {
+        note.setNoteId(idNote);
+        noteSearchService.save(note);
         return ResponseEntity.ok(notesService.updateNote(idNote, note));
     }
 

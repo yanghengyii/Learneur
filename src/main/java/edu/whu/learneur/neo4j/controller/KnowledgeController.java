@@ -1,5 +1,6 @@
 package edu.whu.learneur.neo4j.controller;
 
+import edu.whu.learneur.elasticsearch.service.KnowledgeSearchService;
 import edu.whu.learneur.neo4j.domain.Knowledge;
 import edu.whu.learneur.neo4j.dto.KnowledgeAndRelations;
 import edu.whu.learneur.neo4j.service.GKnowledgeService;
@@ -27,6 +28,9 @@ public class KnowledgeController {
 
     @Autowired
     GKnowledgeService gKnowledgeService;
+
+    @Autowired
+    KnowledgeSearchService knowledgeSearchService;
 
 
     /**
@@ -65,6 +69,11 @@ public class KnowledgeController {
         if (knowledge1 == null) {
             return ResponseEntity.notFound().build();
         }
+        knowledgeSearchService.save(
+            new edu.whu.learneur.resource.entity.Knowledge(
+                knowledge1.getId(),
+                knowledge1.getName(),
+                knowledge1.getDescription()));
         return ResponseEntity.ok(knowledge1);
     }
 
@@ -78,6 +87,11 @@ public class KnowledgeController {
         if (knowledge1 == null) {
             return ResponseEntity.notFound().build();
         }
+        knowledgeSearchService.save(
+            new edu.whu.learneur.resource.entity.Knowledge(
+                knowledge1.getId(),
+                knowledge1.getName(),
+                knowledge1.getDescription()));
         return ResponseEntity.ok(knowledge1);
     }
 
@@ -88,6 +102,7 @@ public class KnowledgeController {
     @DeleteMapping("")
     public ResponseEntity<Knowledge> deleteKnowledge(@RequestParam Long id) {
         Knowledge knowledge = gKnowledgeService.deleteTagById(id);
+        knowledgeSearchService.delete(id);
         if (knowledge == null) {
             return ResponseEntity.notFound().build();
         }
