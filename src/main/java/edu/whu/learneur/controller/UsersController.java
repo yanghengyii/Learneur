@@ -44,7 +44,8 @@ public class UsersController {
     }
 
     @GetMapping("/get-user/{username}")
-    @PreAuthorize("hasAnyAuthority('user', 'admin') or #username == authentication.name")
+    //@PreAuthorize("hasAnyAuthority('user', 'admin') or #username == authentication.name")
+    @CrossOrigin
     public ResponseEntity<Users> getUser(@PathVariable String username) {
         Users user = usersService.findUserByUsername(username);
         if(Objects.isNull(user)) {

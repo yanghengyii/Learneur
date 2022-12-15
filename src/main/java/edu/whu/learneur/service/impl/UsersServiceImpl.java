@@ -93,9 +93,9 @@ public class UsersServiceImpl extends ServiceImpl<UsersDao, Users> implements IU
             if(verificationCode.equals(user.getVerificationCode())) {
                 // 创建一个新用户并返回
                 Users newUser = new Users();
-                newUser.setUsername(user.getUsername());
+                newUser.setUsername(user.getEmail());
                 newUser.setPassword(user.getPassword());   // 此处传递的是密文密码
-                newUser.setRealName("");
+                newUser.setRealName(user.getReal_name());
                 newUser.setAvatarUrl(DEFAULT_AVATAR_IMG_PATH);
                 newUser.setEmail(user.getEmail());
                 newUser.setPhone("");

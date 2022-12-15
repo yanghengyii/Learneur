@@ -10,3 +10,331 @@
 2022-12-15 01:13:55.082 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
 2022-12-15 05:38:08.863 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2022-12-15 05:38:08.872 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 09:22:00.256 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:22:00.258 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 09:22:00.258 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 09:22:00.355 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 09:22:02.827 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:22:03.077 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:22:03.077 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-12-15 09:22:03.079 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:22:03.080 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:22:17.999 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:22:18.000 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 09:22:18.000 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 09:22:18.071 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 09:22:20.273 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:22:20.517 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:22:20.517 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-12-15 09:22:20.519 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:22:20.520 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:22:36.403 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:22:36.405 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 09:22:36.405 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 09:22:36.474 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 09:22:38.659 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:22:38.905 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:22:38.905 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-12-15 09:22:38.908 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:22:38.908 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:24:21.808 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:24:21.810 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 09:24:21.810 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 09:24:21.879 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 09:24:24.060 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:24:24.307 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:24:24.307 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-12-15 09:24:24.310 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:24:24.310 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:25:10.808 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:25:10.809 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 09:25:10.809 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 09:25:10.880 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 09:25:13.091 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:25:13.331 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:25:13.332 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-12-15 09:25:13.334 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:25:13.334 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:26:12.840 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:26:12.841 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 09:26:12.842 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 09:26:12.912 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 09:26:15.133 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:26:15.381 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:26:15.381 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-12-15 09:26:15.384 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:26:15.384 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:29:19.259 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:29:19.261 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 09:29:19.261 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 09:29:19.333 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 09:29:21.555 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 09:29:36.084 [http-nio-8080-exec-5] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 09:29:36.182 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 09:29:36.411 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 10:11:36.766 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 10:11:36.775 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 10:11:42.034 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 10:11:42.036 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 10:11:42.036 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 10:11:42.106 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 10:11:44.303 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 10:12:02.949 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 10:12:03.708 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 10:12:03.909 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 10:14:56.120 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 10:14:56.129 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 10:15:01.523 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 10:15:01.525 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 10:15:01.525 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 10:15:01.599 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 10:15:03.971 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 10:15:44.572 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 10:15:45.151 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 10:15:45.350 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 10:17:16.379 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 10:17:16.388 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 10:17:21.627 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 10:17:21.628 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 10:17:21.629 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 10:17:21.702 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 10:17:23.939 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 10:17:37.085 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 10:17:37.785 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 10:17:37.983 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 10:17:38.053 [http-nio-8080-exec-1] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:17:38.053成功登陆
+2022-12-15 10:19:07.464 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 10:19:07.474 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 10:19:12.513 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 10:19:12.514 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 10:19:12.515 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 10:19:12.585 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 10:19:14.772 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 10:19:21.805 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 10:19:22.502 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 10:19:22.694 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 10:19:22.766 [http-nio-8080-exec-1] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:19:22.766成功登陆
+2022-12-15 10:19:22.928 [http-nio-8080-exec-1] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:19:22.928成功登陆
+2022-12-15 10:21:10.948 [http-nio-8080-exec-8] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:21:10.948成功登陆
+2022-12-15 10:21:11.103 [http-nio-8080-exec-8] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:21:11.103成功登陆
+2022-12-15 10:22:28.786 [http-nio-8080-exec-5] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:22:28.786成功登陆
+2022-12-15 10:22:28.938 [http-nio-8080-exec-5] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:22:28.938成功登陆
+2022-12-15 10:23:28.883 [http-nio-8080-exec-6] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:23:28.883成功登陆
+2022-12-15 10:23:29.040 [http-nio-8080-exec-6] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:23:29.040成功登陆
+2022-12-15 10:24:18.495 [http-nio-8080-exec-7] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:24:18.495成功登陆
+2022-12-15 10:24:18.651 [http-nio-8080-exec-7] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:24:18.651成功登陆
+2022-12-15 10:24:49.531 [http-nio-8080-exec-3] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:24:49.531成功登陆
+2022-12-15 10:24:49.683 [http-nio-8080-exec-3] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:24:49.683成功登陆
+2022-12-15 10:25:04.117 [http-nio-8080-exec-9] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:25:04.117成功登陆
+2022-12-15 10:25:04.268 [http-nio-8080-exec-9] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:25:04.268成功登陆
+2022-12-15 10:25:56.062 [http-nio-8080-exec-2] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:25:56.062成功登陆
+2022-12-15 10:25:56.232 [http-nio-8080-exec-2] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:25:56.232成功登陆
+2022-12-15 10:26:57.128 [http-nio-8080-exec-7] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:26:57.128成功登陆
+2022-12-15 10:26:57.277 [http-nio-8080-exec-7] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:26:57.277成功登陆
+2022-12-15 10:41:15.945 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 10:41:15.956 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 10:41:21.317 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 10:41:21.318 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 10:41:21.318 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 10:41:21.395 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 10:41:23.736 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 10:41:34.063 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 10:41:34.664 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 10:41:34.857 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 10:42:32.492 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 10:42:32.502 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 10:42:37.945 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 10:42:37.947 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 10:42:37.948 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 10:42:38.032 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 10:42:40.586 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 10:42:40.744 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 10:42:41.367 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 10:42:41.576 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 10:43:59.565 [http-nio-8080-exec-8] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:43:59.564成功登陆
+2022-12-15 10:43:59.722 [http-nio-8080-exec-8] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:43:59.722成功登陆
+2022-12-15 10:44:15.525 [http-nio-8080-exec-4] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:44:15.525成功登陆
+2022-12-15 10:45:10.655 [http-nio-8080-exec-2] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:45:10.655成功登陆
+2022-12-15 10:45:57.500 [http-nio-8080-exec-6] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:45:57.500成功登陆
+2022-12-15 10:47:33.858 [http-nio-8080-exec-7] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:47:33.858成功登陆
+2022-12-15 10:50:54.536 [http-nio-8080-exec-9] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:50:54.536成功登陆
+2022-12-15 10:50:54.686 [http-nio-8080-exec-9] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:50:54.686成功登陆
+2022-12-15 10:51:52.320 [http-nio-8080-exec-8] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:51:52.320成功登陆
+2022-12-15 10:51:52.467 [http-nio-8080-exec-8] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:51:52.467成功登陆
+2022-12-15 10:56:20.288 [http-nio-8080-exec-5] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:56:20.287成功登陆
+2022-12-15 10:56:20.440 [http-nio-8080-exec-5] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T10:56:20.440成功登陆
+2022-12-15 11:05:35.288 [http-nio-8080-exec-8] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T11:05:35.288成功登陆
+2022-12-15 11:05:35.441 [http-nio-8080-exec-8] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T11:05:35.441成功登陆
+2022-12-15 11:24:49.741 [http-nio-8080-exec-4] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T11:24:49.741成功登陆
+2022-12-15 11:24:54.448 [http-nio-8080-exec-6] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T11:24:54.448成功登陆
+2022-12-15 11:24:54.598 [http-nio-8080-exec-6] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T11:24:54.598成功登陆
+2022-12-15 11:28:16.315 [http-nio-8080-exec-2] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T11:28:16.315成功登陆
+2022-12-15 11:28:16.463 [http-nio-8080-exec-2] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T11:28:16.462成功登陆
+2022-12-15 11:29:23.847 [http-nio-8080-exec-8] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T11:29:23.847成功登陆
+2022-12-15 11:29:23.998 [http-nio-8080-exec-8] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T11:29:23.998成功登陆
+2022-12-15 11:30:08.399 [http-nio-8080-exec-1] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T11:30:08.399成功登陆
+2022-12-15 11:30:08.570 [http-nio-8080-exec-1] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T11:30:08.570成功登陆
+2022-12-15 11:32:11.439 [http-nio-8080-exec-7] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T11:32:11.439成功登陆
+2022-12-15 11:32:11.586 [http-nio-8080-exec-7] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T11:32:11.586成功登陆
+2022-12-15 11:37:26.091 [http-nio-8080-exec-1] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T11:37:26.091成功登陆
+2022-12-15 11:37:26.266 [http-nio-8080-exec-1] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T11:37:26.266成功登陆
+2022-12-15 12:28:14.848 [http-nio-8080-exec-7] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:28:14.848成功登陆
+2022-12-15 12:28:14.996 [http-nio-8080-exec-7] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:28:14.996成功登陆
+2022-12-15 12:33:57.578 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 12:33:57.587 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 12:34:02.717 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 12:34:02.719 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 12:34:02.719 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 12:34:02.790 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 12:34:05.004 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 12:34:18.587 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 12:34:18.656 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 12:34:18.833 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 12:35:57.616 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 12:35:57.628 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 12:38:00.842 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 12:38:00.844 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 12:38:00.844 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 12:38:00.918 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 12:38:03.192 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 12:38:03.336 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 12:38:03.389 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 12:38:03.561 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 12:45:50.941 [http-nio-8080-exec-1] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:45:50.941成功登陆
+2022-12-15 12:45:51.097 [http-nio-8080-exec-1] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:45:51.097成功登陆
+2022-12-15 12:46:54.405 [http-nio-8080-exec-9] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:46:54.405成功登陆
+2022-12-15 12:46:54.557 [http-nio-8080-exec-9] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:46:54.557成功登陆
+2022-12-15 12:47:29.569 [http-nio-8080-exec-10] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:47:29.569成功登陆
+2022-12-15 12:47:29.717 [http-nio-8080-exec-10] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:47:29.717成功登陆
+2022-12-15 12:50:19.158 [http-nio-8080-exec-6] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:50:19.158成功登陆
+2022-12-15 12:50:19.314 [http-nio-8080-exec-6] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:50:19.314成功登陆
+2022-12-15 12:50:58.314 [http-nio-8080-exec-8] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:50:58.314成功登陆
+2022-12-15 12:50:58.463 [http-nio-8080-exec-8] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:50:58.463成功登陆
+2022-12-15 12:51:33.719 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 12:51:33.728 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 12:51:39.108 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 12:51:39.109 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 12:51:39.109 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 12:51:39.182 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 12:51:41.613 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 12:51:54.822 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 12:52:01.885 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 12:52:02.123 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 12:52:02.206 [http-nio-8080-exec-2] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:52:02.206成功登陆
+2022-12-15 12:52:02.386 [http-nio-8080-exec-2] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:52:02.386成功登陆
+2022-12-15 12:52:56.125 [http-nio-8080-exec-6] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:52:56.125成功登陆
+2022-12-15 12:52:56.278 [http-nio-8080-exec-6] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:52:56.278成功登陆
+2022-12-15 12:54:20.899 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 12:54:20.906 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 12:54:25.863 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 12:54:25.864 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 12:54:25.864 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 12:54:25.936 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 12:54:28.159 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 12:54:30.552 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 12:54:54.327 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 12:54:54.475 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 12:55:16.004 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 12:55:16.013 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 12:55:20.869 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 12:55:20.871 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 12:55:20.871 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 12:55:20.941 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 12:55:23.111 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 12:55:25.562 [http-nio-8080-exec-5] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 12:55:26.119 [http-nio-8080-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 12:55:26.320 [http-nio-8080-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 12:56:20.311 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 12:56:20.321 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 12:56:25.441 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 12:56:25.443 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 12:56:25.443 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 12:56:25.525 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 12:56:27.795 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 12:56:33.101 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 12:56:40.050 [http-nio-8080-exec-10] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 12:56:40.228 [http-nio-8080-exec-10] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 12:56:50.175 [http-nio-8080-exec-7] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:56:50.175成功登陆
+2022-12-15 12:56:50.330 [http-nio-8080-exec-7] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T12:56:50.330成功登陆
+2022-12-15 13:02:11.311 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 13:02:11.321 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 13:02:16.363 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 13:02:16.364 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 13:02:16.365 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 13:02:16.436 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 13:02:18.617 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 13:02:34.081 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 13:02:35.036 [http-nio-8080-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 13:02:35.218 [http-nio-8080-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 13:02:51.787 [http-nio-8080-exec-4] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:02:51.787成功登陆
+2022-12-15 13:02:51.943 [http-nio-8080-exec-4] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:02:51.943成功登陆
+2022-12-15 13:03:38.130 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 13:03:38.140 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 13:03:43.223 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 13:03:43.224 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 13:03:43.224 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 13:03:43.294 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 13:03:45.638 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 13:03:46.868 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 13:03:49.511 [http-nio-8080-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 13:03:49.676 [http-nio-8080-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 13:04:03.228 [http-nio-8080-exec-10] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:04:03.228成功登陆
+2022-12-15 13:04:03.386 [http-nio-8080-exec-10] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:04:03.386成功登陆
+2022-12-15 13:09:10.469 [http-nio-8080-exec-1] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:09:10.469成功登陆
+2022-12-15 13:09:10.621 [http-nio-8080-exec-1] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:09:10.621成功登陆
+2022-12-15 13:10:24.631 [http-nio-8080-exec-10] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:10:24.630成功登陆
+2022-12-15 13:10:24.787 [http-nio-8080-exec-10] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:10:24.787成功登陆
+2022-12-15 13:10:52.814 [http-nio-8080-exec-3] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:10:52.814成功登陆
+2022-12-15 13:10:52.966 [http-nio-8080-exec-3] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:10:52.966成功登陆
+2022-12-15 13:11:49.683 [http-nio-8080-exec-9] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:11:49.683成功登陆
+2022-12-15 13:11:49.837 [http-nio-8080-exec-9] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:11:49.837成功登陆
+2022-12-15 13:12:37.247 [http-nio-8080-exec-4] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:12:37.247成功登陆
+2022-12-15 13:12:37.399 [http-nio-8080-exec-4] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:12:37.399成功登陆
+2022-12-15 13:13:08.098 [http-nio-8080-exec-8] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:13:08.098成功登陆
+2022-12-15 13:13:08.255 [http-nio-8080-exec-8] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:13:08.255成功登陆
+2022-12-15 13:13:42.189 [http-nio-8080-exec-4] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:13:42.189成功登陆
+2022-12-15 13:13:42.342 [http-nio-8080-exec-4] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:13:42.342成功登陆
+2022-12-15 13:14:23.197 [http-nio-8080-exec-4] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:14:23.197成功登陆
+2022-12-15 13:14:23.354 [http-nio-8080-exec-4] INFO  edu.whu.learneur.security.DbUserDetailService - 用户: 1004948150@qq.com于2022-12-15T13:14:23.354成功登陆
+2022-12-15 13:18:27.668 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 13:18:27.676 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 13:18:32.773 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 13:18:32.775 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 13:18:32.775 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 13:18:32.847 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 13:18:35.050 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 13:19:08.018 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 13:19:08.637 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 13:19:08.856 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 13:33:48.216 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 13:33:48.225 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 13:33:53.414 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 13:33:53.416 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 13:33:53.416 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 13:33:53.489 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 13:33:55.850 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 13:34:28.284 [http-nio-8080-exec-5] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 13:34:28.348 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 13:34:28.511 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 13:49:47.966 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 13:49:47.975 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 13:49:53.138 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 13:49:53.139 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 13:49:53.139 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 13:49:53.214 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 13:49:55.492 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 13:50:00.251 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 13:50:00.873 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 13:50:01.065 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 14:14:59.518 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 14:14:59.527 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-12-15 14:15:04.663 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-12-15 14:15:04.665 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-12-15 14:15:04.665 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-15 14:15:04.742 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-12-15 14:15:07.015 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-12-15 14:15:13.264 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-15 14:15:13.323 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-12-15 14:15:13.479 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-12-15 14:27:51.765 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-12-15 14:27:51.773 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

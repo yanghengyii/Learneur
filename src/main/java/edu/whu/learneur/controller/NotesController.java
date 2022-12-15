@@ -35,12 +35,21 @@ public class NotesController {
 
     @GetMapping("/detail/{idNote}")
     @PermitAll
+    @CrossOrigin
     public ResponseEntity<Notes> getNoteDetail(@PathVariable Long idNote) {
         return ResponseEntity.ok(notesService.findNotes(idNote));
     }
 
+    @GetMapping("/get-user")
+    @PermitAll
+    @CrossOrigin
+    public ResponseEntity<IPage<Notes>> getUserNotes(@RequestParam long id){
+        return ResponseEntity.ok(notesService.findNotesByUser(id,0,1000));
+    }
+
     @GetMapping("/get-notes-by-time")
     @PermitAll
+    @CrossOrigin
     public ResponseEntity<IPage<Notes>> getNotesByTime(
             @RequestParam(value = "pages", defaultValue = "0") int pages,
             @RequestParam(value = "cols", defaultValue = "15") int cols
@@ -68,14 +77,12 @@ public class NotesController {
     }
 
     @PostMapping("/post")
-    @PreAuthorize("hasAnyAuthority('admin') or #username = authentication.name")
+    //@PreAuthorize("hasAnyAuthority('user','admin') or #username = authentication.name")
+    @CrossOrigin
     public ResponseEntity<Notes> postNote(
-            @RequestBody Notes note,
-            @RequestParam(value = "username", defaultValue = "") String username,
-            @RequestParam(value = "idResource") Long idResource
+            @RequestBody Notes note
     ) {
-        Users user = usersService.findUserByUsername(username);
-        Notes notes = notesService.postNote(note, user.getUserId(), idResource);
+        Notes notes = notesService.postNote(note, note.getNoteAuthorId(), note.getIdResources());
         if(Objects.isNull(notes)) {
             return ResponseEntity.badRequest().build();
         }

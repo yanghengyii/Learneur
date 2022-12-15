@@ -1,0 +1,14 @@
+2022-12-15 10:12:03.960 [http-nio-8080-exec-4] WARN  e.whu.learneur.controller.AuthenticationController - 用户: 1004948150@qq.com 认证未通过, 时间 - 2022-12-15T10:12:03.960
+2022-12-15 10:16:23.505 [http-nio-8080-exec-4] WARN  e.whu.learneur.controller.AuthenticationController - 用户: 1004948150@qq.com 认证未通过, 时间 - 2022-12-15T10:16:23.505
+2022-12-15 10:17:38.208 [http-nio-8080-exec-1] WARN  e.whu.learneur.controller.AuthenticationController - 用户: 1004948150@qq.com 认证未通过, 时间 - 2022-12-15T10:17:38.208
+2022-12-15 10:44:15.668 [http-nio-8080-exec-4] WARN  e.whu.learneur.controller.AuthenticationController - 用户: 1004948150@qq.com 认证未通过, 时间 - 2022-12-15T10:44:15.668
+2022-12-15 10:45:10.790 [http-nio-8080-exec-2] WARN  e.whu.learneur.controller.AuthenticationController - 用户: 1004948150@qq.com 认证未通过, 时间 - 2022-12-15T10:45:10.790
+2022-12-15 10:45:57.638 [http-nio-8080-exec-6] WARN  e.whu.learneur.controller.AuthenticationController - 用户: 1004948150@qq.com 认证未通过, 时间 - 2022-12-15T10:45:57.638
+2022-12-15 10:47:33.995 [http-nio-8080-exec-7] WARN  e.whu.learneur.controller.AuthenticationController - 用户: 1004948150@qq.com 认证未通过, 时间 - 2022-12-15T10:47:33.995
+2022-12-15 10:48:12.332 [http-nio-8080-exec-8] WARN  e.whu.learneur.controller.AuthenticationController - 用户: 1004948150 认证未通过, 时间 - 2022-12-15T10:48:12.332
+2022-12-15 10:48:47.841 [http-nio-8080-exec-10] WARN  e.whu.learneur.controller.AuthenticationController - 用户: 1004948150 认证未通过, 时间 - 2022-12-15T10:48:47.841
+2022-12-15 10:49:19.177 [http-nio-8080-exec-3] WARN  e.whu.learneur.controller.AuthenticationController - 用户: 1004948150 认证未通过, 时间 - 2022-12-15T10:49:19.177
+2022-12-15 10:49:45.085 [http-nio-8080-exec-1] WARN  e.whu.learneur.controller.AuthenticationController - 用户: 100948150 认证未通过, 时间 - 2022-12-15T10:49:45.085
+2022-12-15 10:50:24.009 [http-nio-8080-exec-4] WARN  e.whu.learneur.controller.AuthenticationController - 用户: 1004948150 认证未通过, 时间 - 2022-12-15T10:50:24.009
+2022-12-15 10:51:43.953 [http-nio-8080-exec-7] WARN  e.whu.learneur.controller.AuthenticationController - 用户: 1004948150 认证未通过, 时间 - 2022-12-15T10:51:43.952
+2022-12-15 11:24:49.883 [http-nio-8080-exec-4] WARN  e.whu.learneur.controller.AuthenticationController - 用户: 1004948150@qq.com 认证未通过, 时间 - 2022-12-15T11:24:49.883

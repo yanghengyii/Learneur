@@ -45,6 +45,7 @@ public class SecurityConfig {
                 .antMatchers("/mysql-knowledge/**").permitAll()
                 .antMatchers("/resource/**").permitAll()
                 .antMatchers("/notes/**").permitAll()
+                .antMatchers("/users/**").permitAll()
                 .antMatchers("/admin/").hasAuthority("admin")
                 .anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS);

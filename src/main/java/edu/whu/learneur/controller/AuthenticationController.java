@@ -68,15 +68,15 @@ public class AuthenticationController {
         try {
             System.out.println("---------------------0");
             authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(users.getUsername(), users.getPassword())
+                    new UsernamePasswordAuthenticationToken(users.getEmail(), users.getPassword())
             );
             System.out.println("---------------------1");
-            final UserDetails userDetails = userDetailsService.loadUserByUsername(users.getUsername());
+            final UserDetails userDetails = userDetailsService.loadUserByUsername(users.getEmail());
             final String token = jwtTokenUtils.generateToken(userDetails);
             System.out.println("---------------------2");
-            redisTemplate.boundValueOps(users.getUsername()).set(token, LearneurConst.JWT_EXPIRED_TIME, TimeUnit.MILLISECONDS);
+            redisTemplate.boundValueOps(users.getEmail()).set(token, LearneurConst.JWT_EXPIRED_TIME, TimeUnit.MILLISECONDS);
 
-            usersService.updateOnlineStatusByUsername(users.getUsername());
+            usersService.updateOnlineStatusByUsername(users.getEmail());
 
             return ResponseEntity.ok(token);
         } catch (Exception e) {

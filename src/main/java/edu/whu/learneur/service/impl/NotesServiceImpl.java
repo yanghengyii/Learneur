@@ -64,7 +64,7 @@ public class NotesServiceImpl extends ServiceImpl<NotesDao, Notes> implements IN
     @Override
     public Notes findNotes(Long idNote) {
         Notes note = notesDao.selectById(idNote);
-        note.setNoteThumbsUpCount(thumbUpCounts(note.getNoteId()));
+        //note.setNoteThumbsUpCount(thumbUpCounts(note.getNoteId()));
         return note;
     }
 
@@ -93,7 +93,7 @@ public class NotesServiceImpl extends ServiceImpl<NotesDao, Notes> implements IN
     public Notes postNote(Notes note, Long idUser, Long idResource) {
         String content = note.getNoteContent();
         String title = note.getNoteTitle();
-        String beforePrevice = title + content;
+        String beforePrevice = content;
         String preview = beforePrevice.substring(0, Math.min(beforePrevice.length(), MAX_PREVIEW));
         note.setNoteAuthorId(idUser);     // 设置作者信息
         note.setIdResources(idResource);

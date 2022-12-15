@@ -12,4 +12,6 @@ public class RegisterUserDTO {
     private String email;
     /* 验证码 */
     private String verificationCode;
+
+    private String real_name;
 }
