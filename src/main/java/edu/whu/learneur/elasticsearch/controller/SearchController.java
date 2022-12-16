@@ -12,10 +12,7 @@ import edu.whu.learneur.service.INotesService;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import edu.whu.learneur.elasticsearch.service.ResourceSearchService.ResourceType;
 
 import java.util.Collections;
@@ -24,6 +21,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/search")
 @Setter(onMethod_ = @Autowired)
+@CrossOrigin
 public class SearchController {
 
     private ResourceSearchService resouceSearchService;
@@ -43,39 +41,12 @@ public class SearchController {
                                              @RequestParam(value = "current", defaultValue = "0") int pageIndex,
                                              @RequestParam(value = "size", defaultValue = "15") int pageSize) {
         org.springframework.data.domain.Page<Long> ids = knowledgeSearchService.search(keyword, PageRequest.of(pageIndex, pageSize));
+        if (ids.isEmpty()) {
+            return emptyPage();
+        }
         List<Knowledge> knowledgeList = knowledgeService.listByIds(ids.getContent());
         IPage<Knowledge> page = new Page<>(pageIndex, pageSize, ids.getTotalElements());
         page.setRecords(knowledgeList);
-        return page;
-    }
-
-    @GetMapping("/books")
-    public IPage<Book> searchBooks(@RequestParam(value = "keyword", defaultValue = "") String keyword,
-                                   @RequestParam(value = "current", defaultValue = "0") int pageIndex,
-                                   @RequestParam(value = "size", defaultValue = "15") int pageSize) {
-//        org.springframework.data.domain.Page<Long> bookIds = resouceSearchService.search(keyword, ResourceType.Book, PageRequest.of(pageIndex, pageSize));
-//
-//        List<Book> books =  bookService.listByIds(bookIds.getContent());
-//
-//        IPage<Book> bookPage = new Page<>(pageIndex, pageSize, bookIds.getTotalElements());
-//        bookPage.setRecords(books);
-//        return bookPage;
-        // for test
-        IPage<Book> page = new Page<>(0, 10, 200);
-        Book book = new Book();
-        Knowledge knowledge = new Knowledge();
-        knowledge.setKnowledgeName("test");
-        book.setId(1L);
-        book.setTitle("test");
-        book.setAuthor("test");
-        book.setPublisher("test");
-        book.setPublishDate("test");
-        book.setKnowledge(Collections.singletonList(knowledge));
-        book.setCoverUrl("test");
-        book.setLanguage("test");
-        book.setFileSize("test");
-        book.setFileType("test");
-        page.setRecords(Collections.nCopies(15,book));
         return page;
     }
 
@@ -84,7 +55,7 @@ public class SearchController {
                                        @RequestParam(value = "current", defaultValue = "0") int pageIndex,
                                        @RequestParam(value = "size", defaultValue = "15") int pageSize) {
         org.springframework.data.domain.Page<Long> lessonIds = resouceSearchService.search(keyword, ResourceType.Lesson, PageRequest.of(pageIndex, pageSize));
-
+        if(lessonIds.isEmpty()) return emptyPage();
         List<Lesson> lessons =  lessonService.listByIds(lessonIds.getContent());
 
         IPage<Lesson> lessonPage = new Page<>(pageIndex, pageSize, lessonIds.getTotalElements());
@@ -97,7 +68,7 @@ public class SearchController {
                                      @RequestParam(value = "current", defaultValue = "0") int pageIndex,
                                      @RequestParam(value = "size", defaultValue = "15") int pageSize) {
         org.springframework.data.domain.Page<Long> videoIds = resouceSearchService.search(keyword, ResourceType.Video, PageRequest.of(pageIndex, pageSize));
-
+        if (videoIds.isEmpty()) return emptyPage();
         List<Video> videos =  videoService.listByIds(videoIds.getContent());
 
         IPage<Video> videoPage = new Page<>(pageIndex, pageSize, videoIds.getTotalElements());
@@ -110,7 +81,7 @@ public class SearchController {
                                            @RequestParam(value = "current", defaultValue = "0") int pageIndex,
                                            @RequestParam(value = "size", defaultValue = "15") int pageSize) {
         org.springframework.data.domain.Page<Long> tutorialIds = resouceSearchService.search(keyword, ResourceType.Tutorial, PageRequest.of(pageIndex, pageSize));
-
+        if (tutorialIds.isEmpty()) return emptyPage();
         List<Tutorial> tutorials =  tutorialService.listByIds(tutorialIds.getContent());
 
         IPage<Tutorial> tutorialPage = new Page<>(pageIndex, pageSize, tutorialIds.getTotalElements());
@@ -123,7 +94,7 @@ public class SearchController {
                                          @RequestParam(value = "current", defaultValue = "0") int pageIndex,
                                          @RequestParam(value = "size", defaultValue = "15") int pageSize) {
         org.springframework.data.domain.Page<Long> projectIds = resouceSearchService.search(keyword, ResourceType.Project, PageRequest.of(pageIndex, pageSize));
-
+        if (projectIds.isEmpty()) return emptyPage();
         List<Project> projects =  projectService.listByIds(projectIds.getContent());
 
         IPage<Project> projectPage = new Page<>(pageIndex, pageSize, projectIds.getTotalElements());
@@ -136,10 +107,26 @@ public class SearchController {
                                     @RequestParam(value = "current", defaultValue = "0") int pageIndex,
                                     @RequestParam(value = "size", defaultValue = "15") int pageSize) {
         org.springframework.data.domain.Page<Long> ids = noteSearchService.search(keyword, PageRequest.of(pageIndex, pageSize));
+        if (ids.isEmpty()) return emptyPage();
         List<Notes> noteList = notesService.listByIds(ids.getContent());
         IPage<Notes> page = new Page<>(pageIndex, pageSize, ids.getTotalElements());
         page.setRecords(noteList);
         return page;
     }
 
+    @GetMapping("/books")
+    public IPage<Book> searchBooks(@RequestParam(value = "keyword", defaultValue = "") String keyword,
+                                   @RequestParam(value = "current", defaultValue = "0") int pageIndex,
+                                   @RequestParam(value = "size", defaultValue = "15") int pageSize) {
+        org.springframework.data.domain.Page<Long> ids = resouceSearchService.search(keyword, ResourceType.Book, PageRequest.of(pageIndex, pageSize));
+        if (ids.isEmpty()) return emptyPage();
+        List<Book> bookList = bookService.listByIds(ids.getContent());
+        IPage<Book> page = new Page<>(pageIndex, pageSize, ids.getTotalElements());
+        page.setRecords(bookList);
+        return page;
+    }
+
+    private <T> IPage<T> emptyPage() {
+        return new Page<T>(0, 0 ,0);
+    }
 }

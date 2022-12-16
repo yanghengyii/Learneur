@@ -14,11 +14,15 @@ public interface ResourceEsRepository extends ElasticsearchRepository<ResourceEs
     @Query("{\n" +
             "        \"bool\": {\n" +
             "          \"filter\": { \"term\": { \"resourceType\": \"?0\" } },\n" +
-            "          \"should\": [\n" +
-            "            { \"term\": { \"name.keyword\": { \"value\": \"?1\", \"boost\": 100 } } },\n" +
-            "            { \"match\": { \"name\": \"?1\" } },\n" +
-            "            { \"match\": { \"description\": \"?1\" } }\n" +
-            "          ]\n" +
+            "          \"must\" : [{\n" +
+            "            \"bool\": {\n" +
+            "              \"should\": [\n" +
+            "                          { \"term\": { \"name.keyword\": { \"value\": \"?1\", \"boost\": 100 } } },\n" +
+            "                          { \"match\": { \"name\": \"?1\" } },\n" +
+            "                          { \"match\": { \"description\": \"?1\" } }\n" +
+            "                        ]\n" +
+            "            }\n" +
+            "          }]\n" +
             "        }\n" +
             "      }")
     SearchPage<ResourceEs> matchSpecificTypeResource(int type, String keyword, Pageable pageable);

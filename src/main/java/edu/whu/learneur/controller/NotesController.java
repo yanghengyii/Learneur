@@ -28,9 +28,11 @@ import java.util.Objects;
  */
 @RestController
 @RequestMapping("/notes")
+@CrossOrigin
 public class NotesController {
     @Autowired
     private INotesService notesService;
+
 
     @Autowired
     private IUsersService usersService;

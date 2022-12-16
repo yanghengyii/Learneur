@@ -69,11 +69,15 @@ elasticsearch:
       '{
         "bool": {
           "filter": { "term": { "resourceType": "?0" } },
-          "should": [
-            { "term": { "name.keyword": { "value": "?1", "boost": 100 } } },
-            { "match": { "name": "?1" } },
-            { "match": { "description": "?1" } }
-          ]
+          "must" : [{
+            "bool": {
+              "should": [
+                          { "term": { "name.keyword": { "value": "?1", "boost": 100 } } },
+                          { "match": { "name": "?1" } },
+                          { "match": { "description": "?1" } }
+                        ]
+            }
+          }]
         }
       }'
     match-all-type-resource:
@@ -114,7 +118,7 @@ elasticsearch:
         "bool": {
           "should": [
             { "term": { "title.keyword": { "value": "?0", "boost": 100 } } },
-            { "match": { "title": "?0 } },
+            { "match": { "title": "?0" } },
             { "match": { "content": "?0" } }
           ]
         }

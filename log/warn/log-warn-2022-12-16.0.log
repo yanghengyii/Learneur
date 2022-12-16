@@ -1,0 +1,46 @@
+2022-12-16 00:28:58.507 [lettuce-nioEventLoop-4-2] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: Connection refused: no further information: /10.132.54.169:6379
+2022-12-16 00:29:04.801 [lettuce-nioEventLoop-4-5] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: Connection refused: no further information: /10.132.54.169:6379
+2022-12-16 00:29:11.212 [lettuce-nioEventLoop-4-8] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: Connection refused: no further information: /10.132.54.169:6379
+2022-12-16 00:29:18.298 [lettuce-nioEventLoop-4-11] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: Connection refused: no further information: /10.132.54.169:6379
+2022-12-16 00:29:25.613 [lettuce-nioEventLoop-4-13] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: Connection refused: no further information: /10.132.54.169:6379
+2022-12-16 00:29:31.819 [lettuce-nioEventLoop-4-14] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: Connection refused: no further information: /10.132.54.169:6379
+2022-12-16 00:29:50.068 [lettuce-nioEventLoop-4-15] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:30:16.569 [lettuce-nioEventLoop-4-16] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:30:56.658 [lettuce-nioEventLoop-4-17] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:31:36.757 [lettuce-nioEventLoop-4-18] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:32:16.867 [lettuce-nioEventLoop-4-19] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:32:56.967 [lettuce-nioEventLoop-4-20] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:33:37.062 [lettuce-nioEventLoop-4-1] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:34:17.159 [lettuce-nioEventLoop-4-2] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:34:57.251 [lettuce-nioEventLoop-4-3] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:35:37.361 [lettuce-nioEventLoop-4-4] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:36:17.454 [lettuce-nioEventLoop-4-5] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:36:57.567 [lettuce-nioEventLoop-4-6] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:37:37.663 [lettuce-nioEventLoop-4-7] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:38:17.763 [lettuce-nioEventLoop-4-8] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:38:57.854 [lettuce-nioEventLoop-4-9] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:39:37.956 [lettuce-nioEventLoop-4-10] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:40:18.059 [lettuce-nioEventLoop-4-11] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:40:58.157 [lettuce-nioEventLoop-4-12] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:41:38.268 [lettuce-nioEventLoop-4-13] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:42:18.359 [lettuce-nioEventLoop-4-14] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:42:58.464 [lettuce-nioEventLoop-4-15] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:43:38.561 [lettuce-nioEventLoop-4-16] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:44:18.659 [lettuce-nioEventLoop-4-17] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:44:58.757 [lettuce-nioEventLoop-4-18] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:45:38.866 [lettuce-nioEventLoop-4-19] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:46:18.974 [lettuce-nioEventLoop-4-20] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:46:59.059 [lettuce-nioEventLoop-4-1] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:47:39.162 [lettuce-nioEventLoop-4-2] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:48:19.269 [lettuce-nioEventLoop-4-3] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:48:59.365 [lettuce-nioEventLoop-4-4] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:49:39.461 [lettuce-nioEventLoop-4-5] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:50:19.569 [lettuce-nioEventLoop-4-6] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:50:59.658 [lettuce-nioEventLoop-4-7] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:51:39.755 [lettuce-nioEventLoop-4-8] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:52:19.857 [lettuce-nioEventLoop-4-9] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:52:59.965 [lettuce-nioEventLoop-4-10] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:53:40.058 [lettuce-nioEventLoop-4-11] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:54:20.158 [lettuce-nioEventLoop-4-12] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:55:00.268 [lettuce-nioEventLoop-4-13] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379
+2022-12-16 00:55:40.351 [lettuce-nioEventLoop-4-14] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [10.132.54.169:6379]: connection timed out: /10.132.54.169:6379

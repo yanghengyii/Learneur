@@ -13,7 +13,7 @@ public interface NoteEsRepository extends ElasticsearchRepository<NoteEs, Long> 
             "        \"bool\": {\n" +
             "          \"should\": [\n" +
             "            { \"term\": { \"title.keyword\": { \"value\": \"?0\", \"boost\": 100 } } },\n" +
-            "            { \"match\": { \"title\": \"?0 } },\n" +
+            "            { \"match\": { \"title\": \"?0\" } },\n" +
             "            { \"match\": { \"content\": \"?0\" } }\n" +
             "          ]\n" +
             "        }\n" +

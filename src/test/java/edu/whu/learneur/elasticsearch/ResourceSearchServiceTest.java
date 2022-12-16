@@ -23,7 +23,7 @@ public class ResourceSearchServiceTest {
     @Test
     void saveTest() {
         Book book = new Book();
-        book.setId(1L);
+        book.setIdBook(1L);
         book.setTitle("Elasticsearch使用教程一篇就够了");
         resourceSearchService.save(book);
     }
