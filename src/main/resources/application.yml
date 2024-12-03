@@ -3,7 +3,7 @@ spring:
     url: jdbc:mysql://10.132.54.169:3305/javaee_program
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: 741221
+    password: 
   mail:
     host: smtp.qq.com
     username: 2607038766@qq.com
